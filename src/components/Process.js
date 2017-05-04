@@ -20,6 +20,7 @@ const Process = () => {
       <h3>Coding</h3>
       <p>My modern Front End Development workflow includes Sublime, Git, Sass/Less, NPM, Bower, and Gulp.</p>
 
+      <a href="...">Download My Resume</a>
     </div>
   )
 }

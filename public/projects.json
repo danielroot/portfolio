@@ -5,9 +5,9 @@
       "slug": "rei-snow-report",
       "title": "REI Snow Report",
       "hero_img": {
-        "small": "hero-small.jpg",
-        "medium": "hero-medium.jpg",
-        "large": "hero-large.jpg"
+        "small": "sr-background.jpg",
+        "medium": "sr-background.jpg",
+        "large": "sr-background.jpg"
       },
       "skills": ["UX, UI"],
       "tags": ["iOS, Android"],
@@ -92,7 +92,7 @@
       "slug": "nike-dashboard",
       "title": "Nike Dashboard",
       "hero_img": {
-        "small": "hero-small.jpg",
+        "small": "nike-home-mobile-device.png",
         "medium": "hero-medium.jpg",
         "large": "hero-large.jpg"
       },
@@ -109,9 +109,9 @@
       "slug": "atlas",
       "title": "Atlas",
       "hero_img": {
-        "small": "hero-small.jpg",
-        "medium": "hero-medium.jpg",
-        "large": "hero-large.jpg"
+        "small": "showtime-hero.jpg",
+        "medium": "showtime-hero.jpg",
+        "large": "showtime-hero.jpg"
       },
       "overview": "lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum",
       "role": "UX",
@@ -143,9 +143,9 @@
       "slug": "dd-concierge",
       "title": "DD Concierge",
       "hero_img": {
-        "small": "hero-small.jpg",
-        "medium": "hero-medium.jpg",
-        "large": "hero-large.jpg"
+        "small": "concierge-detail.jpg",
+        "medium": "concierge-detail.jpg",
+        "large": "concierge-detail.jpg"
       },
       "overview": "lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum",
       "role": "UX",
