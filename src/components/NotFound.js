@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
 const NotFound = React.createClass({
-  render() {
+  render () {
     return (
       <div>
         <p>Sorry, page Not Found!</p>
@@ -10,4 +10,4 @@ const NotFound = React.createClass({
   }
 })
 
-export default NotFound;
+export default NotFound

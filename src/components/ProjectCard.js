@@ -1,20 +1,23 @@
-import React from 'react';
-import { Link } from 'react-router';
-const { shape, string, object } = React.PropTypes;
+import React from 'react'
+import { Link } from 'react-router-dom'
+const { shape, string } = React.PropTypes
 
-const ProjectCard = React.createClass ({
+const ProjectCard = React.createClass({
   propTypes: {
-    project: shape({
-      title: string,
-      hero_img: object
-    })
+    title: string,
+    hero_img: shape({
+      small: string,
+      medium: string,
+      large: string
+    }),
+    slug: string
   },
   render () {
-    const { title, hero_img, slug} = this.props;
+    const { title, hero_img, slug } = this.props
     return (
       <Link to={`/case-studies/${slug}`}>
+        <h3>{title}</h3>
         <figure>
-          <h3>{title}</h3>
           <img src={`/img/${hero_img.small}`} alt={title} />
         </figure>
       </Link>
@@ -22,4 +25,4 @@ const ProjectCard = React.createClass ({
   }
 })
 
-export default ProjectCard;
+export default ProjectCard

@@ -12,6 +12,7 @@ body {
   margin: 0;
   padding: 0;
   font-size: 1rem;
+  line-height: 1.4;
   background: #fbfbfb;
   color: #35424f;
 }
@@ -30,16 +31,20 @@ body {
 }
 
 img {
-  max-width: 100%;
+  width: 100%;
 }
 
 a {
-  color: #35424f;
+  color: #0C77F8;
   text-decoration: none;
 }
 
 h1 {
   font-size: 2rem;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: 400;
 }
 
 button {
@@ -54,7 +59,7 @@ form {
 }
 
 figure {
-  margin: 0;
+  margin: 0 -1rem;
 }
 
 .container {
@@ -69,9 +74,17 @@ figure {
 
 header.global {
   width: 100%;
-  background: #2eee87;
+  background: #0C77F8;
   padding: 1rem 0;
   text-align: center;
+}
+
+header.global a {
+  color: #fff;
+}
+
+main {
+  padding: 0 1rem;
 }
 
 section {

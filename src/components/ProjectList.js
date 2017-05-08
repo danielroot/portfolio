@@ -1,15 +1,14 @@
-import React from 'react';
-import ProjectCard from './ProjectCard';
-const { arrayOf, shape, string, number } = React.PropTypes;
+import React from 'react'
+import ProjectCard from './ProjectCard'
+const { arrayOf, shape, number } = React.PropTypes
 
 const ProjectList = React.createClass({
-  PropTypes: {
+  propTypes: {
     project: arrayOf(shape({
-      title: string,
       id: number
     }))
   },
-  render() {
+  render () {
     return (
       <section>
         <h1>Case Studies</h1>
@@ -25,4 +24,4 @@ const ProjectList = React.createClass({
   }
 })
 
-export default ProjectList;
+export default ProjectList

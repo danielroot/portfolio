@@ -1,40 +1,44 @@
 // Import Dep
-import React from 'react';
+import React from 'react'
 
 // Import Components
 
-const { shape, string, array, object } = React.PropTypes;
+const { shape, string, array } = React.PropTypes
 
 const ProjectDetail = React.createClass({
   propTypes: {
-    project: shape({
-      title: string,
-      hero_img: object,
-      thumbnails: array,
-      overview: string,
-      problem: string,
-      solution: string,
-      role: string,
-      case_url: string
-    })
+    title: string,
+    hero_img: shape({
+      small: string,
+      medium: string,
+      large: string
+    }),
+    thumbnails: array,
+    overview: string,
+    problem: string,
+    solution: string,
+    role: string,
+    caseUrl: string
   },
-  render() {
-    const { title, hero_img, thumbnails, overview, problem, solution, role, case_url  } = this.props.project;
+  render () {
+    const { title, hero_img, thumbnails, overview, problem, solution, role, caseUrl } = this.props
     return (
       <article>
         <header>
           <h1>{title}</h1>
-          <img src={`/img/${hero_img.small}`} sizes="50vw"
-            srcSet={`
-              /img/${hero_img.small} 200w,
-              /img/${hero_img.medium} 400w,
-              /img/${hero_img.large} 600w
-            `}
-            alt="result alt text" />
+          <figure>
+            <img src={`/img/${hero_img.small}`} sizes='50vw'
+              srcSet={`
+                /img/${hero_img.small} 400w,
+                /img/${hero_img.medium} 600w,
+                /img/${hero_img.large} 800w
+              `}
+              alt='result alt text' />
+          </figure>
 
           {thumbnails.map((thumbnail) => {
             return (
-              <img src={thumbnail} alt="" />
+              <img src={thumbnail} alt='' />
             )
           })}
         </header>
@@ -54,11 +58,11 @@ const ProjectDetail = React.createClass({
         </section>
         <aside>
           <h3>View Case Study</h3>
-          <a href={case_url}>{case_url}</a>
+          <a href={caseUrl}>{caseUrl}</a>
         </aside>
       </article>
     )
   }
 })
 
-export default ProjectDetail;
+export default ProjectDetail

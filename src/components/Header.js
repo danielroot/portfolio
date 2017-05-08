@@ -1,16 +1,16 @@
-import React from 'react';
-import { Link } from 'react-router';
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
   return (
-    <header className="global">
+    <header className='global'>
       <nav>
-        <Link to="/">/Root</Link>
-        <Link to="/case-studies">Case Studies</Link>
-        <Link to="/process">Resumé</Link>
+        <Link to='/'>/Root</Link>
+        <Link to='/case-studies'>Case Studies</Link>
+        <Link to='/process'>Resumé</Link>
       </nav>
     </header>
   )
 }
 
-export default Header;
+export default Header

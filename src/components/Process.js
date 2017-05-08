@@ -1,4 +1,5 @@
-import React from 'react';
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Process = () => {
   return (
@@ -20,9 +21,26 @@ const Process = () => {
       <h3>Coding</h3>
       <p>My modern Front End Development workflow includes Sublime, Git, Sass/Less, NPM, Bower, and Gulp.</p>
 
-      <a href="...">Download My Resume</a>
+      <h2>Select Clients</h2>
+      <ul>
+        <li><Link to='/case-studies/agilent'>Agilent</Link></li>
+        <li>Audi</li>
+        <li>Cambria</li>
+        <li>Hitachi</li>
+        <li>Lineage</li>
+        <li>Lululemon</li>
+        <li><Link to='/case-studies/nike-dashboard'>Nike</Link></li>
+        <li><Link to='/case-studies/my-nu-skin'>NuSkin</Link></li>
+        <li><Link to='/case-studies/rei-snow-report'>REI</Link></li>
+        <li><Link to='/case-studies/rent-a-center'>Rent-A-Center</Link></li>
+        <li><Link to='/case-studies/super-cuts'>SuperCuts</Link></li>
+        <li>USGA</li>
+        <li>VMWare</li>
+        <li>Watson IBM</li>
+      </ul>
+      <a href='...'>Download My Resume</a>
     </div>
   )
 }
 
-export default Process;
+export default Process

@@ -15,7 +15,7 @@
       "role": "UX",
       "problem": "if there was a problem",
       "solution": "yo I'll solve it",
-      "case_url": "",
+      "caseUrl": "",
       "showcase": true,
       "thumbnails": []
     },
@@ -32,7 +32,7 @@
       "role": "UX",
       "problem": "if there was a problem",
       "solution": "yo I'll solve it",
-      "case_url": "http://mynuskin.com",
+      "caseUrl": "http://mynuskin.com",
       "showcase": true,
       "thumbnails": []
     },
@@ -49,14 +49,14 @@
       "role": "UX",
       "problem": "if there was a problem",
       "solution": "yo I'll solve it",
-      "case_url": "http://supercuts.com",
+      "caseUrl": "http://supercuts.com",
       "showcase": false,
       "thumbnails": []
     },
     {
       "id": 4,
-      "slug": "RAC",
-      "title": "RAC",
+      "slug": "rent-a-center",
+      "title": "Rent-A-Center",
       "hero_img": {
         "small": "hero-small.jpg",
         "medium": "hero-medium.jpg",
@@ -66,7 +66,7 @@
       "role": "UX",
       "problem": "if there was a problem",
       "solution": "yo I'll solve it",
-      "case_url": "http://rentacenter.com",
+      "caseUrl": "http://rentacenter.com",
       "showcase": false,
       "thumbnails": []
     },
@@ -83,7 +83,7 @@
       "role": "UX",
       "problem": "if there was a problem",
       "solution": "yo I'll solve it",
-      "case_url": "http://agilent.com",
+      "caseUrl": "http://agilent.com",
       "showcase": true,
       "thumbnails": []
     },
@@ -100,7 +100,7 @@
       "role": "UX",
       "problem": "if there was a problem",
       "solution": "yo I'll solve it",
-      "case_url": "http://www.mynuskin.com",
+      "caseUrl": "http://www.mynuskin.com",
       "showcase": false,
       "thumbnails": []
     },
@@ -117,7 +117,7 @@
       "role": "UX",
       "problem": "if there was a problem",
       "solution": "yo I'll solve it",
-      "case_url": "",
+      "caseUrl": "",
       "showcase": false,
       "thumbnails": []
     },
@@ -134,7 +134,7 @@
       "role": "UX",
       "problem": "if there was a problem",
       "solution": "yo I'll solve it",
-      "case_url": "http://homesitebusinessinsurance.com",
+      "caseUrl": "http://homesitebusinessinsurance.com",
       "showcase": false,
       "thumbnails": []
     },
@@ -151,7 +151,7 @@
       "role": "UX",
       "problem": "if there was a problem",
       "solution": "yo I'll solve it",
-      "case_url": "",
+      "caseUrl": "",
       "showcase": false,
       "thumbnails": []
     },
@@ -168,7 +168,7 @@
       "role": "UX",
       "problem": "if there was a problem",
       "solution": "yo I'll solve it",
-      "case_url": "",
+      "caseUrl": "",
       "showcase": false,
       "thumbnails": []
     }
