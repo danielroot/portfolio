@@ -4,6 +4,7 @@ const { arrayOf, shape, number } = React.PropTypes
 
 const ProjectList = React.createClass({
   propTypes: {
+    projects: shape,
     project: arrayOf(shape({
       id: number
     }))

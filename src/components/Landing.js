@@ -5,6 +5,7 @@ const { arrayOf, shape, string, number } = React.PropTypes
 
 const Landing = React.createClass({
   propTypes: {
+    projects: shape,
     project: arrayOf(shape({
       title: string,
       id: number
