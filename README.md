@@ -2,10 +2,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Run Locally
 ### Deps
-yarn
-webpack
-npm
+* yarn
+* webpack
+* npm
 
 ### Install
 `yarn`
+
 `npm run start`
