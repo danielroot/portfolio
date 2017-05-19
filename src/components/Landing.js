@@ -1,35 +1,38 @@
+// Deps
 import React from 'react'
+
+// Components
 import About from './About'
 import ProjectCard from './ProjectCard'
-const { arrayOf, shape, string, number } = React.PropTypes
+const { arrayOf, shape, string } = React.PropTypes
 
-const Landing = React.createClass({
-  propTypes: {
-    projects: shape,
-    project: arrayOf(shape({
-      title: string,
-      id: number
-    }))
-  },
+class Landing extends React.Component {
   render () {
-    function isShowcase (project) {
-      return project.showcase === true
-    }
-
     return (
       <div>
         <About />
         {this.props.projects
-          .filter(isShowcase)
+          .filter((project) => {
+            return project.fields.showcase === true
+          })
           .map((project) => {
             return (
-              <ProjectCard key={project.id} {...project} />
+              <ProjectCard key={project.sys.id} {...project} />
             )
           })
         }
       </div>
     )
   }
-})
+}
+
+Landing.propTypes = {
+  projects: arrayOf(shape({
+    sys: shape({
+      id: string,
+      title: string
+    })
+  }))
+}
 
 export default Landing

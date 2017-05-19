@@ -1,14 +1,9 @@
+// Deps
 import React from 'react'
 import ProjectCard from './ProjectCard'
-const { arrayOf, shape, number } = React.PropTypes
+const { arrayOf, shape, string } = React.PropTypes
 
-const ProjectList = React.createClass({
-  propTypes: {
-    projects: shape,
-    project: arrayOf(shape({
-      id: number
-    }))
-  },
+class ProjectList extends React.Component {
   render () {
     return (
       <section>
@@ -16,13 +11,21 @@ const ProjectList = React.createClass({
         {this.props.projects
           .map((project) => {
             return (
-              <ProjectCard key={project.id} {...project} />
+              <ProjectCard key={project.sys.id} {...project} />
             )
           })
         }
       </section>
     )
   }
-})
+}
+
+ProjectList.propTypes = {
+  projects: arrayOf(shape({
+    sys: shape({
+      id: string
+    })
+  }))
+}
 
 export default ProjectList

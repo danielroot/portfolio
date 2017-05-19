@@ -3,7 +3,7 @@
 }
 
 html {
-  font-family: Work Sans, Roboto Mono, Fira Sans, sans-serif;
+  font-family: Work Sans, sans-serif;
   font-size: 16px;
   min-height: 100%;
 }
@@ -114,4 +114,8 @@ nav {
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
+}
+
+nav a.active {
+  background: #2eee87;
 }

@@ -1,5 +1,5 @@
 {
-  "name": "Portfolio of Dan Root",
+  "name": "react-portfolio",
   "version": "1.0.0",
   "description": "Online portfolio",
   "main": "index.js",
@@ -8,11 +8,12 @@
   "scripts": {
     "lint": "eslint src/**/*.js webpack.config.js",
     "build": "webpack",
-    "dev": "webpack-dev-server",
+    "dev": "webpack-dev-server --host=0.0.0.0 --port=9090 --inline --hot -open",
     "watch": "npm run build -- --watch"
   },
   "dependencies": {
     "axios": "^0.15.3",
+    "contentful": "^4.3.0",
     "express": "4.14.0",
     "history": "^4.4.0",
     "lodash": "4.16.2",

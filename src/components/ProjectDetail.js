@@ -1,39 +1,19 @@
-// Import Dep
+// Deps
 import React from 'react'
-
-// Import Components
-
 const { shape, string, array } = React.PropTypes
 
-const ProjectDetail = React.createClass({
-  propTypes: {
-    title: string,
-    hero_img: shape({
-      small: string,
-      medium: string,
-      large: string
-    }),
-    thumbnails: array,
-    overview: string,
-    problem: string,
-    solution: string,
-    role: string,
-    caseUrl: string
-  },
+class ProjectDetail extends React.Component {
   render () {
-    const { title, hero_img, thumbnails, overview, problem, solution, role, caseUrl } = this.props
+    const fields = this.props.fields
+    const { overview, problem, solution, projectUrl, thumbnails } = fields
+    const heroImgSmallUrl = fields.heroImgSmall.fields.file.url
+
     return (
       <article>
         <header>
-          <h1>{title}</h1>
+          <h1>{this.props.fields.title}</h1>
           <figure>
-            <img src={`/img/${hero_img.small}`} sizes='50vw'
-              srcSet={`
-                /img/${hero_img.small} 400w,
-                /img/${hero_img.medium} 600w,
-                /img/${hero_img.large} 800w
-              `}
-              alt='result alt text' />
+            <img src={heroImgSmallUrl} alt='result alt text' />
           </figure>
 
           {thumbnails.map((thumbnail) => {
@@ -53,16 +33,32 @@ const ProjectDetail = React.createClass({
           <p>{solution}</p>
 
           <h3>Role</h3>
-          <p>{role}</p>
 
         </section>
         <aside>
           <h3>View Case Study</h3>
-          <a href={caseUrl}>{caseUrl}</a>
+          <a href={projectUrl}>{projectUrl}</a>
         </aside>
       </article>
     )
   }
-})
+}
+
+ProjectDetail.propTypes = {
+  fields: shape({
+    title: string,
+    overview: string,
+    problem: string,
+    solution: string,
+    heroImgSmall: shape({
+      fields: shape({
+        file: shape({
+          url: string
+        })
+      })
+    }),
+    thumbnails: array
+  })
+}
 
 export default ProjectDetail
