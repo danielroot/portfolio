@@ -1,19 +1,19 @@
 // Deps
-import React from 'react'
+import React, { Component } from 'react'
 
 // Components
 import About from './About'
 import ProjectCard from './ProjectCard'
-const { arrayOf, shape, string } = React.PropTypes
+import { arrayOf, shape, string } from 'prop-types'
 
-class Landing extends React.Component {
+class Landing extends Component {
   render () {
     return (
       <div>
         <About />
         {this.props.projects
           .filter((project) => {
-            return project.fields.showcase === true
+            return project.fields.isShowcase === true
           })
           .map((project) => {
             return (

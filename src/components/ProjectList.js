@@ -1,9 +1,9 @@
 // Deps
-import React from 'react'
+import React, { Component } from 'react'
 import ProjectCard from './ProjectCard'
-const { arrayOf, shape, string } = React.PropTypes
+import { arrayOf, shape, string } from 'prop-types'
 
-class ProjectList extends React.Component {
+class ProjectList extends Component {
   render () {
     return (
       <section>

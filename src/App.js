@@ -1,6 +1,7 @@
 // Deps
-import React from 'react'
+import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import type { Match } from 'react-router-dom'
 
 // Contentful API
 import * as contentful from 'contentful'
@@ -15,11 +16,14 @@ import ProjectList from './components/ProjectList'
 import ProjectDetail from './components/ProjectDetail'
 import NotFound from './components/NotFound'
 
+// Helpers
+import ScrollToTop from './helpers/ScrollToTop'
+
 // Style
 import './styles/index.css'
 
 // Routes
-class App extends React.Component {
+class App extends Component {
   constructor (props) {
     super(props)
     this.state = {projects: []}
@@ -38,16 +42,20 @@ class App extends React.Component {
   render () {
     return (
       <Router>
+        <ScrollToTop>
         <div className='container'>
           <Header />
           <main>
             <Switch>
               <Route exact path='/' render={(props) => <Landing projects={this.state.projects} {...props} />} />
               <Route exact path='/case-studies' render={(props) => <ProjectList projects={this.state.projects} {...props} />} />
-              <Route path='/case-studies/:id' render={(props) => {
-                const projects = this.state.projects.filter((project) => props.match.params.id === project.fields.slug)
-                return <ProjectDetail project={projects[0]} {...props} />
-              }}
+              <Route
+                path='/case-studies/:id'
+                render={(props: { match: Match }) => {
+                  const selectedProject = this.state.projects.find((project) => props.match.params.id === project.fields.slug)
+                  return <ProjectDetail project={selectedProject} {...props} />
+                  }
+                }
               />
               <Route exact path='/process' component={Process} />
               <Route component={NotFound} />
@@ -55,6 +63,7 @@ class App extends React.Component {
           </main>
           <Footer />
         </div>
+        </ScrollToTop>
       </Router>
     )
   }

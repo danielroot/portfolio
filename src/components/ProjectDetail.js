@@ -1,24 +1,24 @@
 // Deps
-import React from 'react'
-const { shape, string, array } = React.PropTypes
-
-class ProjectDetail extends React.Component {
+import React, { Component } from 'react'
+import { shape, string, array } from 'prop-types'
+class ProjectDetail extends Component {
   render () {
-    const fields = this.props.fields
-    const { overview, problem, solution, projectUrl, thumbnails } = fields
+    const fields = this.props.project.fields
+    const { title, overview, problem, solution, projectUrl, thumbnails } = fields
     const heroImgSmallUrl = fields.heroImgSmall.fields.file.url
+    console.log(this.props.project.fields.overview)
 
     return (
       <article>
         <header>
-          <h1>{this.props.fields.title}</h1>
+          <h1>{this.props.project.fields.title}</h1>
           <figure>
             <img src={heroImgSmallUrl} alt='result alt text' />
           </figure>
 
-          {thumbnails.map((thumbnail) => {
+          {thumbnails.map((thumbnail, index) => {
             return (
-              <img src={thumbnail} alt='' />
+              <img src={thumbnail} alt='' key={index} />
             )
           })}
         </header>
