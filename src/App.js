@@ -1,7 +1,7 @@
 // Deps
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import type { Match } from 'react-router-dom'
+// import type { Match } from 'react-router-dom'
 
 // Contentful API
 import * as contentful from 'contentful'
@@ -43,26 +43,26 @@ class App extends Component {
     return (
       <Router>
         <ScrollToTop>
-        <div className='container'>
-          <Header />
-          <main>
-            <Switch>
-              <Route exact path='/' render={(props) => <Landing projects={this.state.projects} {...props} />} />
-              <Route exact path='/case-studies' render={(props) => <ProjectList projects={this.state.projects} {...props} />} />
-              <Route
-                path='/case-studies/:id'
-                render={(props: { match: Match }) => {
-                  const selectedProject = this.state.projects.find((project) => props.match.params.id === project.fields.slug)
-                  return <ProjectDetail project={selectedProject} {...props} />
+          <div className='container'>
+            <Header />
+            <main>
+              <Switch>
+                <Route exact path='/' render={(props) => <Landing projects={this.state.projects} {...props} />} />
+                <Route exact path='/case-studies' render={(props) => <ProjectList projects={this.state.projects} {...props} />} />
+                <Route
+                  path='/case-studies/:id'
+                  render={(props) => {
+                    const selectedProject = this.state.projects.find((project) => props.match.params.id === project.fields.slug)
+                    return <ProjectDetail project={selectedProject} {...props} />
                   }
-                }
-              />
-              <Route exact path='/process' component={Process} />
-              <Route component={NotFound} />
-            </Switch>
-          </main>
-          <Footer />
-        </div>
+                  }
+                />
+                <Route exact path='/process' component={Process} />
+                <Route component={NotFound} />
+              </Switch>
+            </main>
+            <Footer />
+          </div>
         </ScrollToTop>
       </Router>
     )

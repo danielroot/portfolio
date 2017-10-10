@@ -6,12 +6,11 @@ class ProjectDetail extends Component {
     const fields = this.props.project.fields
     const { title, overview, problem, solution, projectUrl, thumbnails } = fields
     const heroImgSmallUrl = fields.heroImgSmall.fields.file.url
-    console.log(this.props.project.fields.overview)
 
     return (
       <article>
         <header>
-          <h1>{this.props.project.fields.title}</h1>
+          <h1>{title}</h1>
           <figure>
             <img src={heroImgSmallUrl} alt='result alt text' />
           </figure>
@@ -45,19 +44,21 @@ class ProjectDetail extends Component {
 }
 
 ProjectDetail.propTypes = {
-  fields: shape({
-    title: string,
-    overview: string,
-    problem: string,
-    solution: string,
-    heroImgSmall: shape({
-      fields: shape({
-        file: shape({
-          url: string
+  project: shape({
+    fields: shape({
+      title: string,
+      overview: string,
+      problem: string,
+      solution: string,
+      heroImgSmall: shape({
+        fields: shape({
+          file: shape({
+            url: string
+          })
         })
-      })
-    }),
-    thumbnails: array
+      }),
+      thumbnails: array
+    })
   })
 }
 

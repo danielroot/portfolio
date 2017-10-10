@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
@@ -35,7 +37,7 @@ img {
 }
 
 a {
-  color: #0C77F8;
+  color: #3D9970;
   text-decoration: none;
 }
 
@@ -43,13 +45,18 @@ h1 {
   font-size: 2rem;
 }
 
-h1, h2, h3, h4, h5 {
+h1, h2, h4, h5 {
   font-weight: 400;
+}
+
+h3 {
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 button {
   padding: 1rem;
-  background: #2eee87;
+  background: #3D9970;
 }
 
 form {
@@ -74,13 +81,13 @@ figure {
 
 header.global {
   width: 100%;
-  background: #0C77F8;
+  background: #fff;
   padding: 1rem 0;
   text-align: center;
 }
 
 header.global a {
-  color: #fff;
+  color: #3D9970;
 }
 
 main {
