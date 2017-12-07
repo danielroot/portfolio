@@ -1,6 +1,7 @@
 // Deps
 import React, { Component } from 'react'
 import { shape, string, array } from 'prop-types'
+
 class ProjectDetail extends Component {
   render () {
     const fields = this.props.project.fields

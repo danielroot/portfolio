@@ -5,7 +5,7 @@ module.exports = {
   entry: './src/index.js',
   devtool: 'source-map',
   output: {
-    path: path.join(__dirname, './public/'),
+    path: path.resolve(__dirname, './public'),
     filename: 'bundle.js'
   },
   devServer: {
@@ -15,7 +15,8 @@ module.exports = {
     historyApiFallback: true
   },
   resolve: {
-    extensions: ['.js', '.json']
+    modules: ['node_modules', 'src'],
+    extensions: ['.js', '.json', '.jsx']
   },
   stats: {
     colors: true,
@@ -40,16 +41,18 @@ module.exports = {
         loader: 'babel-loader'
       },
       {
-        test: /\.css$/,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              url: false
-            }
+        test: /\.scss$/,
+        use: [{
+          loader: 'style-loader',
+        }, {
+          loader: 'css-loader', options: {
+            sourceMap: true
           }
-        ]
+        }, {
+          loader: 'sass-loader', options: {
+            sourceMap: true
+          }
+        }]
       }
     ]
   }

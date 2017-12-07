@@ -5,7 +5,7 @@ import { shape, string } from 'prop-types'
 
 class ProjectCard extends Component {
   render () {
-    const fields = this.props.fields
+    let fields = this.props.fields
     const { title, slug } = fields
     const heroImgSmallUrl = fields.heroImgSmall.fields.file.url
 

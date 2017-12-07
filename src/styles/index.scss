@@ -5,7 +5,8 @@
 }
 
 html {
-  font-family: Work Sans, sans-serif;
+  font-display: optional;
+  font-family: Lato, sans-serif;
   font-size: 16px;
   min-height: 100%;
 }
@@ -37,7 +38,7 @@ img {
 }
 
 a {
-  color: #3D9970;
+  color: rgb(195, 29, 198);
   text-decoration: none;
 }
 
@@ -45,18 +46,17 @@ h1 {
   font-size: 2rem;
 }
 
-h1, h2, h4, h5 {
+h1, h2, h3, h4, h5 {
   font-weight: 400;
 }
 
 h3 {
   text-transform: uppercase;
-  font-weight: 700;
 }
 
 button {
   padding: 1rem;
-  background: #3D9970;
+  background: rgb(135, 11, 144);
 }
 
 form {
@@ -84,10 +84,10 @@ header.global {
   background: #fff;
   padding: 1rem 0;
   text-align: center;
-}
 
-header.global a {
-  color: #3D9970;
+  a {
+    color: #3D9970;
+  }
 }
 
 main {
@@ -104,16 +104,15 @@ article {
   max-width: 1024px;
 }
 
-
 footer {
   width: 90%;
   align-self: end;
   padding: 2rem 0;
-}
 
-footer nav {
-  width: 100%;
-  margin-bottom: 2rem;
+  nav {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
 }
 
 nav {
@@ -121,8 +120,8 @@ nav {
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
-}
 
-nav a.active {
-  color: #2eee87;
+  a.active {
+    color: #2eee87;
+  }
 }

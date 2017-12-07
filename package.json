@@ -34,7 +34,7 @@
     "babel-preset-es2017": "6.16.0",
     "babel-preset-react": "6.16.0",
     "babel-register": "6.16.0",
-    "css-loader": "0.25.0",
+    "css-loader": "^0.25.0",
     "enzyme": "2.8.2",
     "enzyme-to-json": "^1.3.0",
     "eslint": "3.19.0",
@@ -48,10 +48,12 @@
     "jest": "15.1.1",
     "jsdom": "9.5.0",
     "json-loader": "0.5.4",
+    "node-sass": "^4.7.2",
     "react-addons-test-utils": "15.3.2",
     "react-test-renderer": "15.3.2",
-    "style-loader": "0.13.1",
-    "webpack": "2.2.0",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.13.1",
+    "webpack": "^2.2.0",
     "webpack-dev-server": "2.4.5"
   },
   "directories": {
@@ -63,7 +65,7 @@
   },
   "keywords": [
     "react",
-    "workshop",
+    "portfolio",
     "intro",
     "redux"
   ],
