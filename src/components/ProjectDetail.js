@@ -36,11 +36,27 @@ class ProjectDetail extends Component {
 
         </section>
         <aside>
-          <h3>View Case Study</h3>
-          <a href={projectUrl}>{projectUrl}</a>
+          <a href={projectUrl}>View Case Study</a>
         </aside>
       </article>
     )
+  }
+}
+
+// TODO: remove defaultProps once Redux is handling state?
+
+ProjectDetail.defaultProps = {
+  project: {
+    fields: {
+      heroImgSmall: {
+        fields: {
+          file: {
+            url: ''
+          }
+        }
+      },
+      thumbnails: []
+    }
   }
 }
 

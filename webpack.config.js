@@ -9,7 +9,7 @@ module.exports = {
     filename: 'bundle.js'
   },
   devServer: {
-    publicPath: './public',
+    publicPath: '/',
     contentBase: './public',
     port: 9000,
     historyApiFallback: true
