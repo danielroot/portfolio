@@ -11,16 +11,18 @@ class Landing extends Component {
     return (
       <div>
         <About />
-        {this.props.projects
-          .filter((project) => {
-            return project.fields.isShowcase === true
-          })
-          .map((project) => {
-            return (
-              <ProjectCard key={project.sys.id} {...project} />
-            )
-          })
-        }
+        <div className='main-content'>
+          {this.props.projects
+            .filter((project) => {
+              return project.fields.isShowcase === true
+            })
+            .map((project) => {
+              return (
+                <ProjectCard key={project.sys.id} {...project} />
+              )
+            })
+          }
+        </div>
       </div>
     )
   }

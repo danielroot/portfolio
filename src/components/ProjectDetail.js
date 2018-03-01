@@ -6,26 +6,30 @@ class ProjectDetail extends Component {
   render () {
     const fields = this.props.project.fields
     const { title, overview, problem, solution, projectUrl, thumbnails } = fields
+    const clientLogoUrl = fields.clientLogo.fields.file.url
     const heroImgSmallUrl = fields.heroImgSmall.fields.file.url
 
     return (
       <article>
         <header>
-          <h1>{title}</h1>
-          <figure>
-            <img src={heroImgSmallUrl} alt='result alt text' />
-          </figure>
-
-          {thumbnails.map((thumbnail, index) => {
-            return (
-              <img src={thumbnail} alt='' key={index} />
-            )
-          })}
-        </header>
-        <section>
-          <h3>Overview</h3>
+          <h1><img src={clientLogoUrl} className='client-logo' alt={`${title} 'logo'`} /> {title}</h1>
           <p>{overview}</p>
 
+          <figure>
+            {/* TODO: srcSet for swapping responsive images */}
+            <img src={heroImgSmallUrl} alt='result alt text' />
+
+            {/* TODO: fig caption with description field */}
+          </figure>
+
+          {thumbnails &&
+            thumbnails.map((thumbnail, index) => {
+              return (
+                <img src={thumbnail} alt='' key={index} />
+              )
+            })}
+        </header>
+        <section>
           <h3>Problem</h3>
           <p>{problem}</p>
 
@@ -35,9 +39,13 @@ class ProjectDetail extends Component {
           <h3>Role</h3>
 
         </section>
-        <aside>
-          <a href={projectUrl}>View Case Study</a>
-        </aside>
+        {projectUrl &&
+          <aside>
+            <a href={projectUrl}>View Case Study</a>
+          </aside>
+        }
+
+        <h1>{this.props.project.fields.id}</h1>
       </article>
     )
   }
@@ -48,6 +56,13 @@ class ProjectDetail extends Component {
 ProjectDetail.defaultProps = {
   project: {
     fields: {
+      clientLogo: {
+        fields: {
+          file: {
+            url: ''
+          }
+        }
+      },
       heroImgSmall: {
         fields: {
           file: {
@@ -67,6 +82,13 @@ ProjectDetail.propTypes = {
       overview: string,
       problem: string,
       solution: string,
+      clientLogo: shape({
+        fields: shape({
+          file: shape({
+            url: string
+          })
+        })
+      }),
       heroImgSmall: shape({
         fields: shape({
           file: shape({

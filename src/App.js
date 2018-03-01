@@ -15,6 +15,7 @@ import Landing from 'components/Landing'
 import Process from 'components/Process'
 import ProjectList from 'components/ProjectList'
 import ProjectDetail from 'components/ProjectDetail'
+import StyleGuide from 'components/StyleGuide'
 import NotFound from 'components/NotFound'
 
 // Helpers
@@ -60,6 +61,7 @@ class App extends Component {
                     }
                   />
                   <Route exact path='/process' component={Process} />
+                  <Route exact path='/style-guide' component={StyleGuide} />
                   <Route component={NotFound} />
                 </Switch>
               </main>

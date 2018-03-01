@@ -8,13 +8,15 @@ class ProjectList extends Component {
     return (
       <section>
         <h1>Case Studies</h1>
-        {this.props.projects
-          .map((project) => {
-            return (
-              <ProjectCard key={project.sys.id} {...project} />
-            )
-          })
-        }
+        <div className='main-content'>
+          {this.props.projects
+            .map((project) => {
+              return (
+                <ProjectCard key={project.sys.id} {...project} />
+              )
+            })
+          }
+        </div>
       </section>
     )
   }

@@ -1,0 +1,10 @@
+{
+	"name": "calibre",
+	"files": [{
+		"weight": 300,
+		"file": "./CalibreWeb-Regular.woff2"
+	}, {
+		"weight": 400,
+		"file": "./CalibreWeb-Medium.woff2"
+	}]
+}
