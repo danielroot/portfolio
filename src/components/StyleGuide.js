@@ -1,6 +1,6 @@
 // Deps
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+//import { Link } from 'react-router-dom';
 
 const StyleGuide = () => {
   return (
@@ -15,7 +15,7 @@ const StyleGuide = () => {
       <h5>Heading 5</h5>
       <p>An example of body text.</p>
     </div>
-  )
-}
+  );
+};
 
-export default StyleGuide
+export default StyleGuide;

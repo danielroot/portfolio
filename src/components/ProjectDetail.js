@@ -1,18 +1,32 @@
 // Deps
-import React, { Component } from 'react'
-import { shape, string, array } from 'prop-types'
+import React, { Component } from 'react';
+import { shape, string, array } from 'prop-types';
 
 class ProjectDetail extends Component {
   render () {
     const fields = this.props.project.fields
-    const { title, overview, problem, solution, projectUrl, thumbnails } = fields
+    const {
+      title,
+      overview,
+      problem,
+      solution,
+      projectUrl,
+      thumbnails
+    } = fields
     const clientLogoUrl = fields.clientLogo.fields.file.url
     const heroImgSmallUrl = fields.heroImgSmall.fields.file.url
 
     return (
       <article>
         <header>
-          <h1><img src={clientLogoUrl} className='client-logo' alt={`${title} 'logo'`} /> {title}</h1>
+          <h1>
+            <img
+              src={clientLogoUrl}
+              className='client-logo'
+              alt={`${title} 'logo'`}
+            />{' '}
+            {title}
+          </h1>
           <p>{overview}</p>
 
           <figure>
@@ -24,9 +38,7 @@ class ProjectDetail extends Component {
 
           {thumbnails &&
             thumbnails.map((thumbnail, index) => {
-              return (
-                <img src={thumbnail} alt='' key={index} />
-              )
+              return <img src={thumbnail} alt='' key={index} />
             })}
         </header>
         <section>
@@ -37,13 +49,12 @@ class ProjectDetail extends Component {
           <p>{solution}</p>
 
           <h3>Role</h3>
-
         </section>
-        {projectUrl &&
+        {projectUrl && (
           <aside>
             <a href={projectUrl}>View Case Study</a>
           </aside>
-        }
+        )}
 
         <h1>{this.props.project.fields.id}</h1>
       </article>

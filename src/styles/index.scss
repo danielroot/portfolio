@@ -1,5 +1,5 @@
 // Spacing
-$space-xs: .5rem;
+$space-xs: 0.5rem;
 $space-sm: 1rem;
 $space-md: 2rem;
 $space-lg: 3rem;
@@ -15,48 +15,64 @@ $font-size-6: 7.594rem;
 
 // MQs
 @mixin for-phone-only {
-  @media (max-width: 599px) { @content; }
+  @media (max-width: 599px) {
+    @content;
+  }
 }
 @mixin for-tablet-portrait-up {
-  @media (min-width: 600px) { @content; }
+  @media (min-width: 600px) {
+    @content;
+  }
 }
 @mixin for-tablet-portrait-only {
-  @media (min-width: 600px) and (max-width: 899px) { @content; }
+  @media (min-width: 600px) and (max-width: 899px) {
+    @content;
+  }
 }
 @mixin for-tablet-landscape-up {
-  @media (min-width: 900px) { @content; }
+  @media (min-width: 900px) {
+    @content;
+  }
 }
 @mixin for-tablet-landscape-only {
-  @media (min-width: 900px) and (max-width: 1199px) { @content; }
+  @media (min-width: 900px) and (max-width: 1199px) {
+    @content;
+  }
 }
 @mixin for-desktop-up {
-  @media (min-width: 1200px) { @content; }
+  @media (min-width: 1200px) {
+    @content;
+  }
 }
 @mixin for-desktop-only {
-  @media (min-width: 1200px) and (max-width: 1799px) { @content; }
+  @media (min-width: 1200px) and (max-width: 1799px) {
+    @content;
+  }
 }
 @mixin for-big-desktop-up {
-  @media (min-width: 1800px) { @content; }
+  @media (min-width: 1800px) {
+    @content;
+  }
 }
 
 // Colors
-$color-primary: #1683FB;
+$color-primary: #48a857;
 
 @font-face {
   font-family: calibre;
-  src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/14625/CalibreWeb-Light.woff2');
+  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/14625/CalibreWeb-Light.woff2");
   font-weight: 300;
 }
 
 @font-face {
   font-family: calibre;
-  src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/14625/CalibreWeb-Regular.woff2');
+  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/14625/CalibreWeb-Regular.woff2");
   font-weight: 400;
 }
 
 @font-face {
   font-family: calibre;
-  src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/14625/CalibreWeb-Medium.woff2');
+  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/14625/CalibreWeb-Medium.woff2");
   font-weight: 500;
 }
 
@@ -64,7 +80,6 @@ $color-primary: #1683FB;
 $font-weight-light: 300;
 $font-weight-regular: 400;
 $font-weight-medium: 500;
-
 
 * {
   box-sizing: border-box;
@@ -74,7 +89,8 @@ $font-weight-medium: 500;
 
 html {
   font-display: optional;
-  font-family: 'calibre';
+  //font-family: 'calibre';
+  font-family: "Lehigh Personal";
   font-size: 16px;
   font-weight: $font-weight-light;
   min-height: 100%;
@@ -114,7 +130,11 @@ a {
   text-decoration: none;
 }
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   font-weight: $font-weight-medium;
   margin-bottom: $space-sm;
 }
@@ -139,7 +159,6 @@ h5 {
   font-size: $font-size-1;
 }
 
-
 button {
   padding: 1rem;
   background: $color-primary;
@@ -159,10 +178,10 @@ figure {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 50px auto 20%;
-  grid-column-gap: .25rem;
+  grid-column-gap: 0.25rem;
   grid-row-gap: 1rem;
   justify-items: center;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 header.global {
@@ -204,13 +223,19 @@ article {
 }
 
 footer {
-  width: 90%;
+  background: $color-primary;
+  color: #fce25a;
+  width: 100%;
   align-self: end;
   padding: $space-md 0;
 
   nav {
-    width: 100%;
+    width: 90%;
     margin-bottom: $space-lg;
+
+    a {
+      color: #fce25a;
+    }
   }
 }
 
@@ -222,6 +247,11 @@ nav {
 
   a.active {
     color: adjust-hue($color-primary, -20%);
+  }
+
+  a.logo {
+    font-family: "DDCHardware-Condensed";
+    font-size: $font-size-3;
   }
 }
 

@@ -1,13 +1,13 @@
 // Deps
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import { shape, string } from 'prop-types'
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { shape, string } from "prop-types";
 
 class ProjectCard extends Component {
-  render () {
-    let fields = this.props.fields
-    const { title, slug } = fields
-    const heroImgSmallUrl = fields.heroImgSmall.fields.file.url
+  render() {
+    let fields = this.props.fields;
+    const { title, slug } = fields;
+    const heroImgSmallUrl = fields.heroImgSmall.fields.file.url;
 
     return (
       <Link to={`/case-studies/${slug}`}>
@@ -16,7 +16,7 @@ class ProjectCard extends Component {
           <img src={heroImgSmallUrl} alt={title} />
         </figure>
       </Link>
-    )
+    );
   }
 }
 
@@ -32,6 +32,6 @@ ProjectCard.propTypes = {
       })
     })
   })
-}
+};
 
-export default ProjectCard
+export default ProjectCard;

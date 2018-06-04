@@ -1,40 +1,39 @@
 // Deps
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
 // Components
-import About from './About'
-import ProjectCard from './ProjectCard'
-import { arrayOf, shape, string } from 'prop-types'
+import About from "./About";
+import ProjectCard from "./ProjectCard";
+import { arrayOf, shape, string } from "prop-types";
 
 class Landing extends Component {
-  render () {
+  render() {
     return (
       <div>
         <About />
-        <div className='main-content'>
+        <div className="main-content">
           {this.props.projects
-            .filter((project) => {
-              return project.fields.isShowcase === true
+            .filter(project => {
+              return project.fields.isShowcase === true;
             })
-            .map((project) => {
-              return (
-                <ProjectCard key={project.sys.id} {...project} />
-              )
-            })
-          }
+            .map(project => {
+              return <ProjectCard key={project.sys.id} {...project} />;
+            })}
         </div>
       </div>
-    )
+    );
   }
 }
 
 Landing.propTypes = {
-  projects: arrayOf(shape({
-    sys: shape({
-      id: string,
-      title: string
+  projects: arrayOf(
+    shape({
+      sys: shape({
+        id: string,
+        title: string
+      })
     })
-  }))
-}
+  )
+};
 
-export default Landing
+export default Landing;

@@ -1,6 +1,6 @@
 // Deps
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -14,10 +14,13 @@ const Footer = () => {
         <a href='http://www.instagram.com/danroot.co'>Instagram</a>
       </nav>
 
-      <p>Site hand-coded with VS Code and using React JS, Sass, Webpack, and Contenful CMS</p>
+      <p>
+        Site hand-coded with VS Code and using React JS, Sass, Webpack, and
+        Contenful CMS API. Made in Seattle, WA
+      </p>
       <small>© 2000 - 2017</small>
     </footer>
   )
-}
+};
 
 export default Footer

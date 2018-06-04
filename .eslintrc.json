@@ -1,3 +1,14 @@
 {
-  "extends": ["standard", "standard-react"]
+  "parser": "babel-eslint",
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "no-console": "off"
+  }
 }

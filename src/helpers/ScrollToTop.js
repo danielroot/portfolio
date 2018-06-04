@@ -1,7 +1,7 @@
 // Deps
-import { Component } from 'react'
-import { withRouter } from 'react-router-dom'
-import { shape } from 'prop-types'
+import { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import { shape } from 'prop-types';
 
 class ScrollToTop extends Component {
   componentDidUpdate (prevProps) {
