@@ -1,0 +1,23 @@
+// ==========================================================================
+// Footer
+// ==========================================================================
+
+@import "../../styles/shared";
+
+footer {
+  background: #193c51;
+  color: $off-white;
+  width: 100%;
+  align-self: end;
+  padding: $space-md 0;
+  font-size: $font-size-md;
+  text-align: center;
+
+  nav {
+    margin-bottom: $space-lg;
+
+    a {
+      color: $white;
+    }
+  }
+}

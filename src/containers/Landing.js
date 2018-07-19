@@ -3,7 +3,7 @@ import React, { Component } from "react";
 
 // Components
 import About from "./About";
-import ProjectCards from "./ProjectCard/ProjectCard";
+import ProjectCards from "../components/ProjectCard/ProjectCard";
 import { arrayOf, shape, string } from "prop-types";
 
 class Landing extends Component {
@@ -11,7 +11,7 @@ class Landing extends Component {
     return (
       <div>
         <About />
-        <div className="main-content">
+        <div className="grid">
           {this.props.projects
             .filter(project => {
               return project.fields.isShowcase === true;

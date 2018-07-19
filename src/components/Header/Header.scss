@@ -1,0 +1,39 @@
+// ==========================================================================
+// Header
+// ==========================================================================
+
+@import "../../styles/shared";
+
+header.global {
+  width: 100%;
+  //background: #fff;
+  font-weight: $font-weight-light;
+  padding: 1rem 0;
+  text-align: center;
+
+  a {
+    color: $black;
+    text-transform: uppercase;
+    margin-left: $space-md;
+    font-size: $font-size-sm;
+    letter-spacing: 3px;
+  }
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+
+  a.active {
+    color: adjust-hue($brand-primary, 0%);
+  }
+
+  a.logo {
+    color: $black;
+    font-family: "DDCHardware-Condensed";
+    font-size: $font-size-md;
+    margin-left: 0;
+    margin-right: auto;
+  }
+}

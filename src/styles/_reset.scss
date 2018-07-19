@@ -1,0 +1,137 @@
+// ==========================================================================
+// Reset
+// ==========================================================================
+
+html {
+  box-sizing: border-box;
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/**
+ * Reset button styles.
+ * It takes a bit of work to achieve a neutral look.
+ */
+
+button {
+  padding: 0;
+  border: none;
+  font: inherit;
+  font-size: 1rem;
+  line-height: 1;
+  color: inherit;
+  background-color: transparent;
+  /* show a hand cursor on hover; some argue that we
+  should keep the default arrow cursor for buttons */
+  cursor: pointer;
+}
+
+.btn {
+  /* default for <button>, but useful for <a> */
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  /* create a small space when buttons wrap on 2 lines */
+  margin: 2px 0;
+  /* invisible border (will be colored on hover/focus) */
+  border: solid 1px transparent;
+  border-radius: 4px;
+  /* size comes from text & padding (no width/height) */
+  padding: 1rem;
+  /* make sure colors have enough contrast! */
+  color: #ffffff;
+  background-color: #00695c;
+  /* show a hand cursor on hover; some argue that we
+  should keep the default arrow cursor for buttons */
+}
+
+/* old-school "down" effect on clic + color tweak */
+
+.btn:active {
+  transform: translateY(1px);
+  filter: saturate(150%);
+}
+
+/* inverse colors on mouse-over */
+
+.btn:hover {
+  color: #00695c;
+  border-color: currentColor;
+  background-color: white;
+}
+
+/* Firefox: remove the inner border shown on focus */
+
+.btn::-moz-focus-inner {
+  border: none;
+}
+
+/* make sure we have a visible focus ring */
+
+.btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.5),
+    0 0 0 1.5px rgba(255, 105, 180, 0.5);
+}
+
+/* hide focus style if not from keyboard navigation */
+
+.js-focus-visible .btn:focus:not(.focus-visible) {
+  box-shadow: none;
+}
+
+a {
+  color: #00695c;
+  text-decoration: none;
+
+  &:focus {
+    outline: thin dotted;
+  }
+
+  p & {
+    text-decoration: underline;
+  }
+}
+
+//
+// Forms
+// ==========================================================================
+
+form {
+  label {
+    display: block;
+  }
+}

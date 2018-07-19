@@ -1,0 +1,82 @@
+// ==========================================================================
+// Variables
+// ==========================================================================
+
+//
+// Spacing
+// ==========================================================================
+
+$space-xxs: 0.25rem;
+$space-xs: 0.5rem;
+$space-sm: 1rem;
+$space-md: 2rem;
+$space-lg: 4rem;
+$space-xl: 6rem;
+$space-xxl: 8rem;
+
+// Gutters
+$gutter-global: $space-md;
+
+//
+// Fonts
+// ==========================================================================
+
+// Font Size
+$font-size-xxs: 0.25rem;
+$font-size-xs: 0.5rem;
+$font-size-sm: 1rem;
+$font-size-md: 1.5rem;
+$font-size-lg: 2.25rem;
+$font-size-xl: 3.375rem;
+$font-size-xxl: 5.063rem;
+$font-size-xxxl: 7.594rem;
+
+// Font Weight
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+
+//
+// Colors
+// ==========================================================================
+
+// Basic Colors
+$brand-primary: #2eee87;
+$white: #fff;
+$semi-transparent-white: rgba(255, 255, 255, 0.9);
+$semi-transparent-black: rgba(0, 0, 0, 0.9);
+$off-white: #fafafa;
+$gray-light: #e0e0e0;
+$gray-med: #959595;
+$gray-dark: #565656;
+$black: #201e1e;
+$purple: #685568;
+$red: #ff6868;
+
+// Functional Colors
+$color-bg-body: $off-white;
+$color-bg-body-semi-transparent: $semi-transparent-white;
+$color-bg-content: $off-white; // content backgrounds
+$color-border: $gray-light; // borders
+$color-text-body: $black;
+$color-text-primary: $gray-med; // text & graphics
+$color-text-secondary: $gray-dark; // text & graphics
+$color-link: $black;
+$color-warning: orange; // TBD
+$color-success: green; // TBD
+$color-danger: red; // TBD
+$black-button-hover: rgba(117, 117, 117, 0.95);
+$red-button-hover: #ea5a67;
+$red-button-disabled: lighten($brand-primary, 40%);
+$grey-button-disabled: lighten($gray-med, 40%);
+
+//
+// Transitions
+// ==========================================================================
+
+$transition-default: cubic-bezier(0.77, 0, 0.175, 1);
+$transition-all-ease: 0.3s ease 0s;
+
+//
+// Z-Index
+// ==========================================================================

@@ -1,119 +1,29 @@
-// Spacing
-$space-xs: 0.5rem;
-$space-sm: 1rem;
-$space-md: 2rem;
-$space-lg: 3rem;
-$space-xl: 4rem;
-
-// Fonts
-$font-size-1: 1rem;
-$font-size-2: 1.5rem;
-$font-size-3: 2.25rem;
-$font-size-4: 3.375rem;
-$font-size-5: 5.063rem;
-$font-size-6: 7.594rem;
-
-// MQs
-@mixin for-phone-only {
-  @media (max-width: 599px) {
-    @content;
-  }
-}
-@mixin for-tablet-portrait-up {
-  @media (min-width: 600px) {
-    @content;
-  }
-}
-@mixin for-tablet-portrait-only {
-  @media (min-width: 600px) and (max-width: 899px) {
-    @content;
-  }
-}
-@mixin for-tablet-landscape-up {
-  @media (min-width: 900px) {
-    @content;
-  }
-}
-@mixin for-tablet-landscape-only {
-  @media (min-width: 900px) and (max-width: 1199px) {
-    @content;
-  }
-}
-@mixin for-desktop-up {
-  @media (min-width: 1200px) {
-    @content;
-  }
-}
-@mixin for-desktop-only {
-  @media (min-width: 1200px) and (max-width: 1799px) {
-    @content;
-  }
-}
-@mixin for-big-desktop-up {
-  @media (min-width: 1800px) {
-    @content;
-  }
-}
-
-// Colors
-$color-primary: #48a857;
-
-@font-face {
-  font-family: calibre;
-  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/14625/CalibreWeb-Light.woff2");
-  font-weight: 300;
-}
-
-@font-face {
-  font-family: calibre;
-  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/14625/CalibreWeb-Regular.woff2");
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: calibre;
-  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/14625/CalibreWeb-Medium.woff2");
-  font-weight: 500;
-}
-
-// Fonts
-$font-weight-light: 300;
-$font-weight-regular: 400;
-$font-weight-medium: 500;
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+@import "reset";
+@import "shared";
+@import "fonts";
+@import "typography";
 
 html {
   font-display: optional;
-  //font-family: 'calibre';
-  font-family: "Lehigh Personal";
-  font-size: 16px;
-  font-weight: $font-weight-light;
+  font-family: "Work Sans";
   min-height: 100%;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  font-size: $font-size-1;
-  line-height: 1.4;
-  background: #fbfbfb;
-  color: #35424f;
+  font-size: $font-size-sm;
+  background: $color-bg-body;
+  color: $black;
 }
 
-@media screen and (min-width: 320px) {
+@include for-tablet-portrait-up {
   body {
-    font-size: calc(14px + 8 * ((100vw - 320px) / 960));
+    //font-size: calc(14px + 8 * ((100vw - 320px) / 960));
   }
 }
 
-@media screen and (min-width: 1280px) {
+@include for-desktop-up {
   body {
-    font-size: 22px;
+    //font-size: $font-size-lg;
   }
 }
 
@@ -121,142 +31,7 @@ img {
   width: 100%;
 }
 
-p {
-  margin-bottom: $space-sm;
-}
-
-a {
-  color: $color-primary;
-  text-decoration: none;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5 {
-  font-weight: $font-weight-medium;
-  margin-bottom: $space-sm;
-}
-
-h1 {
-  font-size: $font-size-5;
-}
-
-h2 {
-  font-size: $font-size-4;
-}
-
-h3 {
-  font-size: $font-size-3;
-}
-
-h4 {
-  font-size: $font-size-2;
-}
-
-h5 {
-  font-size: $font-size-1;
-}
-
 button {
   padding: 1rem;
-  background: $color-primary;
-}
-
-form {
-  label {
-    display: block;
-  }
-}
-
-figure {
-  margin: 0 -1rem;
-}
-
-.container {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 50px auto 20%;
-  grid-column-gap: 0.25rem;
-  grid-row-gap: 1rem;
-  justify-items: center;
-  min-height: 100vh;
-}
-
-header.global {
-  width: 100%;
-  //background: #fff;
-  font-weight: $font-weight-light;
-  padding: 1rem 0;
-  text-align: center;
-
-  a {
-    color: $color-primary;
-    text-transform: uppercase;
-  }
-}
-
-main {
-  padding: 0 $space-sm;
-}
-
-.main-content {
-  @include for-tablet-landscape-up {
-    display: grid;
-    // grid-template-columns: 25% 25% 25% 25%;
-    // grid-template-rows: 50px auto 20%;
-    // grid-column-gap: .25rem;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: $space-sm;
-  }
-}
-
-section {
-  width: 100%;
-  //max-width: 600px;
-}
-
-article {
-  width: 100%;
-  //max-width: 1024px;
-}
-
-footer {
-  background: $color-primary;
-  color: #fce25a;
-  width: 100%;
-  align-self: end;
-  padding: $space-md 0;
-
-  nav {
-    width: 90%;
-    margin-bottom: $space-lg;
-
-    a {
-      color: #fce25a;
-    }
-  }
-}
-
-nav {
-  width: 90%;
-  display: flex;
-  justify-content: space-between;
-  margin: 0 auto;
-
-  a.active {
-    color: adjust-hue($color-primary, -20%);
-  }
-
-  a.logo {
-    font-family: "DDCHardware-Condensed";
-    font-size: $font-size-3;
-  }
-}
-
-.client-logo {
-  width: 40px;
-  fill: white;
-  height: auto;
+  background: $brand-primary;
 }

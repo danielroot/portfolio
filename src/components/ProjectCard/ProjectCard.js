@@ -3,9 +3,12 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { shape, string } from "prop-types";
 
+// Style
+import "./ProjectCard.scss";
+
 class ProjectCard extends Component {
   render() {
-    let fields = this.props.fields;
+    const fields = this.props.fields;
     const { title, slug } = fields;
     const heroImgSmallUrl = fields.heroImgSmall.fields.file.url;
 

@@ -6,7 +6,7 @@ const About = () => {
     <div>
       <p>
         Hello, I am a multi-disciplined UX professional who has been working
-        professionally on the web since 2006. Currently, I work as Front-End
+        professionally on the web since 2006. Currently, I work as Sr. Front-End
         Designer and Developer at Deloitte Digital in Seattle, WA.
       </p>
       <p>

@@ -1,22 +1,22 @@
-const path = require('path')
+const path = require("path");
 
 module.exports = {
   context: __dirname,
-  entry: './src/index.js',
-  devtool: 'source-map',
+  entry: "./src/index.js",
+  devtool: "source-map",
   output: {
-    path: path.resolve(__dirname, './public'),
-    filename: 'bundle.js'
+    path: path.resolve(__dirname, "./public"),
+    filename: "bundle.js"
   },
   devServer: {
-    publicPath: '/',
-    contentBase: './public',
+    publicPath: "/",
+    contentBase: "./public",
     port: 9000,
     historyApiFallback: true
   },
   resolve: {
-    modules: ['node_modules', 'src'],
-    extensions: ['.js', '.json', '.jsx']
+    modules: ["node_modules", "src"],
+    extensions: [".js", ".json", ".jsx"]
   },
   stats: {
     colors: true,
@@ -26,34 +26,34 @@ module.exports = {
   module: {
     rules: [
       {
-        enforce: 'pre',
+        enforce: "pre",
         test: /\.js$/,
-        loader: 'eslint-loader',
+        loader: "eslint-loader",
         exclude: /node_modules/
       },
       {
         test: /\.json$/,
-        loader: 'json-loader'
+        loader: "json-loader"
       },
       {
-        include: path.resolve(__dirname, './src'),
+        include: path.resolve(__dirname, "./src"),
         test: /\.js$/,
-        loader: 'babel-loader'
+        loader: "babel-loader"
       },
       {
         test: /\.scss$/,
         use: [
           {
-            loader: 'style-loader'
+            loader: "style-loader"
           },
           {
-            loader: 'css-loader',
+            loader: "css-loader",
             options: {
               sourceMap: true
             }
           },
           {
-            loader: 'sass-loader',
+            loader: "sass-loader",
             options: {
               sourceMap: true
             }
@@ -62,4 +62,4 @@ module.exports = {
       }
     ]
   }
-}
+};

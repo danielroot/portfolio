@@ -1,14 +1,14 @@
 // Deps
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class NotFound extends Component {
-  render () {
+  render() {
     return (
       <div>
         <p>Sorry, page Not Found!</p>
       </div>
-    )
+    );
   }
 }
 
-export default NotFound
+export default NotFound;

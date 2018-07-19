@@ -1,0 +1,49 @@
+// ==========================================================================
+// App
+// ==========================================================================
+
+@import "../../styles/shared.scss";
+
+.app-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 50px auto 20%;
+  grid-column-gap: 0.25rem;
+  grid-gap: $space-sm;
+  justify-items: center;
+  min-height: 100vh;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.container {
+  margin: 0 $gutter-global;
+}
+
+main {
+  padding: $space-xxl 0;
+  width: 100%;
+}
+
+.grid {
+  @include for-tablet-landscape-up {
+    display: grid;
+    //grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: $space-sm;
+
+    img {
+      width: 50vw;
+      object-fit: contain;
+    }
+  }
+}
+
+section {
+  width: 100%;
+  //max-width: 600px;
+}
+
+article {
+  width: 100%;
+  //max-width: 1024px;
+}
