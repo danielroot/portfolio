@@ -4,8 +4,10 @@
 @import "typography";
 
 html {
-  font-family: "Work Sans";
   font-display: optional;
+  //font-family: "Work Sans";
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   min-height: 100%;
 }
 
@@ -15,17 +17,17 @@ body {
   color: $black;
 }
 
-@include for-tablet-portrait-up {
-  body {
-    //font-size: calc(14px + 8 * ((100vw - 320px) / 960));
-  }
-}
+// @include for-tablet-portrait-up {
+//   body {
+//     //font-size: calc(14px + 8 * ((100vw - 320px) / 960));
+//   }
+// }
 
-@include for-desktop-up {
-  body {
-    //font-size: $font-size-lg;
-  }
-}
+// @include for-desktop-up {
+//   body {
+//     //font-size: $font-size-lg;
+//   }
+// }
 
 img {
   width: 100%;
