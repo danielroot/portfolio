@@ -5,8 +5,8 @@
 @import "../../styles/shared";
 
 footer {
-  background: #193c51;
-  color: $off-white;
+  // background: #193c51;
+  // color: $off-white;
   width: 100%;
   align-self: end;
   padding: $space-md 0;
@@ -17,9 +17,9 @@ footer {
     margin-bottom: $space-lg;
     flex-wrap: wrap;
 
-    a {
-      color: $white;
-    }
+    // a {
+    //   color: $white;
+    // }
   }
 
   p {

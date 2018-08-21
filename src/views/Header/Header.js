@@ -13,7 +13,7 @@ const Header = () => {
           <NavLink exact activeClassName="active" to="/" className="logo">
             Root
           </NavLink>
-          <NavLink activeClassName="active" to="/case-studies">
+          {/* <NavLink activeClassName="active" to="/case-studies">
             Case Studies
           </NavLink>
           <NavLink activeClassName="active" to="/design">
@@ -27,7 +27,7 @@ const Header = () => {
           </NavLink>
           <NavLink activeClassName="active" to="/process">
             Resumé
-          </NavLink>
+  </NavLink>   */}
         </nav>
       </div>
     </header>
