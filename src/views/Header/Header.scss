@@ -12,7 +12,7 @@ header.global {
   text-align: center;
 
   a {
-    color: $black;
+    color: $off-black;
     text-transform: uppercase;
     margin-left: $space-md;
     font-size: $font-size-sm;
@@ -30,7 +30,7 @@ nav {
   }
 
   a.logo {
-    color: $black;
+    color: $off-black;
     font-family: "DDCHardware-Condensed";
     font-size: $font-size-md;
     margin-left: 0;

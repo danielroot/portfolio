@@ -2,16 +2,16 @@ const path = require("path");
 
 module.exports = {
   context: __dirname,
-  entry: "./src/index.js",
+  //entry: "./src/index.js",
   devtool: "source-map",
-  output: {
-    path: path.resolve(__dirname, "./public"),
-    filename: "bundle.js"
-  },
+  // output: {
+  //   path: path.resolve(__dirname, "./public"),
+  //   filename: "bundle.js"
+  //},
   devServer: {
     publicPath: "/",
-    contentBase: "./public",
-    port: 9000,
+    contentBase: "./dist",
+    port: 3000,
     historyApiFallback: true
   },
   resolve: {
@@ -32,10 +32,6 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.json$/,
-        loader: "json-loader"
-      },
-      {
         include: path.resolve(__dirname, "./src"),
         test: /\.js$/,
         loader: "babel-loader"
@@ -43,22 +39,27 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-          {
-            loader: "style-loader"
-          },
-          {
-            loader: "css-loader",
-            options: {
-              sourceMap: true
-            }
-          },
-          {
-            loader: "sass-loader",
-            options: {
-              sourceMap: true
-            }
-          }
+          "style-loader", // creates style nodes from JS strings
+          "css-loader", // translates CSS into CommonJS
+          "sass-loader" // compiles Sass to CSS, using Node Sass by default
         ]
+        // use: [
+        //   {
+        //     loader: "style-loader"
+        //   },
+        //   {
+        //     loader: "css-loader",
+        //     options: {
+        //       sourceMap: true
+        //     }
+        //   },
+        //   {
+        //     loader: "sass-loader",
+        //     options: {
+        //       sourceMap: true
+        //     }
+        //   }
+        // ]
       }
     ]
   }

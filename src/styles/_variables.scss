@@ -41,7 +41,7 @@ $font-weight-medium: 500;
 // ==========================================================================
 
 // Basic Colors
-$brand-primary: #2eee87;
+$brand-primary: #00ae9e;
 $white: #fff;
 $semi-transparent-white: rgba(255, 255, 255, 0.9);
 $semi-transparent-black: rgba(0, 0, 0, 0.9);
@@ -49,7 +49,8 @@ $off-white: #fafafa;
 $gray-light: #e0e0e0;
 $gray-med: #959595;
 $gray-dark: #565656;
-$black: #201e1e;
+$off-black: #201e1e;
+$black: #000;
 $purple: #685568;
 $red: #ff6868;
 
@@ -58,10 +59,10 @@ $color-bg-body: $off-white;
 $color-bg-body-semi-transparent: $semi-transparent-white;
 $color-bg-content: $off-white; // content backgrounds
 $color-border: $gray-light; // borders
-$color-text-body: $black;
+$color-text-body: $off-black;
 $color-text-primary: $gray-med; // text & graphics
 $color-text-secondary: $gray-dark; // text & graphics
-$color-link: $black;
+$color-link: $brand-primary;
 $color-warning: orange; // TBD
 $color-success: green; // TBD
 $color-danger: red; // TBD

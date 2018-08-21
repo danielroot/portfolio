@@ -3,7 +3,7 @@ import React from "react";
 import { render } from "react-dom";
 
 // Components
-import App from "./containers/App/App";
+import App from "./routes/App/App";
 
 // Style
 import "./styles/index.scss";

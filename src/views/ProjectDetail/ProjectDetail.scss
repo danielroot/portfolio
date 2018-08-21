@@ -1,0 +1,18 @@
+// ==========================================================================
+// Project Detail
+// ==========================================================================
+
+@import "../../styles/shared";
+
+project-detail {
+  .client-logo {
+    width: 30%;
+    fill: $white;
+    height: auto;
+    opacity: 0.025;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: -1;
+  }
+}

@@ -57,7 +57,7 @@ class ProjectDetail extends Component {
           </section>
           {projectUrl && (
             <aside>
-              <a href={projectUrl}>View Case Study</a>
+              <a href={projectUrl}>View {title}</a>
             </aside>
           )}
 

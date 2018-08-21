@@ -1,19 +1,19 @@
 // Deps
 import React, { Component } from "react";
-import ProjectCards from "../ProjectCard/ProjectCard";
+import ProjectCard from "../../views/ProjectCard/ProjectCard";
 import { arrayOf, shape, string } from "prop-types";
 
 // Style
-import "./ProjectList.scss";
+import "./ProjectListContainer.scss";
 
-class ProjectList extends Component {
+class ProjectListContainer extends Component {
   render() {
     return (
       <section>
         <h1>Case Studies</h1>
         <div className="grid">
           {this.props.projects.map(project => {
-            return <ProjectCards key={project.sys.id} {...project} />;
+            return <ProjectCard key={project.sys.id} {...project} />;
           })}
         </div>
       </section>
@@ -21,7 +21,7 @@ class ProjectList extends Component {
   }
 }
 
-ProjectList.propTypes = {
+ProjectListContainer.propTypes = {
   projects: arrayOf(
     shape({
       sys: shape({
@@ -31,4 +31,4 @@ ProjectList.propTypes = {
   )
 };
 
-export default ProjectList;
+export default ProjectListContainer;

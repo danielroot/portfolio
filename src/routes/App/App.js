@@ -8,17 +8,17 @@ import * as contentful from "contentful";
 import config from "../../config.json";
 
 // Containers
-import Header from "../../components/Header/Header";
-import Footer from "../../components/Footer/Footer";
+import Header from "../../views/Header/Header";
+import Footer from "../../views/Footer/Footer";
 import Landing from "../Landing";
 import Process from "../Process";
-import ProjectList from "../../components/ProjectList/ProjectList";
-import ProjectDetail from "../../components/ProjectDetail/ProjectDetail";
+import ProjectListContainer from "../../containers/ProjectListContainer/ProjectListContainer";
+import ProjectDetail from "../../views/ProjectDetail/ProjectDetail";
 import StyleGuide from "../StyleGuide";
 import NotFound from "../NotFound";
 
 // Helpers
-import ScrollToTop from "../../helpers/ScrollToTop";
+import ScrollToTop from "../../utils/ScrollToTop";
 
 // Style
 import "./App.scss";
@@ -59,7 +59,7 @@ class App extends Component {
                       exact
                       path="/case-studies"
                       render={props => (
-                        <ProjectList
+                        <ProjectListContainer
                           projects={this.state.projects}
                           {...props}
                         />

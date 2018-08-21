@@ -2,11 +2,17 @@
 // Reset
 // ==========================================================================
 
+@import "shared";
+
 html {
   box-sizing: border-box;
   font-family: Roboto, sans-serif;
-  font-size: 16px;
+  font-size: 12px;
   line-height: 1.4;
+
+  @include for-tablet-portrait-up {
+    font-size: calc(14px + 8 * ((100vw - 320px) / 960));
+  }
 }
 
 *,
