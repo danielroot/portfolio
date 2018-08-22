@@ -4,6 +4,15 @@
 
 @font-face {
   font-family: work-sans;
-  src: url("./work-sans/work-sans-300.woff");
-  font-weight: 300;
+  font-display: auto;
+  src: local("Work Sans"), url("./work-sans/work-sans-400.woff");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: DDCHardware-Condensed;
+  font-display: auto;
+  src: local("DDCHardware-Condensed"),
+    url("./ddc/ddchardware-condensed.woff2") format("woff2");
+  font-weight: normal;
 }
