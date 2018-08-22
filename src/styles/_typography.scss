@@ -9,6 +9,11 @@ p {
 
 a {
   color: $brand-primary;
+  transition: $transition-all-ease;
+
+  &:hover {
+    color: darken($brand-primary, 10%);
+  }
 }
 
 h1,
