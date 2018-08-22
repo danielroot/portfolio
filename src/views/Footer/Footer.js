@@ -23,8 +23,8 @@ class Footer extends Component {
           </nav>
 
           <p>
-            Site hand-coded with VS Code and using React JS, Sass, Webpack, and
-            Contenful CMS API. Made in Seattle, WA
+            Site hand-crafted with VS Code, React JS, Sass, Webpack, and
+            Contenful CMS <br />Made in Seattle, WA
           </p>
           <small>
             &copy; {originYear} - {currentYear}

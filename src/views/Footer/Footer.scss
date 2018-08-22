@@ -10,7 +10,7 @@ footer {
   width: 100%;
   align-self: end;
   padding: $space-md 0;
-  font-size: $font-size-sm;
+  font-size: $font-size-xs;
   text-align: center;
 
   nav {
@@ -18,12 +18,13 @@ footer {
     flex-wrap: wrap;
     justify-content: space-around;
 
-    // a {
-    //   color: $white;
-    // }
+    a {
+      //color: $white;
+      font-size: $font-size-sm;
+    }
   }
 
   p {
-    font-size: $font-size-sm;
+    font-size: $font-size-xs;
   }
 }

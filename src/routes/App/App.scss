@@ -48,3 +48,9 @@ article {
   width: 100%;
   //max-width: 1024px;
 }
+
+.intro {
+  @include for-tablet-landscape-up {
+    width: 66.6vw;
+  }
+}
