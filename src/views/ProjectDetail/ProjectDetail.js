@@ -18,27 +18,31 @@ class ProjectDetail extends Component {
     } = fields;
     const clientLogoUrl = fields.clientLogo.fields.file.url;
     const heroImgSmallUrl = fields.heroImgSmall.fields.file.url;
+    const projectType = fields.projectType;
 
     return (
       <project-detail>
         <article>
           <header>
             <h1>
-              <img
-                src={clientLogoUrl}
-                className="client-logo"
-                alt={`${title} 'logo'`}
-                aria-hidden="true"
-              />{" "}
+              {clientLogoUrl && (
+                <img
+                  src={clientLogoUrl}
+                  className="client-logo"
+                  alt={`${title} 'logo'`}
+                  aria-hidden="true"
+                />
+              )}
               <span>{title}</span>
             </h1>
-            <p>{overview}</p>
+            <em>{projectType}</em>
+            <p dangerouslySetInnerHTML={{ __html: overview }} />
 
             <figure className="heroImg">
               {/* TODO: srcSet for swapping responsive images */}
               <img src={heroImgSmallUrl} alt="result alt text" />
 
-              {/* TODO: fig caption with description field */}
+              {/* TODO: fig caption with description field in contentful */}
             </figure>
 
             {thumbnails &&
@@ -47,21 +51,28 @@ class ProjectDetail extends Component {
               })}
           </header>
           <section>
-            <h3>Problem</h3>
-            <p>{problem}</p>
+            {problem && (
+              <React.Fragment>
+                <h3>Problem</h3>
+                <p>{problem}</p>
+              </React.Fragment>
+            )}
 
-            <h3>Solution</h3>
-            <p>{solution}</p>
+            {solution && (
+              <React.Fragment>
+                <h3>Solution</h3>
+                <p>{solution}</p>
+              </React.Fragment>
+            )}
 
-            <h3>Role</h3>
+            {/*{role && <h3>Role</h3>}*/}
           </section>
+
           {projectUrl && (
             <aside>
               <a href={projectUrl}>View {title}</a>
             </aside>
           )}
-
-          <h1>{this.props.project.fields.id}</h1>
         </article>
       </project-detail>
     );

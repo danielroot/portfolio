@@ -23,20 +23,7 @@
 main {
   padding: $space-xxl 0;
   width: 100%;
-  height: 100vh;
-}
-
-.grid {
-  @include for-tablet-landscape-up {
-    display: grid;
-    //grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: $space-md;
-
-    img {
-      width: 50vw;
-      object-fit: contain;
-    }
-  }
+  //min-height: 100vh;
 }
 
 section {
@@ -52,5 +39,6 @@ article {
 .intro {
   @include for-tablet-landscape-up {
     width: 66.6vw;
+    height: 100vh;
   }
 }

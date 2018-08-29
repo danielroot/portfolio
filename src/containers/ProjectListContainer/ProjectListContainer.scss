@@ -1,3 +1,18 @@
 // ==========================================================================
 // Project List Container
 // ==========================================================================
+
+@import "../../styles/shared";
+
+.grid {
+  @include for-tablet-landscape-up {
+    display: grid;
+    //grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: $space-md;
+
+    img {
+      //width: 50vw;
+      //object-fit: contain;
+    }
+  }
+}

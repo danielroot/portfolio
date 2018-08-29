@@ -11,9 +11,16 @@ class ProjectCard extends Component {
     const fields = this.props.fields;
     const { title, slug } = fields;
     const heroImgSmallUrl = fields.heroImgSmall.fields.file.url;
+    let category;
+
+    if (this.props.sys.contentType.sys.id === "project") {
+      category = fields.projectType;
+    } else {
+      category = this.props.sys.contentType.sys.id;
+    }
 
     return (
-      <Link to={`/case-studies/${slug}`}>
+      <Link to={`/${category}/${slug}`}>
         <h3>{title}</h3>
         <figure>
           <img src={heroImgSmallUrl} alt={title} />
@@ -32,6 +39,13 @@ ProjectCard.propTypes = {
         file: shape({
           url: string
         })
+      })
+    })
+  }),
+  sys: shape({
+    contentType: shape({
+      sys: shape({
+        id: string
       })
     })
   })

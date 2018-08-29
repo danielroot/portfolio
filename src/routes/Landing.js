@@ -9,9 +9,9 @@ import { arrayOf, shape, string } from "prop-types";
 class Landing extends Component {
   render() {
     return (
-      <div>
+      <React.Fragment>
         <About />
-        {/* <div className="grid">
+        {/*<div className="grid">
           {this.props.projects
             .filter(project => {
               return project.fields.isShowcase === true;
@@ -19,8 +19,8 @@ class Landing extends Component {
             .map(project => {
               return <ProjectCards key={project.sys.id} {...project} />;
             })}
-          </div> */}
-      </div>
+          </div>*/}
+      </React.Fragment>
     );
   }
 }

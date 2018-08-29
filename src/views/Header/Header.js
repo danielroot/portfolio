@@ -11,23 +11,21 @@ const Header = () => {
       <div className="container">
         <nav>
           <NavLink exact activeClassName="active" to="/" className="logo">
-            Root
+            DanRoot.co
           </NavLink>
-          {/* <NavLink activeClassName="active" to="/case-studies">
-            Case Studies
+          <NavLink activeClassName="active" to="/products">
+            Products
           </NavLink>
-          <NavLink activeClassName="active" to="/design">
-            Design
+          <NavLink activeClassName="active" to="/prototypes">
+            Prototypes
           </NavLink>
-          <NavLink activeClassName="active" to="/code">
-            Code
+          <NavLink activeClassName="active" to="/playground">
+            Playground
           </NavLink>
-          <NavLink activeClassName="active" to="/illustration">
-            Illustration
-          </NavLink>
+
           <NavLink activeClassName="active" to="/process">
             Resumé
-  </NavLink>   */}
+          </NavLink>
         </nav>
       </div>
     </header>

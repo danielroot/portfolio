@@ -15,7 +15,7 @@ header.global {
     color: $off-black;
     text-transform: uppercase;
     margin-left: $space-md;
-    font-size: $font-size-sm;
+    font-size: $font-size-xs;
     letter-spacing: 3px;
   }
 }
@@ -23,6 +23,7 @@ header.global {
 nav {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin: 0 auto;
 
   a.active {

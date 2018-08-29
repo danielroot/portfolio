@@ -2,11 +2,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Process = () => {
+const Resume = () => {
   return (
     <div>
-      <h1>Process</h1>
-      <h2>Approach</h2>
+      <h1>Resume</h1>
+      {/*<h2>Approach</h2>
       <p>...</p>
 
       <h2>Skills</h2>
@@ -36,12 +36,28 @@ const Process = () => {
       <p>
         My modern Front End Development workflow includes Sublime, Git,
         Sass/Less, NPM, Bower, and Gulp.
-      </p>
+        </p>*/}
+
+      <h2>Experience</h2>
+      <h3>Deloitte Digital</h3>
+      <h4>Sr. Front End Designer/Engineer</h4>
+
+      <h3>Push Design</h3>
+      <h4>Lead Front End Developer</h4>
+
+      <h2>Skills</h2>
+      <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JS</li>
+        <li>UX</li>
+        <li>UI</li>
+      </ul>
 
       <h2>Select Clients</h2>
       <ul>
         <li>
-          <Link to="/case-studies/agilent">Agilent</Link>
+          <Link to="/products/agilent">Agilent</Link>
         </li>
         <li>Audi</li>
         <li>Cambria</li>
@@ -49,19 +65,19 @@ const Process = () => {
         <li>Lineage</li>
         <li>Lululemon</li>
         <li>
-          <Link to="/case-studies/nike-dashboard">Nike</Link>
+          <Link to="/products/nike-dashboard">Nike</Link>
         </li>
         <li>
-          <Link to="/case-studies/my-nu-skin">NuSkin</Link>
+          <Link to="/products/my-nu-skin">NuSkin</Link>
         </li>
         <li>
-          <Link to="/case-studies/rei-snow-report">REI</Link>
+          <Link to="/products/rei-snow-report">REI</Link>
         </li>
         <li>
-          <Link to="/case-studies/rent-a-center">Rent-A-Center</Link>
+          <Link to="/products/rent-a-center">Rent-A-Center</Link>
         </li>
         <li>
-          <Link to="/case-studies/super-cuts">SuperCuts</Link>
+          <Link to="/products/super-cuts">SuperCuts</Link>
         </li>
         <li>USGA</li>
         <li>VMWare</li>
@@ -72,4 +88,4 @@ const Process = () => {
   );
 };
 
-export default Process;
+export default Resume;

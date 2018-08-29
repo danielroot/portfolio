@@ -11,7 +11,7 @@ import config from "../../config.json";
 import Header from "../../views/Header/Header";
 import Footer from "../../views/Footer/Footer";
 import Landing from "../Landing";
-import Process from "../Process";
+import Resume from "../Resume";
 import ProjectListContainer from "../../containers/ProjectListContainer/ProjectListContainer";
 import ProjectDetail from "../../views/ProjectDetail/ProjectDetail";
 import StyleGuide from "../StyleGuide";
@@ -27,15 +27,25 @@ import "./App.scss";
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { projects: [] };
+    this.state = {
+      projects: [],
+      playground: []
+    };
   }
   componentDidMount() {
     const client = contentful.createClient({
       accessToken: config.accessToken,
       space: config.space
     });
+
+    // get the Projects API
     client.getEntries({ content_type: "project" }).then(response => {
       this.setState({ projects: response.items });
+    });
+
+    // get the Playground API
+    client.getEntries({ content_type: "playground" }).then(response => {
+      this.setState({ playground: response.items });
     });
   }
   render() {
@@ -57,27 +67,94 @@ class App extends Component {
                     />
                     <Route
                       exact
-                      path="/case-studies"
-                      render={props => (
-                        <ProjectListContainer
-                          projects={this.state.projects}
-                          {...props}
-                        />
-                      )}
+                      path="/products"
+                      render={props => {
+                        const products = this.state.projects.filter(project => {
+                          return project.fields.projectType === "products";
+                        });
+
+                        return (
+                          <ProjectListContainer
+                            heading="Products"
+                            subheading="Shipped projects with cross-functional/agile teams"
+                            projects={products}
+                            {...props}
+                          />
+                        );
+                      }}
                     />
                     <Route
-                      path="/case-studies/:id"
+                      path="/products/:id"
                       render={props => {
-                        const selectedProject = this.state.projects.find(
-                          project =>
-                            props.match.params.id === project.fields.slug
-                        );
+                        const selectedProject = this.state.projects
+                          .filter(project => {
+                            return project.fields.projectType === "products";
+                          })
+                          .find(
+                            project =>
+                              props.match.params.id === project.fields.slug
+                          );
                         return (
                           <ProjectDetail project={selectedProject} {...props} />
                         );
                       }}
                     />
-                    <Route exact path="/process" component={Process} />
+
+                    <Route
+                      exact
+                      path="/prototypes"
+                      render={props => {
+                        const prototypes = this.state.projects.filter(
+                          project => {
+                            return project.fields.projectType === "prototypes";
+                          }
+                        );
+
+                        return (
+                          <ProjectListContainer
+                            heading="Prototypes"
+                            subheading="Proof of concept work"
+                            projects={prototypes}
+                            {...props}
+                          />
+                        );
+                      }}
+                    />
+                    <Route
+                      path="/prototypes/:id"
+                      render={props => {
+                        const selectedProject = this.state.projects
+                          .filter(project => {
+                            return project.fields.projectType === "prototypes";
+                          })
+                          .find(
+                            project =>
+                              props.match.params.id === project.fields.slug
+                          );
+                        return (
+                          <ProjectDetail project={selectedProject} {...props} />
+                        );
+                      }}
+                    />
+
+                    <Route
+                      exact
+                      path="/playground"
+                      render={props => {
+                        const playground = this.state.playground;
+
+                        return (
+                          <ProjectListContainer
+                            heading="Playground"
+                            subheading="A personal collection of miscellaneous design & code sketches"
+                            projects={playground}
+                            {...props}
+                          />
+                        );
+                      }}
+                    />
+
+                    <Route exact path="/resume" component={Resume} />
                     <Route exact path="/style-guide" component={StyleGuide} />
                     <Route component={NotFound} />
                   </Switch>
