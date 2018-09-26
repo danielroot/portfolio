@@ -1,4 +1,4 @@
-const path = require("path");
+let path = require("path");
 
 module.exports = {
   context: __dirname,
@@ -62,13 +62,28 @@ module.exports = {
         // ]
       },
       {
-        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
         use: [
           {
             loader: "file-loader",
             options: {
               name: "[name].[ext]",
               outputPath: "fonts/"
+            }
+          }
+        ]
+      },
+      {
+        test: /\.svg$/,
+        //issuer: /\.jsx?$/,
+        use: [
+          {
+            loader: "babel-loader"
+          },
+          {
+            loader: "react-svg-loader",
+            options: {
+              jsx: true // true outputs JSX tags
             }
           }
         ]

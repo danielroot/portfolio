@@ -19,8 +19,14 @@ footer {
     justify-content: space-around;
 
     a {
-      //color: $white;
+      color: $brand-primary;
       font-size: $font-size-sm;
+    }
+
+    svg {
+      path {
+        fill: currentColor;
+      }
     }
   }
 

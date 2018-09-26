@@ -33,7 +33,7 @@ class App extends Component {
     };
   }
   componentDidMount() {
-    const client = contentful.createClient({
+    let client = contentful.createClient({
       accessToken: config.accessToken,
       space: config.space
     });
@@ -69,7 +69,7 @@ class App extends Component {
                       exact
                       path="/products"
                       render={props => {
-                        const products = this.state.projects.filter(project => {
+                        let products = this.state.projects.filter(project => {
                           return project.fields.projectType === "products";
                         });
 
@@ -86,7 +86,7 @@ class App extends Component {
                     <Route
                       path="/products/:id"
                       render={props => {
-                        const selectedProject = this.state.projects
+                        let selectedProject = this.state.projects
                           .filter(project => {
                             return project.fields.projectType === "products";
                           })
@@ -104,11 +104,9 @@ class App extends Component {
                       exact
                       path="/prototypes"
                       render={props => {
-                        const prototypes = this.state.projects.filter(
-                          project => {
-                            return project.fields.projectType === "prototypes";
-                          }
-                        );
+                        let prototypes = this.state.projects.filter(project => {
+                          return project.fields.projectType === "prototypes";
+                        });
 
                         return (
                           <ProjectListContainer
@@ -123,7 +121,7 @@ class App extends Component {
                     <Route
                       path="/prototypes/:id"
                       render={props => {
-                        const selectedProject = this.state.projects
+                        let selectedProject = this.state.projects
                           .filter(project => {
                             return project.fields.projectType === "prototypes";
                           })
@@ -141,7 +139,7 @@ class App extends Component {
                       exact
                       path="/playground"
                       render={props => {
-                        const playground = this.state.playground;
+                        let playground = this.state.playground;
 
                         return (
                           <ProjectListContainer

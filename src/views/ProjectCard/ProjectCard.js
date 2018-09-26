@@ -8,9 +8,10 @@ import "./ProjectCard.scss";
 
 class ProjectCard extends Component {
   render() {
-    const fields = this.props.fields;
-    const { title, slug } = fields;
-    const heroImgSmallUrl = fields.heroImgSmall.fields.file.url;
+    let fields = this.props.fields;
+    let { slug, heroImgSmall } = fields;
+    let heroImgSmallUrl = heroImgSmall.fields.file.url;
+    let heroImgDescription = heroImgSmall.fields.description;
     let category;
 
     if (this.props.sys.contentType.sys.id === "project") {
@@ -20,12 +21,14 @@ class ProjectCard extends Component {
     }
 
     return (
-      <Link to={`/${category}/${slug}`}>
-        <h3>{title}</h3>
-        <figure>
-          <img src={heroImgSmallUrl} alt={title} />
-        </figure>
-      </Link>
+      <project-card>
+        <Link to={`/${category}/${slug}`}>
+          {/*<h3>{title}</h3>*/}
+          <figure>
+            <img src={heroImgSmallUrl} alt={heroImgDescription} />
+          </figure>
+        </Link>
+      </project-card>
     );
   }
 }

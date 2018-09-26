@@ -1,6 +1,7 @@
 // Deps
 import React from "react";
 import { Link } from "react-router-dom";
+import { currentMonth, currentMonthName, currentYear } from "../utils/Dates";
 
 const Resume = () => {
   return (
@@ -37,14 +38,17 @@ const Resume = () => {
         My modern Front End Development workflow includes Sublime, Git,
         Sass/Less, NPM, Bower, and Gulp.
         </p>*/}
-
       <h2>Experience</h2>
       <h3>Deloitte Digital</h3>
       <h4>Sr. Front End Designer/Engineer</h4>
-
+      <time dateTime="2013-04">April 2013</time> &ndash;{" "}
+      <time dateTime={`${currentYear}-${currentMonth}`}>
+        {currentMonthName} {currentYear}
+      </time>
       <h3>Push Design</h3>
-      <h4>Lead Front End Developer</h4>
-
+      <h4>Lead Web Designer</h4>
+      <time dateTime="2010-06">June 2010</time> &ndash;{" "}
+      <time dateTime="2013-03">March 2013</time>
       <h2>Skills</h2>
       <ul>
         <li>HTML</li>
@@ -53,7 +57,6 @@ const Resume = () => {
         <li>UX</li>
         <li>UI</li>
       </ul>
-
       <h2>Select Clients</h2>
       <ul>
         <li>
@@ -81,6 +84,7 @@ const Resume = () => {
         </li>
         <li>USGA</li>
         <li>VMWare</li>
+        <li>Walmart Labs</li>
         <li>Watson IBM</li>
       </ul>
       <a href="...">Download My Resume</a>

@@ -53,6 +53,7 @@
     "jest": "15.1.1",
     "jsdom": "9.5.0",
     "node-sass": "^4.9.3",
+    "react-svg-loader": "^2.1.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.13.2",
     "webpack": "^4.17.1",
@@ -65,7 +66,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/danielroot/react-portfolio"
+    "url": "git+https://github.com/danielroot/portfolio"
   },
   "keywords": [
     "react",
@@ -74,7 +75,7 @@
     "redux"
   ],
   "bugs": {
-    "url": "https://github.com/danielroot/react-portfolio/issues"
+    "url": "https://github.com/danielroot/portfolio/issues"
   },
   "homepage": "https://danielroot.github.io/portfolio"
 }

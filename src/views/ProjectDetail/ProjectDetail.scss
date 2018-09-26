@@ -14,18 +14,22 @@ project-detail {
     top: 0;
     right: 0;
     z-index: -1;
-    animation: move-in 0.5s both;
+    animation: moveIn 0.5s both;
   }
 
   h1 {
     span {
-      animation: move-in-text 0.5s both;
+      animation: moveInText 0.5s both;
       display: block;
     }
   }
+
+  .heroImg {
+    animation: moveInHero 0.35s both;
+  }
 }
 
-@keyframes move-in {
+@keyframes moveIn {
   from {
     transform: translateY(-20%);
     //opacity: 0;
@@ -36,9 +40,20 @@ project-detail {
   }
 }
 
-@keyframes move-in-text {
+@keyframes moveInText {
   from {
     transform: translateY(-20%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes moveInHero {
+  from {
+    transform: translateY(-1%);
     opacity: 0;
   }
   to {

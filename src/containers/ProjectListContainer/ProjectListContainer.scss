@@ -5,14 +5,16 @@
 @import "../../styles/shared";
 
 .grid {
-  @include for-tablet-landscape-up {
-    display: grid;
-    //grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: $space-md;
+  display: grid;
+  grid-gap: $space-sm;
+  grid-template-columns: repeat(auto-fit, minmax(400px, auto));
 
-    img {
-      //width: 50vw;
-      //object-fit: contain;
-    }
+  img {
+    //width: 50vw;
+    //object-fit: contain;
+  }
+
+  &.playground {
+    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
   }
 }

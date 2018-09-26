@@ -7,18 +7,11 @@ import "./ProjectDetail.scss";
 
 class ProjectDetail extends Component {
   render() {
-    const fields = this.props.project.fields;
-    const {
-      title,
-      overview,
-      problem,
-      solution,
-      projectUrl,
-      thumbnails
-    } = fields;
-    const clientLogoUrl = fields.clientLogo.fields.file.url;
-    const heroImgSmallUrl = fields.heroImgSmall.fields.file.url;
-    const projectType = fields.projectType;
+    let fields = this.props.project.fields;
+    let { title, overview, problem, solution, projectUrl, thumbnails } = fields;
+    let clientLogoUrl = fields.clientLogo.fields.file.url;
+    let heroImgSmallUrl = fields.heroImgSmall.fields.file.url;
+    //let projectType = fields.projectType;
 
     return (
       <project-detail>
@@ -35,8 +28,7 @@ class ProjectDetail extends Component {
               )}
               <span>{title}</span>
             </h1>
-            <em>{projectType}</em>
-            <p dangerouslySetInnerHTML={{ __html: overview }} />
+            {/*<em>{projectType}</em>*/}
 
             <figure className="heroImg">
               {/* TODO: srcSet for swapping responsive images */}
@@ -44,6 +36,7 @@ class ProjectDetail extends Component {
 
               {/* TODO: fig caption with description field in contentful */}
             </figure>
+            <p dangerouslySetInnerHTML={{ __html: overview }} />
 
             {thumbnails &&
               thumbnails.map((thumbnail, index) => {

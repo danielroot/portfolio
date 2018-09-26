@@ -38,7 +38,7 @@ article {
 
 .intro {
   @include for-tablet-landscape-up {
-    width: 66.6vw;
+    width: 90%;
     height: 100vh;
   }
 }

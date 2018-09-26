@@ -1,48 +1,25 @@
 // ==========================================================================
-// Playground Detail
+// Playground Card
 // ==========================================================================
 
 @import "../../styles/shared";
 
-playground-detail {
-  .client-logo {
-    width: 20%;
-    fill: $white;
-    height: auto;
-    opacity: 0.025;
-    position: fixed;
-    top: 0;
-    right: 0;
-    z-index: -1;
-    animation: move-in 0.5s both;
-  }
+playground-card {
+  display: block;
+  margin-bottom: $space-sm;
 
-  h1 {
-    span {
-      animation: move-in-text 0.5s both;
-      display: block;
+  a {
+    display: flex;
+    align-items: center;
+    font-size: $font-size-sm;
+
+    svg {
+      width: 30px;
+      margin-left: 8px;
+
+      path {
+        fill: $brand-primary;
+      }
     }
-  }
-}
-
-@keyframes move-in {
-  from {
-    transform: translateY(-20%);
-    //opacity: 0;
-  }
-  to {
-    transform: translateY(20%);
-    //opacity: 1;
-  }
-}
-
-@keyframes move-in-text {
-  from {
-    transform: translateY(-20%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0%);
-    opacity: 1;
   }
 }
