@@ -14,7 +14,7 @@ import InstagramIcon from "../../assets/Instagram-color.svg";
 class Footer extends Component {
   render() {
     return (
-      <footer>
+      <footer className="global">
         <div className="container">
           <nav>
             {/*<Link to="/style-guide">Style Guide</Link>*/}

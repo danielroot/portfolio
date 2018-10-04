@@ -5,6 +5,12 @@
 @import "../../styles/shared";
 
 project-detail {
+  display: block;
+
+  @include for-desktop-up {
+    width: 65%;
+  }
+
   .client-logo {
     width: 20%;
     fill: $white;
@@ -12,7 +18,7 @@ project-detail {
     opacity: 0.025;
     position: fixed;
     top: 0;
-    right: 0;
+    right: -1.5%;
     z-index: -1;
     animation: moveIn 0.5s both;
   }
@@ -26,6 +32,32 @@ project-detail {
 
   .heroImg {
     animation: moveInHero 0.35s both;
+  }
+
+  section {
+    margin-bottom: $space-md;
+
+    @include for-desktop-up {
+      //width: 65%;
+    }
+  }
+
+  section.roles {
+    display: block;
+    padding: $space-sm $space-sm $space-md;
+    border-radius: 4px;
+
+    @include for-desktop-up {
+      width: 50%;
+    }
+
+    h2 {
+      text-transform: uppercase;
+      font-size: $font-size-xs;
+      font-weight: $font-weight-light;
+      letter-spacing: 2px;
+      margin-bottom: $space-sm;
+    }
   }
 }
 

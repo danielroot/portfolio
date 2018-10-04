@@ -12,23 +12,25 @@ class ProjectListContainer extends Component {
     //let contentType = this.props.sys.contentType.sys.id;
 
     return (
-      <section>
-        <h1>{this.props.heading}</h1>
-        <p>{this.props.subheading}</p>
-        {this.props.heading === "Playground" ? (
-          <div className="grid playground">
-            {this.props.projects.map(project => {
-              return <PlaygroundCard key={project.sys.id} {...project} />;
-            })}
-          </div>
-        ) : (
-          <div className="grid">
-            {this.props.projects.map(project => {
-              return <ProjectCard key={project.sys.id} {...project} />;
-            })}
-          </div>
-        )}
-      </section>
+      <project-list-container>
+        <section>
+          <h1>{this.props.heading}</h1>
+          <p>{this.props.subheading}</p>
+          {this.props.heading === "Playground" ? (
+            <div className="grid playground">
+              {this.props.projects.map(project => {
+                return <PlaygroundCard key={project.sys.id} {...project} />;
+              })}
+            </div>
+          ) : (
+            <div className="grid">
+              {this.props.projects.map(project => {
+                return <ProjectCard key={project.sys.id} {...project} />;
+              })}
+            </div>
+          )}
+        </section>
+      </project-list-container>
     );
   }
 }

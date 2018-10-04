@@ -9,9 +9,10 @@ import "./ProjectCard.scss";
 class ProjectCard extends Component {
   render() {
     let fields = this.props.fields;
-    let { slug, heroImgSmall } = fields;
-    let heroImgSmallUrl = heroImgSmall.fields.file.url;
-    let heroImgDescription = heroImgSmall.fields.description;
+    let { slug, title, clientLogo, previewImage, brandColor } = fields;
+    let previewImageUrl = previewImage && previewImage.fields.file.url;
+    //let heroImgDescription = heroImgSmall.fields.description;
+    let clientLogoUrl = clientLogo && clientLogo.fields.file.url;
     let category;
 
     if (this.props.sys.contentType.sys.id === "project") {
@@ -21,14 +22,26 @@ class ProjectCard extends Component {
     }
 
     return (
-      <project-card>
-        <Link to={`/${category}/${slug}`}>
-          {/*<h3>{title}</h3>*/}
+      <Link to={`/${category}/${slug}`}>
+        <project-card
+          style={{
+            backgroundColor: `${brandColor}`,
+            backgroundImage: `url(${previewImageUrl})`
+          }}
+        >
           <figure>
-            <img src={heroImgSmallUrl} alt={heroImgDescription} />
+            {clientLogoUrl && (
+              <img
+                src={clientLogoUrl}
+                className="client-logo"
+                alt={`${title} 'logo'`}
+                aria-hidden="true"
+              />
+            )}
+            <h3>{title}</h3>
           </figure>
-        </Link>
-      </project-card>
+        </project-card>
+      </Link>
     );
   }
 }
@@ -37,7 +50,7 @@ ProjectCard.propTypes = {
   fields: shape({
     title: string,
     slug: string,
-    heroImgSmall: shape({
+    previewImage: shape({
       fields: shape({
         file: shape({
           url: string

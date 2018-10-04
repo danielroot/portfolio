@@ -4,17 +4,29 @@
 
 @import "../../styles/shared";
 
-.grid {
-  display: grid;
-  grid-gap: $space-sm;
-  grid-template-columns: repeat(auto-fit, minmax(400px, auto));
-
-  img {
-    //width: 50vw;
-    //object-fit: contain;
+project-list-container {
+  h1 {
+    animation: moveInText 0.5s both;
   }
 
-  &.playground {
-    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+  .grid {
+    display: grid;
+    grid-gap: $space-sm;
+    grid-template-columns: repeat(auto-fit, minmax(400px, auto));
+
+    &.playground {
+      grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+    }
+  }
+}
+
+@keyframes moveInText {
+  from {
+    transform: translateY(-20%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0%);
+    opacity: 1;
   }
 }

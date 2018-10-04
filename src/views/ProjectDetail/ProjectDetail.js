@@ -8,10 +8,26 @@ import "./ProjectDetail.scss";
 class ProjectDetail extends Component {
   render() {
     let fields = this.props.project.fields;
-    let { title, overview, problem, solution, projectUrl, thumbnails } = fields;
-    let clientLogoUrl = fields.clientLogo.fields.file.url;
+    let {
+      title,
+      overview,
+      problem,
+      solution,
+      projectUrl,
+      thumbnails,
+      clientLogo,
+      roles,
+      brandColor
+    } = fields;
+    let clientLogoUrl = clientLogo && clientLogo.fields.file.url;
     let heroImgSmallUrl = fields.heroImgSmall.fields.file.url;
     //let projectType = fields.projectType;
+
+    const filteredAndSortedRoles =
+      roles &&
+      roles
+        .filter((role, index) => roles.lastIndexOf(role) === index)
+        .sort((a, b) => (a < b ? -1 : 1));
 
     return (
       <project-detail>
@@ -30,13 +46,14 @@ class ProjectDetail extends Component {
             </h1>
             {/*<em>{projectType}</em>*/}
 
+            {overview && <p>{overview}</p>}
+
             <figure className="heroImg">
               {/* TODO: srcSet for swapping responsive images */}
               <img src={heroImgSmallUrl} alt="result alt text" />
 
               {/* TODO: fig caption with description field in contentful */}
             </figure>
-            <p dangerouslySetInnerHTML={{ __html: overview }} />
 
             {thumbnails &&
               thumbnails.map((thumbnail, index) => {
@@ -46,25 +63,41 @@ class ProjectDetail extends Component {
           <section>
             {problem && (
               <React.Fragment>
-                <h3>Problem</h3>
+                <h2>
+                  {title}
+                  's Problem
+                </h2>
                 <p>{problem}</p>
               </React.Fragment>
             )}
-
+          </section>
+          <section>
             {solution && (
               <React.Fragment>
-                <h3>Solution</h3>
+                <h2>Key Contributions</h2>
                 <p>{solution}</p>
               </React.Fragment>
             )}
-
-            {/*{role && <h3>Role</h3>}*/}
           </section>
 
+          {roles && (
+            <section
+              className="roles"
+              style={{ backgroundColor: `${brandColor}`, color: "white" }}
+            >
+              <h2>Responsibilities</h2>
+              <ul>
+                {filteredAndSortedRoles.map(role => {
+                  return <li>{role}</li>;
+                })}
+              </ul>
+            </section>
+          )}
+
           {projectUrl && (
-            <aside>
-              <a href={projectUrl}>View {title}</a>
-            </aside>
+            <footer>
+              <a href={projectUrl}>View {title} live</a>
+            </footer>
           )}
         </article>
       </project-detail>
@@ -91,7 +124,8 @@ ProjectDetail.defaultProps = {
           }
         }
       },
-      thumbnails: []
+      thumbnails: [],
+      role: []
     }
   }
 };
@@ -103,6 +137,7 @@ ProjectDetail.propTypes = {
       overview: string,
       problem: string,
       solution: string,
+      roles: array,
       clientLogo: shape({
         fields: shape({
           file: shape({

@@ -23,9 +23,9 @@ const Header = () => {
             Playground
           </NavLink>
 
-          <NavLink activeClassName="active" to="/resume">
+          {/*<NavLink activeClassName="active" to="/resume">
             Resumé
-          </NavLink>
+  </NavLink>*/}
         </nav>
       </div>
     </header>

@@ -5,12 +5,10 @@ import { shape, string } from "prop-types";
 // Style
 import "./PlaygroundCard.scss";
 
-import CodepenIcon from "../../assets/Codepen-black.svg";
-
 class PlaygroundCard extends Component {
   render() {
     let fields = this.props.fields;
-    let { title, embed, codepenUrl, heroImgSmall } = fields;
+    let { title, embed, heroImgSmall } = fields;
     let heroImgSmallUrl = heroImgSmall && heroImgSmall.fields.file.url;
 
     return (
@@ -20,14 +18,6 @@ class PlaygroundCard extends Component {
         </h3>
         <figure>
           {embed && <figure dangerouslySetInnerHTML={{ __html: embed }} />}
-          {codepenUrl && (
-            <figcaption>
-              <a className="button" href={codepenUrl}>
-                View on CodePen
-                <CodepenIcon />
-              </a>
-            </figcaption>
-          )}
           {heroImgSmallUrl && <img src={heroImgSmallUrl} alt={title} />}
         </figure>
       </playground-card>

@@ -16,6 +16,10 @@ body {
 
 img {
   width: 100%;
+
+  @include for-desktop-up {
+    width: auto;
+  }
 }
 
 button {
