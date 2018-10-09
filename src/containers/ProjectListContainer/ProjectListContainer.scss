@@ -13,10 +13,15 @@ project-list-container {
     //animation: moveInText 0.5s both;
     display: grid;
     grid-gap: $space-sm;
-    grid-template-columns: repeat(auto-fit, minmax(400px, auto));
+
+    @include for-tablet-portrait-up {
+      grid-template-columns: repeat(auto-fit, minmax(350px, auto));
+    }
 
     &.playground {
-      grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+      @include for-tablet-portrait-up {
+        grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      }
     }
   }
 }
