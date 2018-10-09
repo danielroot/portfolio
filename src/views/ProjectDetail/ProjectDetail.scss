@@ -11,6 +11,10 @@ project-detail {
     width: 65%;
   }
 
+  article header p {
+    //font-size: $font-size-sm;
+  }
+
   .client-logo {
     width: 20%;
     fill: $white;
@@ -30,8 +34,12 @@ project-detail {
     }
   }
 
-  .heroImg {
+  .hero-container {
     animation: moveInHero 0.35s both;
+
+    img {
+      border: 1px solid $gray-light;
+    }
   }
 
   section {
@@ -40,6 +48,12 @@ project-detail {
     @include for-desktop-up {
       //width: 65%;
     }
+
+    &.contributions {
+      ul li {
+        @include list-bulleted();
+      }
+    }
   }
 
   section.roles {
@@ -47,7 +61,7 @@ project-detail {
     padding: $space-sm $space-sm $space-md;
     border-radius: 4px;
 
-    @include for-desktop-up {
+    @include for-tablet-portrait-up {
       width: 50%;
     }
 
@@ -59,37 +73,11 @@ project-detail {
       margin-bottom: $space-sm;
     }
   }
-}
 
-@keyframes moveIn {
-  from {
-    transform: translateY(-20%);
-    //opacity: 0;
-  }
-  to {
-    transform: translateY(20%);
-    //opacity: 1;
-  }
-}
-
-@keyframes moveInText {
-  from {
-    transform: translateY(-20%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0%);
-    opacity: 1;
-  }
-}
-
-@keyframes moveInHero {
-  from {
-    transform: translateY(-1%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0%);
-    opacity: 1;
+  .view-link {
+    color: $brand-primary;
+    border: 2px solid;
+    padding: $space-xs $space-sm;
+    border-radius: 4px;
   }
 }

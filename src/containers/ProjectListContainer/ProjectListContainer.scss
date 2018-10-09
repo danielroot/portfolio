@@ -10,6 +10,7 @@ project-list-container {
   }
 
   .grid {
+    //animation: moveInText 0.5s both;
     display: grid;
     grid-gap: $space-sm;
     grid-template-columns: repeat(auto-fit, minmax(400px, auto));
@@ -17,16 +18,5 @@ project-list-container {
     &.playground {
       grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
     }
-  }
-}
-
-@keyframes moveInText {
-  from {
-    transform: translateY(-20%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0%);
-    opacity: 1;
   }
 }

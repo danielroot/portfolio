@@ -11,6 +11,7 @@ import config from "../../config.json";
 import Header from "../../views/Header/Header";
 import Footer from "../../views/Footer/Footer";
 import Landing from "../Landing";
+import About from "../About";
 import Resume from "../Resume";
 import ProjectListContainer from "../../containers/ProjectListContainer/ProjectListContainer";
 import ProjectDetail from "../../views/ProjectDetail/ProjectDetail";
@@ -39,14 +40,21 @@ class App extends Component {
     });
 
     // get the Projects API
-    client.getEntries({ content_type: "project" }).then(response => {
-      this.setState({ projects: response.items });
-    });
+    client
+      .getEntries({ content_type: "project", order: "-fields.projectDate" })
+      .then(response => {
+        this.setState({ projects: response.items });
+      });
 
     // get the Playground API
-    client.getEntries({ content_type: "playground" }).then(response => {
-      this.setState({ playground: response.items });
-    });
+    client
+      .getEntries({
+        content_type: "playground",
+        order: "-fields.playgroundDate"
+      })
+      .then(response => {
+        this.setState({ playground: response.items });
+      });
   }
   render() {
     return (
@@ -152,6 +160,7 @@ class App extends Component {
                       }}
                     />
 
+                    <Route exact path="/about" component={About} />
                     <Route exact path="/resume" component={Resume} />
                     <Route exact path="/style-guide" component={StyleGuide} />
                     <Route component={NotFound} />

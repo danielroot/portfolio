@@ -56,3 +56,9 @@
   clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
   clip: rect(1px, 1px, 1px, 1px);
 }
+
+@mixin list-bulleted {
+  list-style-type: disc;
+  line-height: 1.6;
+  margin-bottom: $space-xs;
+}

@@ -1,6 +1,7 @@
 // Deps
 import React, { Component } from "react";
 import { shape, string, array } from "prop-types";
+import ReactMarkdown from "react-markdown";
 
 // Style
 import "./ProjectDetail.scss";
@@ -11,8 +12,9 @@ class ProjectDetail extends Component {
     let {
       title,
       overview,
-      problem,
-      solution,
+      //problem,
+      //solution,
+      contributions,
       projectUrl,
       thumbnails,
       clientLogo,
@@ -21,6 +23,7 @@ class ProjectDetail extends Component {
     } = fields;
     let clientLogoUrl = clientLogo && clientLogo.fields.file.url;
     let heroImgSmallUrl = fields.heroImgSmall.fields.file.url;
+    let heroImgDesc = fields.heroImgSmall.fields.description;
     //let projectType = fields.projectType;
 
     const filteredAndSortedRoles =
@@ -46,11 +49,11 @@ class ProjectDetail extends Component {
             </h1>
             {/*<em>{projectType}</em>*/}
 
-            {overview && <p>{overview}</p>}
+            {overview && <ReactMarkdown source={overview} />}
 
-            <figure className="heroImg">
+            <figure className="hero-container">
               {/* TODO: srcSet for swapping responsive images */}
-              <img src={heroImgSmallUrl} alt="result alt text" />
+              <img src={heroImgSmallUrl} alt={heroImgDesc} />
 
               {/* TODO: fig caption with description field in contentful */}
             </figure>
@@ -60,22 +63,30 @@ class ProjectDetail extends Component {
                 return <img src={thumbnail} alt="" key={index} />;
               })}
           </header>
-          <section>
+          {/*<section>
             {problem && (
               <React.Fragment>
                 <h2>
                   {title}
-                  's Problem
+                  &#39;s Problem
                 </h2>
-                <p>{problem}</p>
+                <ReactMarkdown source={problem} />
               </React.Fragment>
             )}
-          </section>
-          <section>
+          </section>*/}
+          {/*<section>
             {solution && (
               <React.Fragment>
+                <h2>Solution</h2>
+                <ReactMarkdown source={solution} />
+              </React.Fragment>
+            )}
+          </section>*/}
+          <section className="contributions">
+            {contributions && (
+              <React.Fragment>
                 <h2>Key Contributions</h2>
-                <p>{solution}</p>
+                <ReactMarkdown source={contributions} />
               </React.Fragment>
             )}
           </section>
@@ -87,8 +98,8 @@ class ProjectDetail extends Component {
             >
               <h2>Responsibilities</h2>
               <ul>
-                {filteredAndSortedRoles.map(role => {
-                  return <li>{role}</li>;
+                {filteredAndSortedRoles.map((role, index) => {
+                  return <li key={index}>{role}</li>;
                 })}
               </ul>
             </section>
@@ -96,7 +107,9 @@ class ProjectDetail extends Component {
 
           {projectUrl && (
             <footer>
-              <a href={projectUrl}>View {title} live</a>
+              <a className="view-link" href={projectUrl}>
+                View {title} live &#8663;
+              </a>
             </footer>
           )}
         </article>

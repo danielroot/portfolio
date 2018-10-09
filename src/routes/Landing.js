@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 
 // Components
-import About from "./About";
+import Intro from "./Intro";
 //import ProjectCards from "../views/ProjectCard/ProjectCard";
 import { arrayOf, shape, string } from "prop-types";
 
@@ -10,7 +10,7 @@ class Landing extends Component {
   render() {
     return (
       <React.Fragment>
-        <About />
+        <Intro />
         {/*<div className="grid">
           {this.props.projects
             .filter(project => {

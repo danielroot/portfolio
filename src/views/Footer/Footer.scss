@@ -6,7 +6,6 @@
 
 footer.global {
   // background: #193c51;
-  // color: $off-white;
   width: 100%;
   align-self: end;
   padding: $space-md 0;
@@ -14,18 +13,30 @@ footer.global {
   text-align: center;
 
   nav {
-    margin-bottom: $space-lg;
+    margin-bottom: $space-md;
     flex-wrap: wrap;
     justify-content: space-around;
 
     a {
       color: $brand-primary;
       font-size: $font-size-sm;
+      flex-basis: 33.333%;
+      margin-bottom: $space-sm;
+      padding: $space-sm;
+
+      @include for-tablet-portrait-up {
+        flex-basis: auto;
+      }
     }
 
-    svg {
+    svg path {
+      transition: 0.35s all;
+    }
+
+    svg:not(:hover) {
       path {
-        fill: currentColor;
+        //fill: $brand-primary;
+        fill: $brand-med;
       }
     }
   }

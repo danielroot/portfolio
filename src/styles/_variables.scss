@@ -41,7 +41,9 @@ $font-weight-medium: 600;
 // ==========================================================================
 
 // Basic Colors
-$brand-primary: #00ae9e;
+//$brand-primary: #00ae9e;
+$brand-primary: #3a61e0;
+$brand-med: darken($brand-primary, 10%);
 $white: #fff;
 $semi-transparent-white: rgba(255, 255, 255, 0.9);
 $semi-transparent-black: rgba(0, 0, 0, 0.9);

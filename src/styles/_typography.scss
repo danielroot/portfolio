@@ -3,7 +3,7 @@
 // ==========================================================================
 
 p {
-  font-size: $font-size-md;
+  font-size: $font-size-sm;
   margin-bottom: $space-sm;
 
   a {
@@ -11,12 +11,11 @@ p {
     transition: $transition-all-ease;
 
     &:hover {
-      color: darken($brand-primary, 10%);
+      color: $brand-med;
     }
   }
 }
 
-h1,
 h2,
 h3,
 h4,
@@ -26,8 +25,10 @@ h5 {
 
 h1 {
   font-size: $font-size-xl;
+  font-weight: $font-weight-regular;
   line-height: 1;
   margin-bottom: $space-sm;
+  letter-spacing: -4px;
 }
 
 h2 {

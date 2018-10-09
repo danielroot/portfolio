@@ -5,11 +5,12 @@ import { originYear, currentYear } from "../../utils/Dates";
 // Style
 import "./Footer.scss";
 
-import DribbleIcon from "../../assets/Dribbble-black.svg";
-import GithubIcon from "../../assets/Github-black.svg";
-import LinkedInIcon from "../../assets/LinkedIn-black.svg";
+import DribbleIcon from "../../assets/Dribbble-color.svg";
+import GithubIcon from "../../assets/Github-color.svg";
+import LinkedInIcon from "../../assets/LinkedIn-color.svg";
 import CodepenIcon from "../../assets/Codepen-black.svg";
 import InstagramIcon from "../../assets/Instagram-color.svg";
+import SpotifyIcon from "../../assets/Spotify-color.svg";
 
 class Footer extends Component {
   render() {
@@ -18,7 +19,7 @@ class Footer extends Component {
         <div className="container">
           <nav>
             {/*<Link to="/style-guide">Style Guide</Link>*/}
-            <a href="http://www.linkedin.com/danrootdesign">
+            <a href="https://www.linkedin.com/in/dan-root/">
               <LinkedInIcon />
             </a>
             <a href="http://www.dribbble.com/danrootdesign">
@@ -32,6 +33,9 @@ class Footer extends Component {
             </a>
             <a href="http://www.instagram.com/danroot.co">
               <InstagramIcon />
+            </a>
+            <a href="https://open.spotify.com/user/danrootdrums?si=eSQTIY8_Tv2yHWNfOPPC1g">
+              <SpotifyIcon />
             </a>
           </nav>
 

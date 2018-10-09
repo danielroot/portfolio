@@ -16,13 +16,15 @@ const Header = () => {
           <NavLink activeClassName="active" to="/products">
             Products
           </NavLink>
-          <NavLink activeClassName="active" to="/prototypes">
+          {/*<NavLink activeClassName="active" to="/prototypes">
             Prototypes
-          </NavLink>
+  </NavLink>*/}
           <NavLink activeClassName="active" to="/playground">
             Playground
           </NavLink>
-
+          {/* <NavLink activeClassName="active" to="/about">
+            About
+</NavLink>*/}
           {/*<NavLink activeClassName="active" to="/resume">
             Resumé
   </NavLink>*/}
