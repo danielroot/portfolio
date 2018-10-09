@@ -36,6 +36,7 @@ project-detail {
 
   .hero-container {
     animation: moveInHero 0.35s both;
+    margin-bottom: $space-md;
 
     img {
       border: 1px solid $gray-light;
