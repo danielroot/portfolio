@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 //import { Link } from "react-router-dom";
 import { originYear, currentYear } from "../../utils/Dates";
+
 // Style
 import "./Footer.scss";
 

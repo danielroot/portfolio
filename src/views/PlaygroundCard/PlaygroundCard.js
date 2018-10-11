@@ -1,15 +1,43 @@
 // Deps
 import React, { Component } from "react";
 import { shape, string } from "prop-types";
+import throttle from "lodash.throttle";
 
 // Style
 import "./PlaygroundCard.scss";
 
 class PlaygroundCard extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isTablet: false
+    };
+
+    this.handleWindowResize = this.handleWindowResize.bind(this);
+    this.handleWindowResize = throttle(this.handleWindowResize, 200);
+  }
+
+  handleWindowResize() {
+    this.setState({ isTablet: window.innerWidth >= 600 });
+  }
+
+  componentWillMount() {
+    this.handleWindowResize();
+  }
+
+  componentDidMount() {
+    window.addEventListener("resize", this.handleWindowResize);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.handleWindowResize);
+  }
+
   render() {
     let fields = this.props.fields;
-    let { title, embed, heroImgSmall } = fields;
+    let { title, embed, heroImgSmall, playgroundUrl } = fields;
     let heroImgSmallUrl = heroImgSmall && heroImgSmall.fields.file.url;
+    const { isTablet } = this.state;
 
     return (
       <playground-card>
@@ -17,8 +45,13 @@ class PlaygroundCard extends Component {
           <span>{title}</span>
         </h3>
         <figure>
-          {embed && <figure dangerouslySetInnerHTML={{ __html: embed }} />}
-          {heroImgSmallUrl && <img src={heroImgSmallUrl} alt={title} />}
+          {isTablet ? (
+            <figure dangerouslySetInnerHTML={{ __html: embed }} />
+          ) : (
+            <a href={playgroundUrl}>
+              <img src={heroImgSmallUrl} alt={title} />
+            </a>
+          )}
         </figure>
       </playground-card>
     );
