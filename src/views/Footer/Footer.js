@@ -49,9 +49,9 @@ class Footer extends Component {
             <br />
             Made in Seattle, WA
           </p>
-          <small>
+          <p>
             &copy; {originYear} - {currentYear}
-          </small>
+          </p>
         </div>
       </footer>
     );

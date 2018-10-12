@@ -8,15 +8,20 @@ header.global {
   width: 100%;
   //background: #fff;
   font-weight: $font-weight-light;
-  padding: 1rem 0;
+  //padding: $space-md 0;
   text-align: center;
 
   a {
     color: $off-black;
     //text-transform: uppercase;
     margin-left: $space-md;
-    font-size: $font-size-xs;
-    //letter-spacing: 5px;
+    font-size: $font-size-sm;
+    padding: $space-md $space-xs;
+
+    @include for-tablet-portrait-up {
+      font-size: $font-size-xs;
+      padding: $space-sm $space-xs;
+    }
   }
 }
 

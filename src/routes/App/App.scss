@@ -37,8 +37,13 @@ article {
 }
 
 .intro {
+  height: 100vh;
+
   @include for-tablet-landscape-up {
     width: 65%;
-    height: 100vh;
+  }
+
+  p {
+    font-size: $font-size-md;
   }
 }

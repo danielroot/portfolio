@@ -9,7 +9,7 @@ footer.global {
   width: 100%;
   align-self: end;
   padding: $space-md 0;
-  font-size: $font-size-xs;
+  //font-size: $font-size-xs;
   text-align: center;
 
   nav {
@@ -42,6 +42,10 @@ footer.global {
   }
 
   p {
-    font-size: $font-size-xs;
+    font-size: $font-size-sm;
+
+    @include for-tablet-portrait-up {
+      font-size: $font-size-xs;
+    }
   }
 }

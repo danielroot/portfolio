@@ -21,6 +21,4 @@ Written with the CRUV methodology
 
 using gh-pages
 
-### Kanban
-
-Trello board link
+`npm run deploy`
