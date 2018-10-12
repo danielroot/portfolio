@@ -11,8 +11,8 @@ project-detail {
     width: 65%;
   }
 
-  article header p {
-    //font-size: $font-size-sm;
+  article header {
+    min-height: 50vh;
   }
 
   .client-logo {

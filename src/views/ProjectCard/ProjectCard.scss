@@ -22,20 +22,28 @@ project-card {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 390px;
+    min-height: 250px;
     position: relative;
 
+    @include for-tablet-landscape-up {
+      min-height: 350px;
+    }
+
     .client-logo {
-      width: 50px;
+      width: 40px;
       height: auto;
     }
 
     h3 {
-      font-size: $font-size-xs;
+      font-size: $font-size-sm;
       font-weight: $font-weight-light;
       text-transform: uppercase;
       letter-spacing: 2px;
       align-self: flex-end;
+
+      @include for-tablet-landscape-up {
+        font-size: $font-size-xs;
+      }
     }
   }
 

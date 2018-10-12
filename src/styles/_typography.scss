@@ -28,7 +28,11 @@ h1 {
   font-weight: $font-weight-regular;
   line-height: 1;
   margin-bottom: $space-sm;
-  letter-spacing: -4px;
+  letter-spacing: -2px;
+
+  @include for-tablet-landscape-up {
+    letter-spacing: -4px;
+  }
 }
 
 h2 {

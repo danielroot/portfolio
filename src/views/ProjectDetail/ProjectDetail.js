@@ -16,7 +16,7 @@ class ProjectDetail extends Component {
       //solution,
       contributions,
       projectUrl,
-      thumbnails,
+      //thumbnails,
       clientLogo,
       roles,
       brandColor
