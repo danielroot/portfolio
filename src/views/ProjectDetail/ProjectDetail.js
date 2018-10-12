@@ -58,10 +58,10 @@ class ProjectDetail extends Component {
               {/* TODO: fig caption with description field in contentful */}
             </figure>
 
-            {thumbnails &&
+            {/*{thumbnails &&
               thumbnails.map((thumbnail, index) => {
                 return <img src={thumbnail} alt="" key={index} />;
-              })}
+              })}*/}
           </header>
           {/*<section>
             {problem && (
