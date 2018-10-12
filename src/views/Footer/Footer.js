@@ -11,7 +11,7 @@ import GithubIcon from "../../assets/Github-color.svg";
 import LinkedInIcon from "../../assets/LinkedIn-color.svg";
 import CodepenIcon from "../../assets/Codepen-black.svg";
 import InstagramIcon from "../../assets/Instagram-color.svg";
-import SpotifyIcon from "../../assets/Spotify-color.svg";
+import TwitterIcon from "../../assets/Twitter-color.svg";
 
 class Footer extends Component {
   render() {
@@ -35,8 +35,8 @@ class Footer extends Component {
             <a href="http://www.instagram.com/danroot.co">
               <InstagramIcon />
             </a>
-            <a href="https://open.spotify.com/user/danrootdrums?si=eSQTIY8_Tv2yHWNfOPPC1g">
-              <SpotifyIcon />
+            <a href="https://www.twitter.com/danrootdesign">
+              <TwitterIcon />
             </a>
           </nav>
 
