@@ -39,7 +39,8 @@ project-detail {
     margin-bottom: $space-md;
 
     img {
-      border: 1px solid $gray-light;
+      border: 2px solid $white;
+      border-radius: 1rem;
     }
   }
 

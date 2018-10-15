@@ -16,7 +16,7 @@ project-card {
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px, rgba(0, 0, 0, 0.05) 0px 0.5px 1px;
   position: relative;
-  transition: 0.35s background;
+  transition: 0.35s all;
 
   figure {
     display: flex;
@@ -48,11 +48,10 @@ project-card {
   }
 
   &:hover {
-    //background-position: 0 -2%;
-    //transition: 0.5s background;
-
-    @include for-big-desktop-up {
-      //transform: scale(1.1);
+    @include for-desktop-up {
+      transform: translate3d(0px, -1px, 0px);
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 33px,
+        rgba(0, 0, 0, 0.18) 0px 4px 11px;
     }
   }
 }
