@@ -22,7 +22,7 @@ class ProjectCard extends Component {
     }
 
     return (
-      <Link to={`/${category}/${slug}`} aria-labeledby={`'card-'${slug}`}>
+      <Link to={`/${category}/${slug}`} aria-labelledby={`card-${slug}`}>
         <project-card
           style={{
             backgroundColor: `${brandColor}`,
@@ -34,11 +34,11 @@ class ProjectCard extends Component {
               <img
                 src={clientLogoUrl}
                 className="client-logo"
-                alt={`${title} 'logo'`}
+                alt={`${title} logo`}
                 aria-hidden="true"
               />
             )}
-            <h3 id={`'card-'${slug}`}>{title}</h3>
+            <h3 id={`card-${slug}`}>{title}</h3>
           </figure>
         </project-card>
       </Link>
