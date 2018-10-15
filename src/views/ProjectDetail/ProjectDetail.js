@@ -21,8 +21,8 @@ class ProjectDetail extends Component {
       roles,
       brandColor
     } = fields;
-    let clientLogoUrl = clientLogo && clientLogo.fields.file.url;
-    let heroImgSmallUrl = fields.heroImgSmall.fields.file.url;
+    let clientLogoUrl = clientLogo && `https:${clientLogo.fields.file.url}`;
+    let heroImgSmallUrl = `https:${fields.heroImgSmall.fields.file.url}`;
     let heroImgDesc = fields.heroImgSmall.fields.description;
     //let projectType = fields.projectType;
 

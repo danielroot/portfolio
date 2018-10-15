@@ -10,9 +10,10 @@ class ProjectCard extends Component {
   render() {
     let fields = this.props.fields;
     let { slug, title, clientLogo, previewImage, brandColor } = fields;
-    let previewImageUrl = previewImage && previewImage.fields.file.url;
+    let previewImageUrl =
+      previewImage && `https:${previewImage.fields.file.url}`;
     //let heroImgDescription = heroImgSmall.fields.description;
-    let clientLogoUrl = clientLogo && clientLogo.fields.file.url;
+    let clientLogoUrl = clientLogo && `https:${clientLogo.fields.file.url}`;
     let category;
 
     if (this.props.sys.contentType.sys.id === "project") {

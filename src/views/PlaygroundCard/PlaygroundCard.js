@@ -36,7 +36,8 @@ class PlaygroundCard extends Component {
   render() {
     let fields = this.props.fields;
     let { title, embed, heroImgSmall, playgroundUrl } = fields;
-    let heroImgSmallUrl = heroImgSmall && heroImgSmall.fields.file.url;
+    let heroImgSmallUrl =
+      heroImgSmall && `https:${heroImgSmall.fields.file.url}`;
     const { isTablet } = this.state;
 
     return (
