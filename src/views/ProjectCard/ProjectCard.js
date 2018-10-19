@@ -25,6 +25,7 @@ class ProjectCard extends Component {
     return (
       <Link to={`/${category}/${slug}`} aria-labelledby={`card-${slug}`}>
         <project-card
+          //make these inline images so they can use srcSet
           style={{
             backgroundColor: `${brandColor}`,
             backgroundImage: `url(${previewImageUrl})`

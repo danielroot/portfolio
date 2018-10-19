@@ -34,6 +34,10 @@ project-detail {
     }
   }
 
+  h2 {
+    margin-bottom: $space-sm;
+  }
+
   .hero-container {
     animation: moveInHero 0.35s both;
     margin-bottom: $space-md;
@@ -72,14 +76,13 @@ project-detail {
       font-size: $font-size-xs;
       font-weight: $font-weight-light;
       letter-spacing: 2px;
-      margin-bottom: $space-sm;
     }
   }
 
   .view-link {
     color: $brand-primary;
     border: 2px solid;
-    padding: $space-xs $space-sm;
+    padding: $space-sm;
     border-radius: 4px;
   }
 }

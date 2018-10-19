@@ -19,11 +19,12 @@ class ProjectDetail extends Component {
       //thumbnails,
       clientLogo,
       roles,
-      brandColor
+      brandColor,
+      heroImg
     } = fields;
     let clientLogoUrl = clientLogo && `https:${clientLogo.fields.file.url}`;
-    let heroImgSmallUrl = `https:${fields.heroImgSmall.fields.file.url}`;
-    let heroImgDesc = fields.heroImgSmall.fields.description;
+    let heroImgUrl = `https:${heroImg.fields.file.url}`;
+    let heroImgDesc = heroImg.fields.description;
     //let projectType = fields.projectType;
 
     const filteredAndSortedRoles =
@@ -53,7 +54,16 @@ class ProjectDetail extends Component {
 
             <figure className="hero-container">
               {/* TODO: srcSet for swapping responsive images */}
-              <img src={heroImgSmallUrl} alt={heroImgDesc} />
+              <img
+                src={`${heroImgUrl}?w=320`}
+                sizes="50vw"
+                srcSet={`${heroImgUrl}?w=320 320w,
+                ${heroImgUrl}?w=480 480w,
+                ${heroImgUrl}?w=800 800w,
+                ${heroImgUrl}?w=1000 1000w
+                `}
+                alt={heroImgDesc}
+              />
 
               {/* TODO: fig caption with description field in contentful */}
             </figure>
@@ -130,7 +140,7 @@ ProjectDetail.defaultProps = {
           }
         }
       },
-      heroImgSmall: {
+      heroImg: {
         fields: {
           file: {
             url: ""
