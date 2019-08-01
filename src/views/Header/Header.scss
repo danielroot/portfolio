@@ -7,7 +7,7 @@
 header.global {
   width: 100%;
   //background: #fff;
-  font-weight: $font-weight-light;
+  font-weight: $font-weight-regular;
   //padding: $space-md 0;
   text-align: center;
 
@@ -37,7 +37,7 @@ nav {
 
   a.logo {
     color: $off-black;
-    font-family: "DDCHardware-Condensed";
+    //font-family: "DDCHardware-Condensed";
     font-size: $font-size-sm;
     margin-left: 0;
     margin-right: auto;

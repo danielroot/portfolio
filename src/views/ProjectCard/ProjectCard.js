@@ -28,7 +28,7 @@ class ProjectCard extends Component {
           //make these inline images so they can use srcSet
           style={{
             backgroundColor: `${brandColor}`,
-            backgroundImage: `url(${previewImageUrl})`
+            backgroundImage: `url(${previewImageUrl}?w=500)`
           }}
         >
           <figure>

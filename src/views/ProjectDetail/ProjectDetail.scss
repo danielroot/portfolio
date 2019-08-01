@@ -6,13 +6,18 @@
 
 project-detail {
   display: block;
+  //margin: 0 auto;
 
   @include for-desktop-up {
-    width: 65%;
+    //width: 65%;
   }
 
   article header {
-    min-height: 50vh;
+    margin-bottom: $space-lg;
+
+    @include for-desktop-up {
+      width: 65%;
+    }
   }
 
   .client-logo {
@@ -28,9 +33,14 @@ project-detail {
   }
 
   h1 {
+    font-size: $font-size-sm;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+
     span {
       animation: moveInText 0.5s both;
-      display: block;
+      display: inline-block;
+      // padding-top: 1rem;
     }
   }
 
@@ -41,11 +51,6 @@ project-detail {
   .hero-container {
     animation: moveInHero 0.35s both;
     margin-bottom: $space-md;
-
-    img {
-      border: 2px solid $white;
-      border-radius: 1rem;
-    }
   }
 
   section {
@@ -56,6 +61,10 @@ project-detail {
     }
 
     &.contributions {
+      @include for-desktop-up {
+        width: 65%;
+      }
+
       ul li {
         @include list-bulleted();
       }
@@ -66,6 +75,7 @@ project-detail {
     display: block;
     padding: $space-sm $space-sm $space-md;
     border-radius: 4px;
+    margin-bottom: $space-lg;
 
     @include for-tablet-portrait-up {
       width: 50%;
@@ -79,10 +89,35 @@ project-detail {
     }
   }
 
+  section.thumbnail {
+    figure {
+      display: flex;
+      figcaption {
+        font-size: $font-size-xs;
+        font-style: italic;
+        margin: 0 1rem;
+      }
+    }
+  }
+
   .view-link {
     color: $brand-primary;
-    border: 2px solid;
+    border: 2px solid $brand-primary;
     padding: $space-sm;
     border-radius: 4px;
+    display: inline-block;
+    transition: all 0.2s;
+
+    &:hover {
+      background: $brand-primary;
+      color: $white;
+    }
+  }
+
+  figure {
+    img {
+      border: 2px solid $off-white;
+      //border-radius: 1rem;
+    }
   }
 }

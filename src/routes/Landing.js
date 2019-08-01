@@ -3,23 +3,21 @@ import React, { Component } from "react";
 
 // Components
 import Intro from "./Intro";
-//import ProjectCards from "../views/ProjectCard/ProjectCard";
+//import ProjectCard from "../views/ProjectCard/ProjectCard";
 import { arrayOf, shape, string } from "prop-types";
+import ProjectListContainer from "../containers/ProjectListContainer/ProjectListContainer";
 
 class Landing extends Component {
-  render() {
+  render(props) {
     return (
       <React.Fragment>
         <Intro />
-        {/*<div className="grid">
-          {this.props.projects
-            .filter(project => {
-              return project.fields.isShowcase === true;
-            })
-            .map(project => {
-              return <ProjectCards key={project.sys.id} {...project} />;
-            })}
-          </div>*/}
+        <ProjectListContainer
+          heading="Products"
+          subheading="Shipped projects with cross-functional/agile teams"
+          projects={this.props.projects}
+          {...props}
+        />
       </React.Fragment>
     );
   }

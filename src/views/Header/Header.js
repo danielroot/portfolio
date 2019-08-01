@@ -11,7 +11,7 @@ const Header = () => {
       <div className="container">
         <nav>
           <NavLink exact activeClassName="active" to="/" className="logo">
-            DanRoot.co
+            Dan Root | <small>Design Technologist</small>
           </NavLink>
           <NavLink activeClassName="active" to="/products">
             Products

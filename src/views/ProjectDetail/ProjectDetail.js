@@ -10,22 +10,25 @@ class ProjectDetail extends Component {
   render() {
     let fields = this.props.project.fields;
     let {
+      //previewImage,
       title,
       overview,
       //problem,
       //solution,
       contributions,
       projectUrl,
-      //thumbnails,
+      thumbnails,
       clientLogo,
       roles,
-      brandColor,
-      heroImg
+      brandColor
+      //heroImg
     } = fields;
     let clientLogoUrl = clientLogo && `https:${clientLogo.fields.file.url}`;
-    let heroImgUrl = `https:${heroImg.fields.file.url}`;
-    let heroImgDesc = heroImg.fields.description;
+    //let heroImgUrl = `https:${heroImg.fields.file.url}`;
+    //let heroImgDesc = heroImg.fields.description;
     //let projectType = fields.projectType;
+    //let previewImageUrl =
+    //previewImage && `https:${previewImage.fields.file.url}`;
 
     const filteredAndSortedRoles =
       roles &&
@@ -35,6 +38,8 @@ class ProjectDetail extends Component {
 
     return (
       <project-detail>
+        {/*<img src={previewImageUrl} />*/}
+
         <article>
           <header>
             <h1>
@@ -42,7 +47,7 @@ class ProjectDetail extends Component {
                 <img
                   src={clientLogoUrl}
                   className="client-logo"
-                  alt={`${title} 'logo'`}
+                  //alt={`${title} 'logo'`}
                   aria-hidden="true"
                 />
               )}
@@ -51,9 +56,7 @@ class ProjectDetail extends Component {
             {/*<em>{projectType}</em>*/}
 
             {overview && <ReactMarkdown source={overview} />}
-
-            <figure className="hero-container">
-              {/* TODO: srcSet for swapping responsive images */}
+            {/*<figure className="hero-container">
               <img
                 src={`${heroImgUrl}?w=320`}
                 sizes="50vw"
@@ -64,15 +67,14 @@ class ProjectDetail extends Component {
                 `}
                 alt={heroImgDesc}
               />
-
-              {/* TODO: fig caption with description field in contentful */}
-            </figure>
-
-            {/*{thumbnails &&
-              thumbnails.map((thumbnail, index) => {
-                return <img src={thumbnail} alt="" key={index} />;
-              })}*/}
+              </figure>*/}
           </header>
+          {contributions && (
+            <section className="contributions">
+              <h2>Key Contributions</h2>
+              <ReactMarkdown source={contributions} />
+            </section>
+          )}
           {/*<section>
             {problem && (
               <React.Fragment>
@@ -92,14 +94,34 @@ class ProjectDetail extends Component {
               </React.Fragment>
             )}
           </section>*/}
-          <section className="contributions">
-            {contributions && (
-              <React.Fragment>
-                <h2>Key Contributions</h2>
-                <ReactMarkdown source={contributions} />
-              </React.Fragment>
-            )}
-          </section>
+
+          {thumbnails && (
+            <React.Fragment>
+              <h2>Deliverables</h2>
+              {thumbnails.map((thumbnail, index) => {
+                thumbnail = thumbnail.fields;
+
+                return (
+                  <section className="thumbnail" key={index}>
+                    <figure>
+                      <img
+                        src={`${thumbnail.file.url}?w=320`}
+                        sizes="50vw"
+                        srcSet={`${thumbnail.file.url}?w=320 320w,
+                    ${thumbnail.file.url}?w=480 480w,
+                    ${thumbnail.file.url}?w=800 800w,
+                    ${thumbnail.file.url}?w=1000 1000w
+                    `}
+                        alt={thumbnail.description}
+                      />
+
+                      <figcaption>{thumbnail.description}</figcaption>
+                    </figure>
+                  </section>
+                );
+              })}
+            </React.Fragment>
+          )}
 
           {roles && (
             <section
@@ -117,7 +139,12 @@ class ProjectDetail extends Component {
 
           {projectUrl && (
             <footer>
-              <a className="view-link" href={projectUrl}>
+              <a
+                className="view-link"
+                href={projectUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 View {title} live &#8663;
               </a>
             </footer>

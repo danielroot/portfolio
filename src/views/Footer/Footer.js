@@ -11,12 +11,15 @@ import GithubIcon from "../../assets/Github-color.svg";
 import LinkedInIcon from "../../assets/LinkedIn-color.svg";
 import CodepenIcon from "../../assets/Codepen-black.svg";
 import InstagramIcon from "../../assets/Instagram-color.svg";
-import TwitterIcon from "../../assets/Twitter-color.svg";
+//import TwitterIcon from "../../assets/Twitter-color.svg";
 
 class Footer extends Component {
   render() {
     return (
       <footer className="global">
+        <h3>
+          <small>around the web</small>
+        </h3>
         <div className="container">
           <nav>
             {/*<Link to="/style-guide">Style Guide</Link>*/}
@@ -35,9 +38,9 @@ class Footer extends Component {
             <a href="http://www.instagram.com/danroot.co">
               <InstagramIcon />
             </a>
-            <a href="https://www.twitter.com/danrootdesign">
+            {/*<a href="https://www.twitter.com/danrootdesign">
               <TwitterIcon />
-            </a>
+    </a>*/}
           </nav>
 
           <p>

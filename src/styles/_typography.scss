@@ -24,15 +24,15 @@ h5 {
 }
 
 h1 {
-  font-size: $font-size-xl;
+  font-size: $font-size-lg;
   font-weight: $font-weight-regular;
   line-height: 1;
   margin-bottom: $space-sm;
   letter-spacing: -2px;
 
-  @include for-tablet-landscape-up {
-    letter-spacing: -4px;
-  }
+  // @include for-tablet-landscape-up {
+  //   letter-spacing: -4px;
+  // }
 }
 
 h2 {
