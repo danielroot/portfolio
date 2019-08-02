@@ -17,9 +17,6 @@ class Footer extends Component {
   render() {
     return (
       <footer className="global">
-        <h3>
-          <small>around the web</small>
-        </h3>
         <div className="container">
           <nav>
             {/*<Link to="/style-guide">Style Guide</Link>*/}
@@ -45,7 +42,7 @@ class Footer extends Component {
 
           <p>
             Site hand-crafted with VS Code, React JS, Sass, Webpack, and
-            Contenful CMS.{" "}
+            Contenful API.{" "}
             <a href="https://github.com/danielroot/portfolio/">
               View in Github
             </a>{" "}

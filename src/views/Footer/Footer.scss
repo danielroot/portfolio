@@ -5,7 +5,7 @@
 @import "../../styles/shared";
 
 footer.global {
-  // background: #193c51;
+  //background: lighten($brand-primary, 47%);
   width: 100%;
   align-self: end;
   padding: $space-md 0;
@@ -15,7 +15,7 @@ footer.global {
   nav {
     margin-bottom: $space-md;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
 
     a {
       color: $brand-primary;

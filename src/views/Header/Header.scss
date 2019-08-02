@@ -17,10 +17,14 @@ header.global {
     margin-left: $space-md;
     font-size: $font-size-sm;
     padding: $space-md $space-xs;
+    transition: 0.5s background;
 
     @include for-tablet-portrait-up {
       font-size: $font-size-xs;
       padding: $space-sm $space-xs;
+    }
+    &:hover {
+      background: lighten($brand-primary, 47%);
     }
   }
 }
