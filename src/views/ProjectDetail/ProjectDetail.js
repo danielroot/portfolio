@@ -10,7 +10,7 @@ class ProjectDetail extends Component {
   render() {
     let fields = this.props.project.fields;
     let {
-      //previewImage,
+      previewImage,
       title,
       overview,
       //problem,
@@ -27,8 +27,8 @@ class ProjectDetail extends Component {
     //let heroImgUrl = `https:${heroImg.fields.file.url}`;
     //let heroImgDesc = heroImg.fields.description;
     //let projectType = fields.projectType;
-    //let previewImageUrl =
-    //previewImage && `https:${previewImage.fields.file.url}`;
+    let previewImageUrl =
+      previewImage && `https:${previewImage.fields.file.url}`;
 
     const filteredAndSortedRoles =
       roles &&
@@ -42,7 +42,26 @@ class ProjectDetail extends Component {
 
         <article>
           <header>
-            <h1>
+            <project-card
+              //make these inline images so they can use srcSet
+              style={{
+                backgroundColor: `${brandColor}`,
+                backgroundImage: `url(${previewImageUrl}?w=800)`
+              }}
+            >
+              <figure>
+                {clientLogoUrl && (
+                  <img
+                    src={clientLogoUrl}
+                    className="client-logo"
+                    alt={`${title} logo`}
+                    aria-hidden="true"
+                  />
+                )}
+                <h1>{title}</h1>
+              </figure>
+            </project-card>
+            {/*<h1>
               {clientLogoUrl && (
                 <img
                   src={clientLogoUrl}

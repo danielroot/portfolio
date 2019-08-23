@@ -20,17 +20,17 @@ project-detail {
     }
   }
 
-  .client-logo {
-    width: 20%;
-    fill: $white;
-    height: auto;
-    opacity: 0.025;
-    position: fixed;
-    top: 0;
-    right: -1.5%;
-    z-index: -1;
-    animation: moveIn 0.5s both;
-  }
+  // .client-logo {
+  //   width: 20%;
+  //   fill: $white;
+  //   height: auto;
+  //   opacity: 0.025;
+  //   position: fixed;
+  //   top: 0;
+  //   right: -1.5%;
+  //   z-index: -1;
+  //   animation: moveIn 0.5s both;
+  // }
 
   h1 {
     font-size: $font-size-sm;
@@ -116,7 +116,7 @@ project-detail {
 
   figure {
     img {
-      border: 2px solid $off-white;
+      //border: 2px solid $off-white;
       //border-radius: 1rem;
     }
   }
