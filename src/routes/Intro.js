@@ -1,23 +1,21 @@
 // Deps
 import React from "react";
+import IntroArt from "../assets/intro-art.svg";
+import { NavLink } from "react-router-dom";
 
 const Intro = () => {
   return (
     <div className="intro">
+      <IntroArt className="hero" />
+      <h2>
+        Hello! I&apos;m Dan Root
+      </h2>
       <p>
-        Hello, I am a multi-disciplined <strong>Design Technologist</strong> who
-        has been working in the web industry since 2006 (and as a hobbyist since
-        2000).
-      </p>
-      <p>
-        Currently I work as Sr. Front-End Designer and Engineer at{" "}
-        <a
-          href="http://www.deloittedigital.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+      Multi-disciplined UX/UI Product Designer working on the web  since 2006.
+Currently Sr. Front-End Designer/Developer at{" "}
+        <NavLink to="/products/deloitte-digital">
           Deloitte Digital
-        </a>{" "}
+        </NavLink>{" "}
         in Seattle, WA.
       </p>
     </div>

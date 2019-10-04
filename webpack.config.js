@@ -37,6 +37,20 @@ module.exports = {
         loader: "babel-loader"
       },
       {
+        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+        issuer: {
+          test: /\.jsx?$/
+        },
+        use: ['babel-loader', '@svgr/webpack']
+      },
+      {
+        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+        issuer: {
+          test: /\.scss?$/
+        },
+        loader: 'url-loader'
+      },
+      {
         test: /\.scss$/,
         use: [
           "style-loader", // creates style nodes from JS strings
@@ -62,32 +76,65 @@ module.exports = {
         // ]
       },
       {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            // options: {
+            //   name: "[name].[ext]",
+            //   outputPath: "assets/"
+            // }
+          }
+
+        ]
+      },
+      {
         test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
         use: [
           {
-            loader: "file-loader",
+            loader: "url-loader",
             options: {
               name: "[name].[ext]",
               outputPath: "fonts/"
             }
           }
         ]
-      },
-      {
-        test: /\.svg$/,
-        //issuer: /\.jsx?$/,
-        use: [
-          {
-            loader: "babel-loader"
-          },
-          {
-            loader: "react-svg-loader",
-            options: {
-              jsx: true // true outputs JSX tags
-            }
-          }
-        ]
       }
+      // SVG in JSX
+      // {
+      //   test: /\.svg$/,
+      //   //issuer: /\.jsx?$/,
+      //   use: [
+      //     {
+      //       loader: "babel-loader"
+      //     },
+      //     {
+      //       loader: "react-svg-loader",
+      //       options: {
+      //         jsx: true // true outputs JSX tags
+      //       }
+      //     }
+      //   ]
+      // }
+      // {
+      //   test: /\.svg$/,
+      //   use: ['@svgr/webpack']
+      // }
+      // {
+      //   test: /\.svg$/,
+      //   issuer: {
+      //     test: /\.jsx?$/
+      //   },
+      //   use: ['@svgr/webpack']
+      // },
+      // {
+      //   test: /\.svg$/,
+      //   issuer: {
+      //     test: /\.scss?$/
+      //   },
+      //   use: ['@svgr/webpack', 'file-loader']
+      // }
+
     ]
   }
 };

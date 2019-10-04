@@ -13,7 +13,7 @@ class Landing extends Component {
       <React.Fragment>
         <Intro />
         <ProjectListContainer
-          heading="Products"
+          heading="Featured Work"
           subheading="Shipped projects with cross-functional/agile teams"
           projects={this.props.projects}
           {...props}

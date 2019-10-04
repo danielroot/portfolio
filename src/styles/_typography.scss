@@ -9,17 +9,21 @@ p {
   a {
     color: $brand-primary;
     transition: $transition-all-ease;
+    text-decoration: none;
 
     &:hover {
-      color: $brand-med;
+      //color: saturate($brand-primary, 30);
+      text-decoration: underline;
     }
   }
 }
 
+h1,
 h2,
 h3,
 h4,
 h5 {
+  font-family: $font-family-headings;
   font-weight: $font-weight-medium;
 }
 
@@ -28,9 +32,10 @@ h1 {
   font-weight: $font-weight-regular;
   line-height: 1;
   margin-bottom: $space-sm;
+  //text-transform: uppercase;
 
   @include for-tablet-landscape-up {
-    letter-spacing: -2px;
+    letter-spacing: -1px;
   }
 }
 

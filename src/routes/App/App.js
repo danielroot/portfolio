@@ -75,63 +75,28 @@ class App extends Component {
                     />
                     <Route
                       exact
-                      path="/products"
+                      path="/projects"
                       render={props => {
-                        let products = this.state.projects.filter(project => {
-                          return project.fields.projectType === "products";
+                        let projects = this.state.projects.filter(project => {
+                          return project.sys.contentType.sys.id === "project";
                         });
 
                         return (
                           <ProjectListContainer
-                            heading="Products"
-                            subheading="Shipped projects with cross-functional/agile teams"
-                            projects={products}
+                            heading="Projects"
+                            subheading="Shipped products with cross-functional/agile teams"
+                            projects={projects}
                             {...props}
                           />
                         );
                       }}
                     />
                     <Route
-                      path="/products/:id"
+                      path="/project/:id"
                       render={props => {
                         let selectedProject = this.state.projects
                           .filter(project => {
-                            return project.fields.projectType === "products";
-                          })
-                          .find(
-                            project =>
-                              props.match.params.id === project.fields.slug
-                          );
-                        return (
-                          <ProjectDetail project={selectedProject} {...props} />
-                        );
-                      }}
-                    />
-
-                    <Route
-                      exact
-                      path="/prototypes"
-                      render={props => {
-                        let prototypes = this.state.projects.filter(project => {
-                          return project.fields.projectType === "prototypes";
-                        });
-
-                        return (
-                          <ProjectListContainer
-                            heading="Prototypes"
-                            subheading="Proof of concept work"
-                            projects={prototypes}
-                            {...props}
-                          />
-                        );
-                      }}
-                    />
-                    <Route
-                      path="/prototypes/:id"
-                      render={props => {
-                        let selectedProject = this.state.projects
-                          .filter(project => {
-                            return project.fields.projectType === "prototypes";
+                            return project.sys.contentType.sys.id === "project";
                           })
                           .find(
                             project =>

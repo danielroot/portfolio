@@ -58,7 +58,40 @@
 }
 
 @mixin list-bulleted {
-  list-style-type: disc;
+  list-style-type: none;
   line-height: 1.6;
   margin-bottom: $space-xs;
+  padding-left: $space-xs;
+}
+
+@mixin list-bulleted-checkmark {
+  list-style-type: none;
+  line-height: 1;
+  margin-bottom: $space-sm;
+  position: relative;
+  //list-style-position: inside;
+  // list-style-image: url('../../assets/icons/checkmark.svg');
+  left: 8px;
+
+  @include for-tablet-landscape-up {
+    //line-height: 1.6;
+  }
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      background: url('../../assets/icons/checkmark.svg') no-repeat;
+      background-size: 100%;
+      width: 16px;
+      height: 16px;
+      left: calc(-1rem - 8px);
+      //top: 5px;
+
+      @include for-tablet-landscape-up {
+        width: 24px;
+        height: 24px;
+        //top: 10px;
+      }
+    }
 }

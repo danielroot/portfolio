@@ -20,7 +20,7 @@ project-list-container {
 
     &.playground {
       @include for-tablet-portrait-up {
-        grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(700px, 1fr));
       }
     }
   }

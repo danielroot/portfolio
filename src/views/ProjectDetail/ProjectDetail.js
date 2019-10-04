@@ -2,6 +2,9 @@
 import React, { Component } from "react";
 import { shape, string, array } from "prop-types";
 import ReactMarkdown from "react-markdown";
+//import { BLOCKS, MARKS } from '@contentful/rich-text-types';
+//import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+//import { Link } from "react-router-dom";
 
 // Style
 import "./ProjectDetail.scss";
@@ -10,25 +13,26 @@ class ProjectDetail extends Component {
   render() {
     let fields = this.props.project.fields;
     let {
-      previewImage,
+      //previewImage,
       title,
       overview,
+      //summary,
       //problem,
       //solution,
       contributions,
       projectUrl,
-      thumbnails,
+      //thumbnails,
       clientLogo,
       roles,
-      brandColor
-      //heroImg
+      brandColor,
+      heroImg
     } = fields;
     let clientLogoUrl = clientLogo && `https:${clientLogo.fields.file.url}`;
-    //let heroImgUrl = `https:${heroImg.fields.file.url}`;
-    //let heroImgDesc = heroImg.fields.description;
+    let heroImgUrl = `https:${heroImg.fields.file.url}`;
+    let heroImgDesc = heroImg.fields.description;
     //let projectType = fields.projectType;
-    let previewImageUrl =
-      previewImage && `https:${previewImage.fields.file.url}`;
+    //let previewImageUrl =
+      //previewImage && `https:${previewImage.fields.file.url}`;
 
     const filteredAndSortedRoles =
       roles &&
@@ -36,13 +40,36 @@ class ProjectDetail extends Component {
         .filter((role, index) => roles.lastIndexOf(role) === index)
         .sort((a, b) => (a < b ? -1 : 1));
 
+    // const options = {
+    //   renderNode: {
+    //     [BLOCKS.EMBEDDED_ASSET]: node => (
+    //       <img src={node.data.target.fields.file.url} />
+    //     ),
+    //     [BLOCKS.EMBEDDED_ENTRY]: node => (
+    //       <div dangerouslySetInnerHTML={{ __html: node.data.target.fields.embed}} />
+    //     ),
+    //     [BLOCKS.PARAGRAPH]: (node, children) => children,
+    //     [BLOCKS.QUOTE]: (node, children) => (
+    //       <div className="quotation">{children}</div>
+    //     ),
+    //     [MARKS.BOLD]: (node, children) => (
+    //       <span className="bold-title">{children}</span>
+    //     ),
+    //   },
+    // };
+
+    // const summaryContent = documentToReactComponents(
+    //   summary,
+    //   options,
+    // );
+
     return (
       <project-detail>
         {/*<img src={previewImageUrl} />*/}
 
         <article>
           <header>
-            <project-card
+            {/*<project-card
               //make these inline images so they can use srcSet
               style={{
                 backgroundColor: `${brandColor}`,
@@ -60,8 +87,9 @@ class ProjectDetail extends Component {
                 )}
                 <h1>{title}</h1>
               </figure>
-            </project-card>
-            {/*<h1>
+
+            </project-card>*/}
+            <h1>
               {clientLogoUrl && (
                 <img
                   src={clientLogoUrl}
@@ -73,27 +101,35 @@ class ProjectDetail extends Component {
               <span>{title}</span>
             </h1>
             {/*<em>{projectType}</em>*/}
-
             {overview && <ReactMarkdown source={overview} />}
-            {/*<figure className="hero-container">
-              <img
-                src={`${heroImgUrl}?w=320`}
-                sizes="50vw"
-                srcSet={`${heroImgUrl}?w=320 320w,
-                ${heroImgUrl}?w=480 480w,
-                ${heroImgUrl}?w=800 800w,
-                ${heroImgUrl}?w=1000 1000w
-                `}
-                alt={heroImgDesc}
-              />
-              </figure>*/}
+
           </header>
+          <figure className="hero-container"
+           style={{
+            backgroundColor: `${brandColor}`}}
+          >
+            <img
+              src={`${heroImgUrl}?w=320`}
+              sizes="50vw"
+              srcSet={`${heroImgUrl}?w=320 320w,
+              ${heroImgUrl}?w=480 480w,
+              ${heroImgUrl}?w=800 800w,
+              ${heroImgUrl}?w=1000 1000w
+              `}
+              alt={heroImgDesc}
+            />
+          </figure>
+          {/* {summary && (
+            <section>{summaryContent}</section>
+          )} */}
+
           {contributions && (
             <section className="contributions">
               <h2>Key Contributions</h2>
               <ReactMarkdown source={contributions} />
             </section>
           )}
+
           {/*<section>
             {problem && (
               <React.Fragment>
@@ -114,7 +150,7 @@ class ProjectDetail extends Component {
             )}
           </section>*/}
 
-          {thumbnails && (
+          {/* {thumbnails && (
             <React.Fragment>
               <h2>Deliverables</h2>
               {thumbnails.map((thumbnail, index) => {
@@ -140,13 +176,10 @@ class ProjectDetail extends Component {
                 );
               })}
             </React.Fragment>
-          )}
+          )} */}
 
           {roles && (
-            <section
-              className="roles"
-              style={{ backgroundColor: `${brandColor}`, color: "white" }}
-            >
+            <section className="roles">
               <h2>Responsibilities</h2>
               <ul>
                 {filteredAndSortedRoles.map((role, index) => {
@@ -156,18 +189,21 @@ class ProjectDetail extends Component {
             </section>
           )}
 
-          {projectUrl && (
-            <footer>
+          <footer>
+            {projectUrl && (
               <a
-                className="view-link"
+                className="btn-outline"
                 href={projectUrl}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 View {title} live &#8663;
               </a>
-            </footer>
-          )}
+            )}
+
+            {/* <Link to="/projects" className="btn-link">Back to All Projects</Link> */}
+
+          </footer>
         </article>
       </project-detail>
     );

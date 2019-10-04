@@ -8,9 +8,9 @@ project-card {
   background: $brand-primary;
   background-size: cover;
   background-blend-mode: soft-light;
-  background-position: center center;
+  background-position: 50% 50%;
   //background-repeat: repeat-y;
-  //filter: grayscale(25%) contrast(2);
+  filter: grayscale(50%) contrast(1);
   display: block;
   padding: $space-sm;
   border-radius: 4px;
@@ -49,6 +49,7 @@ project-card {
 
   &:hover {
     @include for-desktop-up {
+      filter: grayscale(0%) contrast(1);
       transform: translate3d(0px, -1px, 0px);
       box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 33px,
         rgba(0, 0, 0, 0.18) 0px 4px 11px;

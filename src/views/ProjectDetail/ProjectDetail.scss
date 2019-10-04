@@ -14,23 +14,28 @@ project-detail {
 
   article header {
     margin-bottom: $space-lg;
+    text-align: center;
+    margin: 0 auto;
 
     @include for-desktop-up {
-      width: 65%;
+      width: 60%;
     }
   }
 
-  // .client-logo {
-  //   width: 20%;
-  //   fill: $white;
-  //   height: auto;
-  //   opacity: 0.025;
-  //   position: fixed;
-  //   top: 0;
-  //   right: -1.5%;
-  //   z-index: -1;
-  //   animation: moveIn 0.5s both;
-  // }
+  .client-logo {
+    // width: 20%;
+    // fill: $white;
+    // height: auto;
+    // opacity: 0.025;
+    // position: fixed;
+    // top: 0;
+    // right: -1.5%;
+    // z-index: -1;
+    // animation: moveIn 0.5s both;
+    width: 120px;
+    display: block;
+    margin: 0 auto $space-sm;
+  }
 
   h1 {
     font-size: $font-size-sm;
@@ -51,6 +56,8 @@ project-detail {
   .hero-container {
     animation: moveInHero 0.35s both;
     margin-bottom: $space-md;
+    text-align: center;
+    padding: $space-md 0;
   }
 
   section {
@@ -61,31 +68,65 @@ project-detail {
     }
 
     &.contributions {
-      @include for-desktop-up {
-        width: 65%;
-      }
+      // @include for-desktop-up {
+      //   width: 65%;
+      // }
 
-      ul li {
-        @include list-bulleted();
+      ul {
+        //border-left: 1px solid $brand-primary;
+        @include for-tablet-portrait-up {
+          column-count: 3;
+        }
+
+        li {
+          background: lighten($brand-primary, 50%);
+          padding: $space-sm;
+          margin-bottom: $space-sm;
+
+          break-inside: avoid;
+          // @include list-bulleted();
+        }
       }
     }
   }
 
   section.roles {
+    //background: lighten($brand-primary, 40%);
+    //color: $brand-primary;
     display: block;
-    padding: $space-sm $space-sm $space-md;
     border-radius: 4px;
     margin-bottom: $space-lg;
 
-    @include for-tablet-portrait-up {
-      width: 50%;
+
+    @include for-tablet-landscape-up {
+      //width: 50%;
+      padding: $space-md $space-sm $space-lg;
+
     }
 
     h2 {
       text-transform: uppercase;
+      //color: $brand-primary;
       font-size: $font-size-xs;
+      //text-align: center;
       font-weight: $font-weight-light;
       letter-spacing: 2px;
+    }
+
+    ul {
+      padding-left: 1rem;
+
+      @include for-tablet-landscape-up {
+        //column-count: 2;
+      }
+
+      @include for-desktop-up {
+        //column-count: 3;
+      }
+
+      li {
+        @include list-bulleted-checkmark();
+      }
     }
   }
 
@@ -100,7 +141,7 @@ project-detail {
     }
   }
 
-  .view-link {
+  .btn-outline {
     color: $brand-primary;
     border: 2px solid $brand-primary;
     padding: $space-sm;
@@ -111,6 +152,19 @@ project-detail {
     &:hover {
       background: $brand-primary;
       color: $white;
+    }
+  }
+
+  .btn-link {
+    color: $brand-primary;
+    //border: 2px solid $brand-primary;
+    padding: $space-sm;
+    border-radius: 4px;
+    display: inline-block;
+    transition: all 0.2s;
+
+    &:hover {
+      text-decoration: underline;
     }
   }
 

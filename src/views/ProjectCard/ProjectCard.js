@@ -14,13 +14,8 @@ class ProjectCard extends Component {
       previewImage && `https:${previewImage.fields.file.url}`;
     //let heroImgDescription = heroImgSmall.fields.description;
     let clientLogoUrl = clientLogo && `https:${clientLogo.fields.file.url}`;
-    let category;
+    let category = this.props.sys.contentType.sys.id;
 
-    if (this.props.sys.contentType.sys.id === "project") {
-      category = fields.projectType;
-    } else {
-      category = this.props.sys.contentType.sys.id;
-    }
 
     return (
       <Link to={`/${category}/${slug}`} aria-labelledby={`card-${slug}`}>

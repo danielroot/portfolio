@@ -48,6 +48,8 @@ ProjectListContainer.defaultProps = {
 };
 
 ProjectListContainer.propTypes = {
+  heading: string,
+  subheading: string,
   projects: arrayOf(
     shape({
       sys: shape({

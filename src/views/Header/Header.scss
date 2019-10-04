@@ -24,27 +24,33 @@ header.global {
       padding: $space-sm $space-xs;
     }
     &:hover {
-      background: lighten($brand-primary, 47%);
+      background: lighten($brand-primary, 56%);
+    }
+  }
+
+  nav {
+    //display: none;
+
+    @include for-tablet-landscape-up {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 -#{$space-xs};
+
+      a.active {
+        color: adjust-hue($brand-primary, 0%);
+      }
+
+      a.logo {
+        color: $off-black;
+        //font-family: "DDCHardware-Condensed";
+        font-size: $font-size-md;
+        margin-left: 0;
+        margin-right: auto;
+        letter-spacing: 0;
+      }
     }
   }
 }
 
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 auto;
 
-  a.active {
-    color: adjust-hue($brand-primary, 0%);
-  }
-
-  a.logo {
-    color: $off-black;
-    //font-family: "DDCHardware-Condensed";
-    font-size: $font-size-sm;
-    margin-left: 0;
-    margin-right: auto;
-    letter-spacing: 0;
-  }
-}

@@ -15,3 +15,6 @@ config.json
 .env
 npm-debug.log
 
+
+# Local Netlify folder
+.netlify

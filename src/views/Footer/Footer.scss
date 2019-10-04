@@ -5,29 +5,36 @@
 @import "../../styles/shared";
 
 footer.global {
-  //background: lighten($brand-primary, 47%);
+  background: $purple;
   width: 100%;
   align-self: end;
   padding: $space-md 0;
   //font-size: $font-size-xs;
+  color: $white;
   text-align: center;
 
   nav {
-    margin-bottom: $space-md;
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-bottom: $space-sm;
+
 
     a {
       color: $brand-primary;
       font-size: $font-size-sm;
-      flex-basis: 33.333%;
-      margin-bottom: $space-sm;
-      padding: $space-sm;
+      padding: .75rem;
 
       @include for-tablet-portrait-up {
         flex-basis: auto;
+        padding: $space-sm;
       }
     }
+
+    @include for-tablet-landscape-up {
+      margin-bottom: $space-md;
+    }
+
 
     svg path {
       transition: 0.35s all;
@@ -37,6 +44,7 @@ footer.global {
       path {
         //fill: $brand-primary;
         fill: $brand-med;
+        transform-origin: center;
       }
     }
   }
