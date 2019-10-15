@@ -7,7 +7,6 @@
 .app-container {
   display: grid;
   grid-template-columns: 1fr;
-  //grid-template-rows: 50px auto 20%;
   grid-column-gap: 0.25rem;
   grid-gap: $space-sm;
   justify-items: center;
@@ -18,7 +17,7 @@
 .container {
   padding: 0 $gutter-global;
   margin: 0 auto;
-  max-width: 1440px;
+  max-width: 1280px;
 }
 
 main {
@@ -37,31 +36,51 @@ article {
   //max-width: 1024px;
 }
 
+.hero {
+  animation: moveInHero 0.35s both;
+  margin-bottom: $space-sm;
+}
+
 .intro {
   text-align: center;
   margin-bottom: $space-lg;
 
   @include for-tablet-landscape-up {
-    min-height: 100vh;
+    text-align: left;
+    margin: 0 auto $space-lg;
+    display: flex;
+    justify-content: center;
   }
+
+  .intro-content {
+    @include for-tablet-landscape-up {
+      margin-left: $space-sm;
+    }
+  }
+
+  p {
+    font-size: $font-size-sm;
+    @include for-phone-only {
+      width: 85%;
+      margin: 0 auto;
+    }
+  }
+}
+
+.not-found {
+  text-align: center;
+  margin-bottom: $space-lg;
 
   .hero {
-    animation: moveInHero 0.35s both;
-    margin-bottom: $space-sm;
-  }
 
-  @include for-tablet-landscape-up {
-   width: 80%;
-   margin: 0 auto;
+    @include for-tablet-landscape-up {
+      width: 50%;
+    }
   }
 
   p {
     font-size: $font-size-sm;
     width: 80%;
     margin: 0 auto;
-
-    @include for-tablet-landscape-up {
-      //font-size: $font-size-md;
-    }
   }
 }

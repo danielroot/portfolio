@@ -10,16 +10,9 @@
 }
 
 @font-face {
-  font-family: DDCHardware-Condensed;
+  font-family: aribau;
   font-display: auto;
-  src: local("DDCHardware-Condensed"),
-    url("./ddc/ddchardware-condensed.woff2") format("woff2");
-  font-weight: normal;
-}
-
-@font-face {
-  font-family: trade-gothic;
-  font-display: auto;
-  src: url("./trade-gothic/trade-gothic.ttf");
-  font-weight: normal;
+  src: local("Aribau"), url("./aribau/ArGr1000-Blk.woff");
+  font-weight: 900;
+  text-rendering: optimizeLegibility;
 }

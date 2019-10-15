@@ -2,8 +2,8 @@
 import React, { Component } from "react";
 import { shape, string, array } from "prop-types";
 import ReactMarkdown from "react-markdown";
-//import { BLOCKS, MARKS } from '@contentful/rich-text-types';
-//import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { BLOCKS, MARKS } from '@contentful/rich-text-types';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 //import { Link } from "react-router-dom";
 
 // Style
@@ -16,7 +16,7 @@ class ProjectDetail extends Component {
       //previewImage,
       title,
       overview,
-      //summary,
+      summary,
       //problem,
       //solution,
       contributions,
@@ -40,28 +40,31 @@ class ProjectDetail extends Component {
         .filter((role, index) => roles.lastIndexOf(role) === index)
         .sort((a, b) => (a < b ? -1 : 1));
 
-    // const options = {
-    //   renderNode: {
-    //     [BLOCKS.EMBEDDED_ASSET]: node => (
-    //       <img src={node.data.target.fields.file.url} />
-    //     ),
-    //     [BLOCKS.EMBEDDED_ENTRY]: node => (
-    //       <div dangerouslySetInnerHTML={{ __html: node.data.target.fields.embed}} />
-    //     ),
-    //     [BLOCKS.PARAGRAPH]: (node, children) => children,
-    //     [BLOCKS.QUOTE]: (node, children) => (
-    //       <div className="quotation">{children}</div>
-    //     ),
-    //     [MARKS.BOLD]: (node, children) => (
-    //       <span className="bold-title">{children}</span>
-    //     ),
-    //   },
-    // };
+    const options = {
+      renderNode: {
+        [BLOCKS.EMBEDDED_ASSET]: node => (
+          <figure className="img-wrap"><img src={node.data.target.fields.file.url} />
+          <figcaption>{node.data.target.fields.description}</figcaption></figure>
+        ),
+        [BLOCKS.EMBEDDED_ENTRY]: node => (
+          <div className="code-snippet" dangerouslySetInnerHTML={{ __html: node.data.target.fields.snippet}} />
+        ),
+        [BLOCKS.PARAGRAPH]: (node, children) => (
+          <p>{children}</p>
+        ),
+        [BLOCKS.QUOTE]: (node, children) => (
+          <div className="quotation">{children}</div>
+        ),
+        [MARKS.BOLD]: (node, children) => (
+          <span className="bold-title">{children}</span>
+        ),
+      },
+    };
 
-    // const summaryContent = documentToReactComponents(
-    //   summary,
-    //   options,
-    // );
+    const summaryContent = documentToReactComponents(
+      summary,
+      options,
+    );
 
     return (
       <project-detail>
@@ -104,7 +107,7 @@ class ProjectDetail extends Component {
             {overview && <ReactMarkdown source={overview} />}
 
           </header>
-          <figure className="hero-container"
+          <div className="hero-container"
            style={{
             backgroundColor: `${brandColor}`}}
           >
@@ -118,10 +121,10 @@ class ProjectDetail extends Component {
               `}
               alt={heroImgDesc}
             />
-          </figure>
-          {/* {summary && (
+          </div>
+          {summary && (
             <section>{summaryContent}</section>
-          )} */}
+          )}
 
           {contributions && (
             <section className="contributions">

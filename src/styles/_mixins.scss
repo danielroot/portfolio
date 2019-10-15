@@ -57,16 +57,24 @@
   clip: rect(1px, 1px, 1px, 1px);
 }
 
-@mixin list-bulleted {
+@mixin list-none {
   list-style-type: none;
   line-height: 1.6;
   margin-bottom: $space-xs;
-  padding-left: $space-xs;
+  padding: 0;
+}
+
+
+@mixin list-bulleted {
+  list-style-type: disc;
+  line-height: 1.6;
+  margin-bottom: $space-xs;
+  padding-left: $space-sm;
 }
 
 @mixin list-bulleted-checkmark {
   list-style-type: none;
-  line-height: 1;
+  line-height: 1.4;
   margin-bottom: $space-sm;
   position: relative;
   //list-style-position: inside;
@@ -86,12 +94,11 @@
       width: 16px;
       height: 16px;
       left: calc(-1rem - 8px);
-      //top: 5px;
+      top: 4px;
 
       @include for-tablet-landscape-up {
         width: 24px;
         height: 24px;
-        //top: 10px;
       }
     }
 }

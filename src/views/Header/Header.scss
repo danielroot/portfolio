@@ -9,45 +9,57 @@ header.global {
   //background: #fff;
   font-weight: $font-weight-regular;
   //padding: $space-md 0;
-  text-align: center;
-
-  a {
-    color: $off-black;
-    //text-transform: uppercase;
-    margin-left: $space-md;
-    font-size: $font-size-sm;
-    padding: $space-md $space-xs;
-    transition: 0.5s background;
-
-    @include for-tablet-portrait-up {
-      font-size: $font-size-xs;
-      padding: $space-sm $space-xs;
-    }
-    &:hover {
-      background: lighten($brand-primary, 56%);
-    }
-  }
 
   nav {
     //display: none;
+    display: flex;
+    flex-direction: column;
+    margin-top: $space-sm;
+    text-align: center;
 
     @include for-tablet-landscape-up {
-      display: flex;
+      flex-direction: row;
+      text-align: left;
       justify-content: space-between;
-      align-items: center;
+      align-items: baseline;
       margin: 0 -#{$space-xs};
+    }
 
-      a.active {
-        color: adjust-hue($brand-primary, 0%);
+
+    a {
+      color: $off-black;
+      font-size: $font-size-sm;
+      padding: $space-xs 0;
+      transition: 0.5s background;
+
+      @include for-tablet-portrait-up {
+        font-size: $font-size-xs;
+        margin-left: $space-sm;
+        padding: $space-sm $space-xs;
+      }
+      &:hover {
+        background: lighten($brand-primary, 56%);
+      }
+    }
+
+    a.active {
+      color: adjust-hue($brand-primary, 0%);
+    }
+
+    a.logo {
+      color: $off-black;
+      letter-spacing: 0;
+      font-weight: $font-weight-medium;
+
+      .job-title {
+        margin-left: $space-xs;
+        font-weight: $font-weight-regular;
       }
 
-      a.logo {
-        color: $off-black;
-        //font-family: "DDCHardware-Condensed";
-        font-size: $font-size-md;
+      @include for-tablet-landscape-up {
+        font-size: $font-size-sm;
         margin-left: 0;
         margin-right: auto;
-        letter-spacing: 0;
       }
     }
   }

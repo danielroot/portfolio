@@ -2,6 +2,8 @@
 // Typography
 // ==========================================================================
 
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Montserrat:400,600&display=swap');
+
 p {
   font-size: $font-size-sm;
   margin-bottom: $space-sm;
@@ -28,10 +30,11 @@ h5 {
 }
 
 h1 {
-  font-size: $font-size-lg;
+  font-size: $font-size-xl;
   font-weight: $font-weight-regular;
   line-height: 1;
   margin-bottom: $space-sm;
+  //color: $purple;
   //text-transform: uppercase;
 
   @include for-tablet-landscape-up {

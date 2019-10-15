@@ -2,12 +2,7 @@ let path = require("path");
 
 module.exports = {
   context: __dirname,
-  //entry: "./src/index.js",
   devtool: "source-map",
-  // output: {
-  //   path: path.resolve(__dirname, "./public"),
-  //   filename: "bundle.js"
-  //},
   devServer: {
     publicPath: "/",
     contentBase: "./dist",
@@ -31,18 +26,37 @@ module.exports = {
         loader: "eslint-loader",
         exclude: /node_modules/
       },
+
+      // Babel JS
       {
         include: path.resolve(__dirname, "./src"),
         test: /\.js$/,
-        loader: "babel-loader"
+        loader: "babel-loader",
+        options: {
+          plugins: ['react-hot-loader/babel']
+        }
       },
+
+      // inline SVG
       {
         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
         issuer: {
           test: /\.jsx?$/
         },
-        use: ['babel-loader', '@svgr/webpack']
+        use: [
+          {
+            loader: 'babel-loader'
+          },
+          {
+            loader: '@svgr/webpack',
+            options: {
+              svgo: false
+            }
+          }
+        ]
       },
+
+      // SVG in Sass
       {
         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
         issuer: {
@@ -50,6 +64,8 @@ module.exports = {
         },
         loader: 'url-loader'
       },
+
+      // CSS
       {
         test: /\.scss$/,
         use: [
@@ -57,24 +73,9 @@ module.exports = {
           "css-loader", // translates CSS into CommonJS
           "sass-loader" // compiles Sass to CSS, using Node Sass by default
         ]
-        // use: [
-        //   {
-        //     loader: "style-loader"
-        //   },
-        //   {
-        //     loader: "css-loader",
-        //     options: {
-        //       sourceMap: true
-        //     }
-        //   },
-        //   {
-        //     loader: "sass-loader",
-        //     options: {
-        //       sourceMap: true
-        //     }
-        //   }
-        // ]
       },
+
+      // Imgs
       {
         test: /\.(png|jpg|gif)$/,
         use: [
@@ -88,6 +89,8 @@ module.exports = {
 
         ]
       },
+
+      // Fonts
       {
         test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
         use: [
@@ -99,42 +102,20 @@ module.exports = {
             }
           }
         ]
-      }
-      // SVG in JSX
-      // {
-      //   test: /\.svg$/,
-      //   //issuer: /\.jsx?$/,
-      //   use: [
-      //     {
-      //       loader: "babel-loader"
-      //     },
-      //     {
-      //       loader: "react-svg-loader",
-      //       options: {
-      //         jsx: true // true outputs JSX tags
-      //       }
-      //     }
-      //   ]
-      // }
-      // {
-      //   test: /\.svg$/,
-      //   use: ['@svgr/webpack']
-      // }
-      // {
-      //   test: /\.svg$/,
-      //   issuer: {
-      //     test: /\.jsx?$/
-      //   },
-      //   use: ['@svgr/webpack']
-      // },
-      // {
-      //   test: /\.svg$/,
-      //   issuer: {
-      //     test: /\.scss?$/
-      //   },
-      //   use: ['@svgr/webpack', 'file-loader']
-      // }
+      },
 
+      // PDFs
+      {
+        test: /\.(pdf)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+            }
+          }
+        ]
+      }
     ]
   }
 };

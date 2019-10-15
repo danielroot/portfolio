@@ -1,38 +1,107 @@
 // Deps
-import React from "react";
+import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
+import resumePDF from '../../assets/resume_dan-root_product-designer.pdf';
+import throttle from "lodash.throttle";
+//import { Tween } from 'react-gsap';
 
 // Style
 import "./Header.scss";
 
-const Header = () => {
-  return (
-    <header className="global">
-      <div className="container">
-        <nav>
-          <NavLink exact activeClassName="active" to="/" className="logo">
-            Dan Root | <small>Product Designer</small>
-          </NavLink>
-          <NavLink activeClassName="active" to="/projects">
-            Projects
-          </NavLink>
-          {/*<NavLink activeClassName="active" to="/prototypes">
-            Prototypes
-  </NavLink>*/}
+class Header extends Component {
 
-          {/* <NavLink activeClassName="active" to="/about">
-            Process
-</NavLink> */}
-          {/* <Link to="/resume_dan-root.pdf">
-            Resumé
-          </Link> */}
-        <NavLink activeClassName="active" to="/playground">
-            Playground
-          </NavLink>
-        </nav>
-      </div>
-    </header>
-  );
-};
+  constructor(props) {
+    super(props);
+    this.state = {
+      isTablet: false
+    };
+
+    this.handleWindowResize = this.handleWindowResize.bind(this);
+    this.handleWindowResize = throttle(this.handleWindowResize, 200);
+  }
+
+  handleWindowResize() {
+    this.setState({ isTablet: window.innerWidth >= 600 });
+  }
+
+  componentWillMount() {
+    this.handleWindowResize();
+  }
+
+  componentDidMount() {
+    window.addEventListener("resize", this.handleWindowResize);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.handleWindowResize);
+  }
+
+  render() {
+    //const { isTablet } = this.state;
+
+    // const TweenComponent = () => (
+    //   <Tween from={{ x: '100px', rotation: -360 }}>
+    //     <div>This element gets tweened</div>
+    //   </Tween>
+    // );
+
+    return (
+      <header className="global">
+        <div className="container">
+          {/* {isTablet ? (
+            <nav>
+              <NavLink exact activeClassName="active" to="/" className="logo">
+                Dan Root<span className="job-title">Product Designer</span>
+              </NavLink>
+              <NavLink activeClassName="active" to="/projects">
+                Projects
+              </NavLink>
+              <a href={`/${resumePDF}`}>
+                Resumé
+              </a>
+              <NavLink activeClassName="active" to="/playground">
+                Playground
+              </NavLink>
+            </nav>
+          ) : (
+            <nav>
+              <TweenComponent />
+              <NavLink exact activeClassName="active" to="/" className="logo">
+                Dan Root<span className="job-title">Product Designer</span>
+              </NavLink>
+              <button>Menu</button>
+              <div className="menu">
+                <NavLink activeClassName="active" to="/projects">
+                  Projects
+                </NavLink>
+                <a href={`/${resumePDF}`}>
+                  Resumé
+                </a>
+                <NavLink activeClassName="active" to="/playground">
+                  Playground
+                </NavLink>
+              </div>
+            </nav>
+          )} */}
+          <nav>
+            <NavLink exact activeClassName="active" to="/" className="logo">
+              Dan Root<span className="job-title">Product Designer</span>
+            </NavLink>
+            <NavLink activeClassName="active" to="/projects">
+              Projects
+            </NavLink>
+            <a href={`/${resumePDF}`}>
+              Resumé
+            </a>
+            <NavLink activeClassName="active" to="/playground">
+              Playground
+            </NavLink>
+          </nav>
+        </div>
+      </header>
+    );
+  }
+}
+
 
 export default Header;

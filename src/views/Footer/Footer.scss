@@ -19,11 +19,10 @@ footer.global {
     justify-content: center;
     margin-bottom: $space-sm;
 
-
     a {
       color: $brand-primary;
       font-size: $font-size-sm;
-      padding: .75rem;
+      padding: $space-xs;
 
       @include for-tablet-portrait-up {
         flex-basis: auto;

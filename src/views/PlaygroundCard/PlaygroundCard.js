@@ -35,7 +35,7 @@ class PlaygroundCard extends Component {
 
   render() {
     let fields = this.props.fields;
-    let { title, embed, heroImg, playgroundUrl } = fields;
+    let { title, embed, heroImg, playgroundUrl, screenshotUrl } = fields;
     let heroImgUrl = heroImg && `https:${heroImg.fields.file.url}`;
     const { isTablet } = this.state;
 
@@ -49,7 +49,8 @@ class PlaygroundCard extends Component {
             <figure dangerouslySetInnerHTML={{ __html: embed }} />
           ) : (
             <a href={playgroundUrl}>
-              <img src={heroImgUrl} alt={title} />
+              {heroImgUrl && <img src={heroImgUrl} alt={title} /> }
+              {screenshotUrl && <img src={screenshotUrl} alt={title} />}
             </a>
           )}
         </figure>
