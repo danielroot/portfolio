@@ -5,55 +5,134 @@
 @import "../../styles/shared";
 
 project-card {
-  background: $brand-primary;
+
+  .cover-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .overlay-before {
+    background: $white;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    mix-blend-mode: color;
+
+    @include for-tablet-portrait-up {
+      mix-blend-mode: color;
+    }
+  }
+
+  &::after {
+    background-color: $brand-primary;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: lighten;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .overlay-opacity {
+    background: $white;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    opacity: 0.25;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    @include for-tablet-landscape-up {
+      opacity: 0.33;
+    }
+  }
+
+  //background: $brand-primary;
   background-size: cover;
-  background-blend-mode: soft-light;
-  background-position: 50% 50%;
+  //background-blend-mode: soft-light;
+  //background-position: 50% 50%;
   //background-repeat: repeat-y;
-  filter: grayscale(50%) contrast(1);
+  //filter: grayscale(50%) contrast(1);
   display: block;
   padding: $space-sm;
-  border-radius: 4px;
-  box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px, rgba(0, 0, 0, 0.05) 0px 0.5px 1px;
+  border-radius: $border-radius;
   position: relative;
   transition: 0.35s all;
+  overflow: hidden;
+  border: 1px solid $brand-med;
+
+  // @include for-tablet-portrait-up {
+  //   box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px, rgba(0, 0, 0, 0.05) 0px 0.5px 1px;
+  // }
 
   figure {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
-    min-height: 250px;
+    align-items: center;
+    // min-height: 250px;
+    min-height: 5vh;
     position: relative;
 
-    @include for-tablet-landscape-up {
-      min-height: 350px;
+    @include for-tablet-portrait-up {
+      align-items: inherit;
+      min-height: 300px;
+      flex-direction: column;
     }
 
     .client-logo {
       width: 40px;
       height: auto;
+      object-fit: contain;
+
+      &.walmart {
+        width: 34px;
+      }
+
+      &.nu-skin {
+        width: 38px;
+      }
+
+      &.deloitte-digital {
+        width: 60px;
+      }
     }
 
     h3 {
+      background: $white;
       font-size: $font-size-sm;
       font-weight: $font-weight-light;
       text-transform: uppercase;
       letter-spacing: 2px;
-      align-self: flex-end;
       font-family: $font-family-base;
+      padding: $space-xxs $space-xs;
+      border-radius: $border-radius;
 
-      @include for-tablet-landscape-up {
+      @include for-tablet-portrait-up {
         font-size: $font-size-xs;
+        align-self: flex-end;
+        background: $brand-primary;
+        color: $white;
       }
     }
   }
 
   &:hover {
     @include for-desktop-up {
-      filter: grayscale(0%) contrast(1);
-      transform: translate3d(0px, -1px, 0px);
-      box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 33px,
-        rgba(0, 0, 0, 0.18) 0px 4px 11px;
+      box-shadow: rgba($brand-dark, 0.1) 0px 10px 23px,
+        rgba($brand-dark, 0.18) 0px 4px 11px;
     }
   }
 }

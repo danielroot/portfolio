@@ -15,7 +15,7 @@ $space-xl: 6rem;
 $space-xxl: 8rem;
 
 // Gutters
-$gutter-global: $space-md;
+$gutter-global: $space-sm;
 
 //
 // Fonts
@@ -45,9 +45,11 @@ $font-weight-medium: 600;
 // ==========================================================================
 
 // Basic Colors
-//$brand-primary: #00ae9e;
-$brand-primary: #9B21B9;
-$brand-med: darken($brand-primary, 10%);
+$brand-primary: #145CFB;
+//$brand-primary: #3A61E0;
+$brand-light: lighten($brand-primary, 43%);
+$brand-med: lighten($brand-primary, 30%);
+$brand-dark: darken($brand-primary, 40%);
 $white: #fff;
 $semi-transparent-white: rgba(255, 255, 255, 0.9);
 $semi-transparent-black: rgba(0, 0, 0, 0.9);
@@ -56,9 +58,10 @@ $gray-light: #e0e0e0;
 $gray-med: #959595;
 $gray-dark: #565656;
 $off-black: #201e1e;
+//$off-black: $brand-dark;
 $black: #000;
-$purple: #15003c;
 $red: #ff6868;
+$yellow-light: adjust-hue($brand-light, 180deg);
 
 // Functional Colors
 $color-bg-body: #fffefb;
@@ -84,6 +87,9 @@ $grey-button-disabled: lighten($gray-med, 40%);
 $transition-default: cubic-bezier(0.77, 0, 0.175, 1);
 $transition-all-ease: 0.3s ease 0s;
 
+
+//
+$border-radius: 4px;
 //
 // Z-Index
 // ==========================================================================

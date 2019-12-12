@@ -11,7 +11,7 @@ import config from "../../config.json";
 import Header from "../../views/Header/Header";
 import Footer from "../../views/Footer/Footer";
 import Landing from "../Landing";
-import About from "../About";
+import About from "../About/About";
 import Resume from "../Resume";
 import ProjectListContainer from "../../containers/ProjectListContainer/ProjectListContainer";
 import ProjectDetail from "../../views/ProjectDetail/ProjectDetail";
@@ -94,16 +94,16 @@ class App extends Component {
                     <Route
                       path="/project/:id"
                       render={props => {
-                        let selectedProject = this.state.projects
-                          .filter(project => {
-                            return project.sys.contentType.sys.id === "project";
-                          })
-                          .find(
-                            project =>
-                              props.match.params.id === project.fields.slug
-                          );
+                        let projects = this.state.projects;
+
+                        let projectMatch = (project) => props.match.params.id === project.fields.slug;
+
+                        let selectedProject = projects.find(projectMatch);
+
+                        let projectIndex = projects.findIndex(projectMatch);
+
                         return (
-                          <ProjectDetail project={selectedProject} {...props} />
+                          <ProjectDetail project={selectedProject} {...props} id={projectIndex} projects={projects} />
                         );
                       }}
                     />

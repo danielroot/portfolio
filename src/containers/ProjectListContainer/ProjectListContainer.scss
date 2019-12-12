@@ -5,6 +5,9 @@
 @import "../../styles/shared";
 
 project-list-container {
+  display: block;
+  margin-bottom: $space-lg;
+
   h1 {
     animation: moveInText 0.5s both;
   }

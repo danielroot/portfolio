@@ -37,7 +37,7 @@ project-detail {
     width: 60px;
 
     @include for-tablet-landscape-up {
-      width: 100px;
+      width: 80px;
     }
   }
 
@@ -61,18 +61,49 @@ project-detail {
     margin-bottom: $space-xs;
   }
 
+  h3 {
+    margin-top: $space-md;
+    padding-top: $space-sm;
+    border-top: 1px solid $brand-light;
+  }
   .hero-container {
     animation: moveInHero 0.35s both;
-    margin-bottom: $space-md;
     text-align: center;
     padding: $space-md 0;
+    margin: 0 -#{$gutter-global} 0;
+
+    @include for-tablet-portrait-up {
+      margin: 0 auto $space-md;
+    }
+
+    .hero-img {
+      width: 100%;
+
+      @include for-tablet-portrait-up {
+        width: auto;
+        border: 2px solid $brand-light;
+      }
+    }
   }
 
   section {
     margin-bottom: $space-md;
+
+    p {
+      @include for-tablet-landscape-up {
+        max-width: 70%;
+      }
+    }
   }
 
   section.roles {
+    display: block;
+    margin-bottom: $space-lg;
+
+    @include for-tablet-landscape-up {
+      margin: $space-md 0 $space-lg;
+    }
+
     h2 {
       text-transform: uppercase;
       //color: $brand-primary;
@@ -89,19 +120,12 @@ project-detail {
       flex-flow: row wrap;
       margin: 0 -0.5rem;
 
-      @include for-tablet-portrait-up {
-        //column-count: 3;
-      }
-
       li {
-        background: lighten($brand-primary, 50%);
-        padding: $space-xs;
+        background: $brand-light;
+        padding: 0 $space-xs;
         margin: $space-xxs;
-        flex: 1 auto;
         font-size: $font-size-sm;
-        border-radius: 4px;
-
-        // break-inside: avoid;
+        border-radius: $border-radius;
       }
     }
   }
@@ -111,13 +135,12 @@ project-detail {
     //background: lighten($brand-primary, 40%);
     //color: $brand-primary;
     display: block;
-    border-radius: 4px;
     margin-bottom: $space-lg;
 
 
     @include for-tablet-landscape-up {
       //width: 50%;
-      padding: $space-md $space-sm $space-lg;
+      margin: $space-md 0 $space-lg;
 
     }
 
@@ -152,8 +175,8 @@ project-detail {
   .btn-outline {
     color: $brand-primary;
     border: 2px solid $brand-primary;
-    padding: $space-sm;
-    border-radius: 4px;
+    padding: $space-xs $space-sm;
+    border-radius: $border-radius;
     display: inline-block;
     transition: all 0.2s;
 
@@ -166,7 +189,7 @@ project-detail {
   .btn-link {
     color: $brand-primary;
     //border: 2px solid $brand-primary;
-    padding: $space-sm;
+    padding: $space-xs $space-sm;
     border-radius: 4px;
     display: inline-block;
     transition: all 0.2s;
@@ -189,5 +212,24 @@ project-detail {
 
   .code-snippet {
     margin-bottom: $space-sm;
+  }
+
+  footer {
+    padding: $space-sm 0;
+    border-top: 1px solid $brand-light;
+    border-bottom: 1px solid $brand-light;
+    text-align: center;
+    display: flex;
+    font-size: $font-size-xs;
+    justify-content: space-between;
+  }
+
+  .projects-link--wrapper {
+    display: flex;
+    align-items: center;
+
+    svg {
+      margin-right: $space-xxs;
+    }
   }
 }

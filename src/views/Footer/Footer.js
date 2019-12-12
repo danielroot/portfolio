@@ -18,8 +18,11 @@ class Footer extends Component {
     return (
       <footer className="global">
         <div className="container">
+          <p>Interested in working together?</p>
+          <a href="mailto:info@danroot.co" className="btn">Contact Me!</a>
+
           <h4>Follow</h4>
-          <nav>
+          <div className="footer-nav" role="navigation"  aria-label="social media links">
             {/*<Link to="/style-guide">Style Guide</Link>*/}
             <a href="https://www.linkedin.com/in/dan-root/">
               <LinkedInIcon />
@@ -39,20 +42,23 @@ class Footer extends Component {
             {/*<a href="https://www.twitter.com/danrootdesign">
               <TwitterIcon />
     </a>*/}
-          </nav>
+          </div>
 
-          <p>
-            Site hand-crafted with VS Code, React JS, Sass, Contenful API. Hosted on Netlify{" "}
-            <br />
-            <a href="https://github.com/danielroot/portfolio/">
-              View source code in Github
-            </a>{" "}
+          <div className="footer-copy__wrapper">
 
-          </p>
-          <p>
-            &copy; {currentYear} <Link to="/">Dan Root</Link>
-            {/* <a>info[at]danroot.co</a> */}
-          </p>
+            <p>
+              hand-crafted with VS Code, React JS, Sass, and Contenful API. Hosted on Netlify{" "}
+              <br />
+              <a href="https://github.com/danielroot/portfolio/">
+                Github Repo
+              </a>{" "}
+
+            </p>
+            <p>
+              &copy; {currentYear} <Link to="/">Dan Root</Link>
+              {/* <a>info[at]danroot.co</a> */}
+            </p>
+          </div>
         </div>
       </footer>
     );

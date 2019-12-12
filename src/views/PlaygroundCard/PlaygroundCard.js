@@ -10,7 +10,8 @@ class PlaygroundCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isTablet: false
+      isTablet: false,
+      isLoading: true
     };
 
     this.handleWindowResize = this.handleWindowResize.bind(this);
@@ -23,6 +24,7 @@ class PlaygroundCard extends Component {
 
   componentWillMount() {
     this.handleWindowResize();
+    this.timerHandle = setTimeout(() => this.setState({ isLoading: false }), 2000);
   }
 
   componentDidMount() {
@@ -31,6 +33,10 @@ class PlaygroundCard extends Component {
 
   componentWillUnmount() {
     window.removeEventListener("resize", this.handleWindowResize);
+    if (this.timerHandle) {
+      clearTimeout(this.timerHandle);
+      this.timerHandle = 0;
+    }
   }
 
   render() {
@@ -46,7 +52,7 @@ class PlaygroundCard extends Component {
         </h3>
         <figure>
           {isTablet ? (
-            <figure dangerouslySetInnerHTML={{ __html: embed }} />
+            <div dangerouslySetInnerHTML={{ __html: embed }} />
           ) : (
             <a href={playgroundUrl}>
               {heroImgUrl && <img src={heroImgUrl} alt={title} /> }

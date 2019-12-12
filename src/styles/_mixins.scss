@@ -32,7 +32,7 @@
   }
 }
 @mixin for-desktop-up {
-  @media (min-width: 1200px) {
+  @media (min-width: 1024px) {
     @content;
   }
 }
@@ -94,11 +94,16 @@
       width: 16px;
       height: 16px;
       left: calc(-1rem - 8px);
-      top: 4px;
+      top: 2px;
 
       @include for-tablet-landscape-up {
         width: 24px;
         height: 24px;
+        top: 4px;
+      }
+
+      @include for-big-desktop-up {
+        top: 11px;
       }
     }
 }

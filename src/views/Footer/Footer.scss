@@ -5,26 +5,33 @@
 @import "../../styles/shared";
 
 footer.global {
-  background: $purple;
+  background: $brand-dark;
   width: 100%;
   align-self: end;
   padding: $space-md 0;
   //font-size: $font-size-xs;
-  color: $white;
+  color: $brand-med;
   text-align: center;
 
-  nav {
+  .footer-nav {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
     margin-bottom: $space-sm;
+
+    @include for-tablet-portrait-up {
+      justify-content: center;
+    }
 
     a {
       color: $brand-primary;
       font-size: $font-size-sm;
       padding: $space-xs;
+      width: 40px;
+      height: auto;
 
       @include for-tablet-portrait-up {
+        width: auto;
         flex-basis: auto;
         padding: $space-sm;
       }
@@ -35,24 +42,32 @@ footer.global {
     }
 
 
-    svg path {
-      transition: 0.35s all;
+    svg {
+      width: 100%;
+
+      path {
+        transition: 0.35s all;
+      }
     }
 
     svg:not(:hover) {
       path {
-        //fill: $brand-primary;
-        fill: $brand-med;
+        fill: $brand-primary;
         transform-origin: center;
       }
     }
   }
 
-  p {
-    font-size: $font-size-sm;
+  .footer-copy__wrapper {
+    max-width: 75%;
+    margin: 0 auto;
 
-    @include for-tablet-portrait-up {
-      font-size: $font-size-xs;
+    p {
+      font-size: $font-size-sm;
+
+      @include for-tablet-portrait-up {
+        font-size: $font-size-xs;
+      }
     }
   }
 }

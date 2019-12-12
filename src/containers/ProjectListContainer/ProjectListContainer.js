@@ -14,8 +14,10 @@ class ProjectListContainer extends Component {
     return (
       <project-list-container>
         <section>
-          <h1>{this.props.heading}</h1>
-          <p>{this.props.subheading}</p>
+          <header>
+            <h1>{this.props.heading}</h1>
+            <p>{this.props.subheading}</p>
+          </header>
           {this.props.heading === "Playground" ? (
             <div className="grid playground">
               {this.props.projects.map(project => {

@@ -4,13 +4,58 @@ import { shape, string, array } from "prop-types";
 import ReactMarkdown from "react-markdown";
 import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // Style
 import "./ProjectDetail.scss";
 
+import ProjectsIcon from "../../assets/icons/projects.svg";
+
 class ProjectDetail extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      isLoading: false,
+      projects: this.props.projects,
+      activeProjectId: '',
+      nextTitle: ''
+    };
+  }
+
+
+  componentDidMount() {
+    //this.timerHandle = setTimeout(() => this.setState({ isLoading: false }), 2000);
+    //this.setState({ projects: this.props.projects });
+  }
+
+  componentWillUnmount() {
+    // if (this.timerHandle) {
+    //   clearTimeout(this.timerHandle);
+    //   this.timerHandle = 0;
+    // }
+  }
+
+
+  // nextProject() {
+  //   let nextId = this.state.projectId + 1;
+  //   //console.log(nextId);
+  //   let nextProjectId = this.state.projects[nextId];
+  //   return nextProjectId;
+  // }
+
+  // handleNextProject() {
+  //   let arr = this.state.projects.length;
+  //   let idx = this.state.activeProjectId + 1;
+  //   idx = idx % arr;
+
+  //   this.setState({
+  //     activeProject: idx,
+  //     nextTitle: this.state.projects[idx].fields.slug,
+  //   });
+  // }
+
   render() {
+    console.log(this.props.projects[0]);
     let fields = this.props.project.fields;
     let {
       //previewImage,
@@ -24,7 +69,7 @@ class ProjectDetail extends Component {
       //thumbnails,
       clientLogo,
       roles,
-      brandColor,
+      //brandColor,
       heroImg
     } = fields;
     let clientLogoUrl = clientLogo && `https:${clientLogo.fields.file.url}`;
@@ -66,8 +111,17 @@ class ProjectDetail extends Component {
       options,
     );
 
+    // let nextTitle = (idx, arr) => {
+    //   let i = idx + 1;
+    //   i = i % arr.length;
+    //   console.log(arr[i].title);
+
+    //   return arr[i];
+    // };
+
     return (
-      <project-detail>
+      this.state.isLoading ? <h1>loading</h1> :
+      (<project-detail>
         {/*<img src={previewImageUrl} />*/}
 
         <article>
@@ -107,11 +161,9 @@ class ProjectDetail extends Component {
             {overview && <ReactMarkdown source={overview} />}
 
           </header>
-          <div className="hero-container"
-           style={{
-            backgroundColor: `${brandColor}`}}
-          >
+          <div className="hero-container">
             <img
+              className="hero-img"
               src={`${heroImgUrl}?w=320`}
               sizes="50vw"
               srcSet={`${heroImgUrl}?w=320 320w,
@@ -192,23 +244,31 @@ class ProjectDetail extends Component {
             </section>
           )}
 
-          <footer>
-            {projectUrl && (
+          {projectUrl && (
+            <section>
               <a
                 className="btn-outline"
                 href={projectUrl}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                View {title} live &#8663;
+                View {title} live
               </a>
-            )}
+            </section>
+          )}
 
-            {/* <Link to="/projects" className="btn-link">Back to All Projects</Link> */}
+          <footer>
+            <Link to="/project/#" className="btn-link">&#10229; Previous Project</Link>
+            <Link to="/projects" className="btn-link">
+              <div className="projects-link--wrapper">
+                <ProjectsIcon /><span>Back to All Projects</span>
+              </div>
+            </Link>
+            <Link to="/project/#" className="btn-link">Next Project &#10230; </Link>
 
           </footer>
         </article>
-      </project-detail>
+      </project-detail>)
     );
   }
 }

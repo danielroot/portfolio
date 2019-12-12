@@ -83,6 +83,7 @@ class Header extends Component {
               </div>
             </nav>
           )} */}
+
           <nav>
             <NavLink exact activeClassName="active" to="/" className="logo">
               Dan Root<span className="job-title">Product Designer</span>
@@ -97,6 +98,7 @@ class Header extends Component {
               Playground
             </NavLink>
           </nav>
+
         </div>
       </header>
     );

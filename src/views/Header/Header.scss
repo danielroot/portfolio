@@ -17,12 +17,12 @@ header.global {
     margin-top: $space-sm;
     text-align: center;
 
-    @include for-tablet-landscape-up {
+    @include for-tablet-portrait-up {
       flex-direction: row;
       text-align: left;
       justify-content: space-between;
       align-items: baseline;
-      margin: 0 -#{$space-xs};
+      margin: $space-sm -#{$space-xs} 0;
     }
 
 
@@ -35,28 +35,33 @@ header.global {
       @include for-tablet-portrait-up {
         font-size: $font-size-xs;
         margin-left: $space-sm;
-        padding: $space-sm $space-xs;
+        padding: $space-xxs $space-xs;
+        border-radius: $border-radius;
       }
       &:hover {
-        background: lighten($brand-primary, 56%);
+        background: $brand-light;
+        color: $brand-primary;
       }
     }
 
     a.active {
-      color: adjust-hue($brand-primary, 0%);
+      color: $brand-primary;
     }
 
     a.logo {
-      color: $off-black;
       letter-spacing: 0;
       font-weight: $font-weight-medium;
+
+      &.active {
+        color: $off-black;
+      }
 
       .job-title {
         margin-left: $space-xs;
         font-weight: $font-weight-regular;
       }
 
-      @include for-tablet-landscape-up {
+      @include for-tablet-portrait-up {
         font-size: $font-size-sm;
         margin-left: 0;
         margin-right: auto;

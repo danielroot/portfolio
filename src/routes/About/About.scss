@@ -1,0 +1,67 @@
+// ==========================================================================
+// App
+// ==========================================================================
+
+@import "../../styles/shared.scss";
+
+section {
+  margin-bottom: $space-md;
+
+  p {
+    @include for-tablet-landscape-up {
+      max-width: 70%;
+    }
+  }
+}
+
+section.skills {
+  //background: lighten($brand-primary, 40%);
+  //color: $brand-primary;
+  display: block;
+  margin-bottom: $space-lg;
+
+  @include for-tablet-landscape-up {
+    //width: 50%;
+    padding: $space-md 0 $space-lg;
+  }
+
+  ul {
+    padding-left: 1rem;
+
+    @include for-tablet-landscape-up {
+      //column-count: 2;
+    }
+
+    @include for-desktop-up {
+      //column-count: 3;
+    }
+
+    li {
+      @include list-bulleted-checkmark();
+    }
+  }
+}
+
+section.clients {
+  h2 {
+    text-transform: uppercase;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-light;
+    letter-spacing: 2px;
+  }
+
+  ul {
+    @include list-none();
+    display: flex;
+    flex-flow: row wrap;
+    margin: 0 -0.5rem;
+
+    li {
+      background: $brand-light;
+      padding: 0 $space-xs;
+      margin: $space-xxs;
+      font-size: $font-size-sm;
+      border-radius: $border-radius;
+    }
+  }
+}
