@@ -26,9 +26,9 @@ project-card {
     left: 0;
     mix-blend-mode: color;
 
-    @include for-tablet-portrait-up {
-      mix-blend-mode: color;
-    }
+    // @include for-tablet-portrait-up {
+    //   mix-blend-mode: color;
+    // }
   }
 
   &::after {
@@ -72,6 +72,8 @@ project-card {
   transition: 0.35s all;
   overflow: hidden;
   border: 1px solid $brand-med;
+  transform: translateZ(0);
+
 
   // @include for-tablet-portrait-up {
   //   box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px, rgba(0, 0, 0, 0.05) 0px 0.5px 1px;
@@ -88,7 +90,7 @@ project-card {
 
     @include for-tablet-portrait-up {
       align-items: inherit;
-      min-height: 300px;
+      min-height: 200px;
       flex-direction: column;
     }
 
@@ -103,10 +105,6 @@ project-card {
 
       &.nu-skin {
         width: 38px;
-      }
-
-      &.deloitte-digital {
-        width: 60px;
       }
     }
 

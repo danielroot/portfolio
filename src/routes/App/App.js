@@ -77,9 +77,7 @@ class App extends Component {
                       exact
                       path="/projects"
                       render={props => {
-                        let projects = this.state.projects.filter(project => {
-                          return project.sys.contentType.sys.id === "project";
-                        });
+                        let projects = this.state.projects;
 
                         return (
                           <ProjectListContainer

@@ -21,9 +21,14 @@ $gutter-global: $space-sm;
 // Fonts
 // ==========================================================================
 
+// add variable font...
+//@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@200..900&display=swap');
+
+//@import url('https://fonts.googleapis.com/css2?family=Hepta+Slab:wght@1..900&display=swap');
+
 // Fonts
 $font-family-base: "Lato";
-$font-family-headings: "aribau";
+$font-family-headings: "Work Sans", sans-serif;
 
 // Font Size
 $font-size-xxs: 0.25rem;
@@ -50,6 +55,7 @@ $brand-primary: #145CFB;
 $brand-light: lighten($brand-primary, 43%);
 $brand-med: lighten($brand-primary, 30%);
 $brand-dark: darken($brand-primary, 40%);
+$brand-reverse: adjust-hue($brand-primary, 180deg);
 $white: #fff;
 $semi-transparent-white: rgba(255, 255, 255, 0.9);
 $semi-transparent-black: rgba(0, 0, 0, 0.9);
@@ -57,8 +63,8 @@ $off-white: #fafafa;
 $gray-light: #e0e0e0;
 $gray-med: #959595;
 $gray-dark: #565656;
+$off-gray: #39435a;
 $off-black: #201e1e;
-//$off-black: $brand-dark;
 $black: #000;
 $red: #ff6868;
 $yellow-light: adjust-hue($brand-light, 180deg);
@@ -69,7 +75,7 @@ $color-bg-body-semi-transparent: $semi-transparent-white;
 $color-bg-content: $off-white; // content backgrounds
 $color-border: $gray-light; // borders
 $color-text-body: $off-black;
-$color-text-primary: $gray-med; // text & graphics
+$color-text-primary: $off-gray; // text & graphics
 $color-text-secondary: $gray-dark; // text & graphics
 $color-link: $brand-primary;
 $color-warning: orange; // TBD

@@ -1,6 +1,7 @@
 // Deps
 import React from "react";
 import { Link } from "react-router-dom";
+import Intro from "../Intro";
 
 // Style
 import "./About.scss";
@@ -8,17 +9,16 @@ import "./About.scss";
 const About = () => {
   return (
     <React.Fragment>
-      <h1>About</h1>
+      <Intro />
+
       <section>
         <h2>Process</h2>
-        <img src="" />
-        {/* <p>
-          Hello, I am a multi-disciplined <strong>UX/UI Product Designer</strong> who has
-          been working in the web industry since 2006 (and as a hobbyist since
-          2000). Currently I work as Sr. Front-End Designer and Engineer at{" "}
-          <a href="http://www.deloittedigital.com">Deloitte Digital</a> in
-          Seattle, WA. write about learning self-teaching, reading, etc.
-        </p> */}
+        Discover
+        Design
+        Deliver
+        Deduce
+
+        <p>What I can bring to your team</p>
         <h3>Sketching</h3>
         <p>
           Whether pencil, pen, or dry-erase marker, I am comfortable and adept at
@@ -76,7 +76,7 @@ const About = () => {
         </ul>
       </div>
       <div>
-        <h3>HCD</h3>
+        <h3>User-centered Design</h3>
         <ul>
           <li>Accessibility</li>
           <li>Animation</li>

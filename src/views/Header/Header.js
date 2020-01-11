@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import resumePDF from '../../assets/resume_dan-root_product-designer.pdf';
 import throttle from "lodash.throttle";
+import { motion } from "framer-motion";
 //import { Tween } from 'react-gsap';
 
 // Style
@@ -84,20 +85,27 @@ class Header extends Component {
             </nav>
           )} */}
 
-          <nav>
+          <motion.nav initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}>
             <NavLink exact activeClassName="active" to="/" className="logo">
-              Dan Root<span className="job-title">Product Designer</span>
+              Dan Root<span className="job-title">UX Designer/Developer</span>
             </NavLink>
+            {/* <NavLink activeClassName="active" to="/about">
+              About
+            </NavLink> */}
+
             <NavLink activeClassName="active" to="/projects">
               Projects
             </NavLink>
-            <a href={`/${resumePDF}`}>
-              Resumé
-            </a>
+
             <NavLink activeClassName="active" to="/playground">
               Playground
             </NavLink>
-          </nav>
+
+            <a href={`/${resumePDF}`}>
+              Resumé
+            </a>
+          </motion.nav>
 
         </div>
       </header>

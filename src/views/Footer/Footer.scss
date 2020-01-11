@@ -13,6 +13,11 @@ footer.global {
   color: $brand-med;
   text-align: center;
 
+  h4 {
+    color: $brand-med;
+    letter-spacing: 1px;
+  }
+
   .footer-nav {
     display: flex;
     flex-wrap: wrap;
@@ -29,6 +34,7 @@ footer.global {
       padding: $space-xs;
       width: 40px;
       height: auto;
+      transition: transform .25s;
 
       @include for-tablet-portrait-up {
         width: auto;
@@ -46,7 +52,7 @@ footer.global {
       width: 100%;
 
       path {
-        transition: 0.35s all;
+        transition: 0.25s all;
       }
     }
 

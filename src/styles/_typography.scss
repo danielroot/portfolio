@@ -13,8 +13,14 @@ p {
     transition: $transition-all-ease;
     text-decoration: none;
 
+    //text-decoration-skip-ink: none;
+    //text-decoration-style: wavy;
+    //text-underline-position: under;
+    //text-decoration-thickness: 10px;
+
     &:hover {
       //color: saturate($brand-primary, 30);
+      //background: $brand-reverse;
       text-decoration: underline;
     }
   }
@@ -27,6 +33,7 @@ h4,
 h5 {
   font-family: $font-family-headings;
   font-weight: $font-weight-medium;
+  color: $color-text-primary;
 }
 
 h1 {

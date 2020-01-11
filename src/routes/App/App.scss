@@ -50,30 +50,42 @@ article {
     margin: 0 auto $space-lg;
     display: flex;
     flex-direction: row-reverse;
-    align-items: center;
+    //align-items: center;
   }
 
   .intro-content {
-    max-width: 55%;
+    max-width: 90%;
     margin: 0 auto;
 
     // @include for-tablet-landscape-up {
     //   margin-left: $space-sm;
     // }
 
-    @include for-big-desktop-up {
+    @include for-tablet-landscape-up {
       max-width: 50%;
     }
   }
 
   h2 {
-    font-size: $font-size-sm;
+    font-size: $font-size-md;
+    line-height: 1.2;
+    margin-bottom: $space-sm;
+    font-weight: 400;
   }
 
   p {
     font-size: $font-size-sm;
+
     @include for-phone-only {
       margin: 0 auto;
+    }
+  }
+
+  svg {
+    margin-bottom: $space-sm;
+
+    @include for-tablet-landscape-up {
+      margin-bottom: 0;
     }
   }
 }

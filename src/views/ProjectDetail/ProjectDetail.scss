@@ -107,10 +107,14 @@ project-detail {
     h2 {
       text-transform: uppercase;
       //color: $brand-primary;
-      font-size: $font-size-xs;
+      font-size: $font-size-sm;
       //text-align: center;
       font-weight: $font-weight-light;
       letter-spacing: 2px;
+
+      @include for-tablet-landscape-up {
+        font-size: $font-size-xs;
+      }
     }
 
     ul {
@@ -156,7 +160,9 @@ project-detail {
       }
 
       li {
-        @include list-bulleted-checkmark();
+        line-height: 1.4;
+        margin-bottom: $space-sm;
+        //@include list-bulleted-checkmark();
       }
     }
   }
@@ -193,6 +199,7 @@ project-detail {
     border-radius: 4px;
     display: inline-block;
     transition: all 0.2s;
+    margin: 0 auto; // just a temp fix... delete later
 
     &:hover {
       text-decoration: underline;
@@ -220,8 +227,12 @@ project-detail {
     border-bottom: 1px solid $brand-light;
     text-align: center;
     display: flex;
-    font-size: $font-size-xs;
+    font-size: $font-size-sm;
     justify-content: space-between;
+
+    @include for-tablet-landscape-up {
+      font-size: $font-size-xs;
+    }
   }
 
   .projects-link--wrapper {
@@ -229,7 +240,7 @@ project-detail {
     align-items: center;
 
     svg {
-      margin-right: $space-xxs;
+      margin-right: $space-xs;
     }
   }
 }

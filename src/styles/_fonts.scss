@@ -3,10 +3,11 @@
 // ==========================================================================
 
 @font-face {
-  font-family: work-sans;
+  font-family: "Work Sans";
   font-display: auto;
-  src: local("Work Sans"), url("./work-sans/work-sans-400.woff");
-  font-weight: 400;
+  src: url("./work-sans/WorkSans-Roman-VF.ttf");
+  //font-weight: 400;
+  font-weight: 1 900;
 }
 
 @font-face {

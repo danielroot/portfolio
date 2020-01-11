@@ -1,6 +1,6 @@
 // Deps
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import { currentYear } from "../../utils/Dates";
 
 // Style
@@ -18,10 +18,10 @@ class Footer extends Component {
     return (
       <footer className="global">
         <div className="container">
-          <p>Interested in working together?</p>
-          <a href="mailto:info@danroot.co" className="btn">Contact Me!</a>
+          {/* <p>Interested in working together?</p>
+          <a href="mailto:info@danroot.co" className="btn">Contact Me!</a> */}
 
-          <h4>Follow</h4>
+          <h4>Connect</h4>
           <div className="footer-nav" role="navigation"  aria-label="social media links">
             {/*<Link to="/style-guide">Style Guide</Link>*/}
             <a href="https://www.linkedin.com/in/dan-root/">
@@ -36,7 +36,7 @@ class Footer extends Component {
             <a href="http://www.codepen.io/danroot">
               <CodepenIcon />
             </a>
-            <a href="http://www.instagram.com/danroot_art">
+            <a href="http://www.instagram.com/danroot.art">
               <InstagramIcon />
             </a>
             {/*<a href="https://www.twitter.com/danrootdesign">
@@ -45,18 +45,17 @@ class Footer extends Component {
           </div>
 
           <div className="footer-copy__wrapper">
-
             <p>
               hand-crafted with VS Code, React JS, Sass, and Contenful API. Hosted on Netlify{" "}
               <br />
               <a href="https://github.com/danielroot/portfolio/">
-                Github Repo
+                View Github Repo
               </a>{" "}
 
             </p>
             <p>
-              &copy; {currentYear} <Link to="/">Dan Root</Link>
-              {/* <a>info[at]danroot.co</a> */}
+              &copy; {currentYear} Dan Root
+              {" "}<a href="mailto:info@danroot.co">info[at]danroot.co</a>
             </p>
           </div>
         </div>

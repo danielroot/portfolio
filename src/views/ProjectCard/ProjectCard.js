@@ -3,6 +3,7 @@ import React, {Component} from "react";
 import {Link} from "react-router-dom";
 import {shape,string} from "prop-types";
 import throttle from "lodash.throttle";
+import { motion } from "framer-motion";
 
 // Style
 import "./ProjectCard.scss";
@@ -59,8 +60,25 @@ class ProjectCard extends Component {
       let clientLogoUrl = clientLogo && `https:${clientLogo.fields.file.url}`;
       let category = this.props.sys.contentType.sys.id;
       const {isTablet} = this.state;
+      const loadingItemVariants = {
+        start: {
+          y: -10,
+          opacity: 0,
+          transition: {
+            y: { stiffness: 1000, velocity: -100 }
+          }
+        },
+        end: {
+          y: 0,
+          opacity: 1,
+          transition: {
+            y: { stiffness: 1000 }
+          }
+        }
+      };
 
       return (
+        <motion.div variants={loadingItemVariants} whileHover={{ scale: 0.95 }} whileTap={{ scale: 0.95 }}>
         <Link to = {`/${category}/${slug}`}
           aria-labelledby = {`card-${slug}`}>
         <project-card>
@@ -89,6 +107,7 @@ class ProjectCard extends Component {
             </figure>
           </project-card>
           </Link>
+          </motion.div>
           );
         }
       }

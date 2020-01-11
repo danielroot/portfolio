@@ -36,23 +36,23 @@ class ProjectDetail extends Component {
   }
 
 
-  // nextProject() {
-  //   let nextId = this.state.projectId + 1;
-  //   //console.log(nextId);
-  //   let nextProjectId = this.state.projects[nextId];
-  //   return nextProjectId;
-  // }
+  nextProject() {
+    let nextId = this.state.projectId + 1;
+    //console.log(nextId);
+    let nextProjectId = this.state.projects[nextId];
+    return nextProjectId;
+  }
 
-  // handleNextProject() {
-  //   let arr = this.state.projects.length;
-  //   let idx = this.state.activeProjectId + 1;
-  //   idx = idx % arr;
+  handleNextProject() {
+    let arr = this.state.projects.length;
+    let idx = this.state.activeProjectId + 1;
+    idx = idx % arr;
 
-  //   this.setState({
-  //     activeProject: idx,
-  //     nextTitle: this.state.projects[idx].fields.slug,
-  //   });
-  // }
+    this.setState({
+      activeProject: idx,
+      nextTitle: this.state.projects[idx].fields.slug,
+    });
+  }
 
   render() {
     console.log(this.props.projects[0]);
@@ -69,7 +69,7 @@ class ProjectDetail extends Component {
       //thumbnails,
       clientLogo,
       roles,
-      //brandColor,
+      brandColor,
       heroImg
     } = fields;
     let clientLogoUrl = clientLogo && `https:${clientLogo.fields.file.url}`;
@@ -155,8 +155,12 @@ class ProjectDetail extends Component {
                   aria-hidden="true"
                 />
               )}
-              <span>{title}</span>
+              <span className="font-weight-grow--anim" style={{
+                color: `${brandColor}`}}>{title}</span>
             </h1>
+            {/* <p>Industry: Retail</p>
+            <p>Services: UX, UI</p>
+            <p>Team: DD</p> */}
             {/*<em>{projectType}</em>*/}
             {overview && <ReactMarkdown source={overview} />}
 
@@ -258,13 +262,13 @@ class ProjectDetail extends Component {
           )}
 
           <footer>
-            <Link to="/project/#" className="btn-link">&#10229; Previous Project</Link>
+            {/* <Link to="/project/#" className="btn-link">&#10229; Previous Project</Link> */}
             <Link to="/projects" className="btn-link">
               <div className="projects-link--wrapper">
                 <ProjectsIcon /><span>Back to All Projects</span>
               </div>
             </Link>
-            <Link to="/project/#" className="btn-link">Next Project &#10230; </Link>
+            {/* <Link to="/project/#" className="btn-link">Next Project &#10230; </Link> */}
 
           </footer>
         </article>
@@ -276,6 +280,7 @@ class ProjectDetail extends Component {
 // TODO: remove defaultProps once Redux is handling state?
 
 ProjectDetail.defaultProps = {
+  projects: [],
   project: {
     fields: {
       clientLogo: {
@@ -299,6 +304,7 @@ ProjectDetail.defaultProps = {
 };
 
 ProjectDetail.propTypes = {
+  projects: array,
   project: shape({
     fields: shape({
       title: string,

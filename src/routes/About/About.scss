@@ -4,6 +4,10 @@
 
 @import "../../styles/shared.scss";
 
+h1 {
+  animation: moveInText 0.5s both;
+}
+
 section {
   margin-bottom: $space-md;
 

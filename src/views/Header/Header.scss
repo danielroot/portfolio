@@ -27,10 +27,13 @@ header.global {
 
 
     a {
-      color: $off-black;
+      color: $color-text-primary;
+      font-family: $font-family-headings;
       font-size: $font-size-sm;
       padding: $space-xs 0;
       transition: 0.5s background;
+      transition: 0.25s font-weight;
+      // transition: 0.25s letter-spacing;
 
       @include for-tablet-portrait-up {
         font-size: $font-size-xs;
@@ -38,9 +41,13 @@ header.global {
         padding: $space-xxs $space-xs;
         border-radius: $border-radius;
       }
+
       &:hover {
         background: $brand-light;
         color: $brand-primary;
+        // font-weight: 600;
+        //letter-spacing: 3px;
+        font-weight: 700;
       }
     }
 
@@ -69,5 +76,3 @@ header.global {
     }
   }
 }
-
-
