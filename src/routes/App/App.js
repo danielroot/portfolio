@@ -101,7 +101,7 @@ class App extends Component {
                         let projectIndex = projects.findIndex(projectMatch);
 
                         return (
-                          <ProjectDetail project={selectedProject} {...props} id={projectIndex} projects={projects} />
+                          <ProjectDetail project={selectedProject} {...props} projectId={projectIndex} projects={projects} />
                         );
                       }}
                     />

@@ -12,7 +12,9 @@ const About = () => {
       <Intro />
 
       <section>
-        <h2>Process</h2>
+        <h2>About</h2>
+
+
         Discover
         Design
         Deliver

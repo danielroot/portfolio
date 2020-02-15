@@ -71,12 +71,13 @@ project-card {
   position: relative;
   transition: 0.35s all;
   overflow: hidden;
-  border: 1px solid $brand-med;
+  border: 1px solid rgba($brand-med, 0.25);
   transform: translateZ(0);
 
 
   // @include for-tablet-portrait-up {
-  //   box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px, rgba(0, 0, 0, 0.05) 0px 0.5px 1px;
+  //   border: none;
+  //   //box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px, rgba(0, 0, 0, 0.05) 0px 0.5px 1px;
   // }
 
   figure {
@@ -106,6 +107,10 @@ project-card {
       &.nu-skin {
         width: 38px;
       }
+
+      &.rei-snow-report {
+        width: 48px;
+      }
     }
 
     h3 {
@@ -131,6 +136,7 @@ project-card {
     @include for-desktop-up {
       box-shadow: rgba($brand-dark, 0.1) 0px 10px 23px,
         rgba($brand-dark, 0.18) 0px 4px 11px;
+      border: none;
     }
   }
 }

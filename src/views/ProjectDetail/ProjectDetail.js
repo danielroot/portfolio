@@ -56,6 +56,7 @@ class ProjectDetail extends Component {
 
   render() {
     console.log(this.props.projects[0]);
+    let projectIndex = this.props.projectId;
     let fields = this.props.project.fields;
     let {
       //previewImage,
@@ -78,6 +79,7 @@ class ProjectDetail extends Component {
     //let projectType = fields.projectType;
     //let previewImageUrl =
       //previewImage && `https:${previewImage.fields.file.url}`;
+
 
     const filteredAndSortedRoles =
       roles &&
@@ -119,6 +121,8 @@ class ProjectDetail extends Component {
     //   return arr[i];
     // };
 
+
+
     return (
       this.state.isLoading ? <h1>loading</h1> :
       (<project-detail>
@@ -153,6 +157,7 @@ class ProjectDetail extends Component {
                   className="client-logo"
                   //alt={`${title} 'logo'`}
                   aria-hidden="true"
+                  loading="lazy"
                 />
               )}
               <span className="font-weight-grow--anim" style={{
@@ -168,6 +173,7 @@ class ProjectDetail extends Component {
           <div className="hero-container">
             <img
               className="hero-img"
+              loading="lazy"
               src={`${heroImgUrl}?w=320`}
               sizes="50vw"
               srcSet={`${heroImgUrl}?w=320 320w,
@@ -269,7 +275,7 @@ class ProjectDetail extends Component {
               </div>
             </Link>
             {/* <Link to="/project/#" className="btn-link">Next Project &#10230; </Link> */}
-
+            <h2>[projectIndex]</h2>
           </footer>
         </article>
       </project-detail>)

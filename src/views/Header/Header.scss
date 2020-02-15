@@ -53,6 +53,10 @@ header.global {
 
     a.active {
       color: $brand-primary;
+
+      &:hover {
+        background: none;
+      }
     }
 
     a.logo {

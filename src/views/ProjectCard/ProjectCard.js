@@ -52,10 +52,13 @@ class ProjectCard extends Component {
         title,
         clientLogo,
         previewImage,
+        cardImg,
         brandColor
       } = fields;
       let previewImageUrl =
         previewImage && `https:${previewImage.fields.file.url}`;
+      let cardImgUrl =
+        cardImg && `https:${cardImg.fields.file.url}`;
       //let heroImgDescription = heroImgSmall.fields.description;
       let clientLogoUrl = clientLogo && `https:${clientLogo.fields.file.url}`;
       let category = this.props.sys.contentType.sys.id;
@@ -83,8 +86,8 @@ class ProjectCard extends Component {
           aria-labelledby = {`card-${slug}`}>
         <project-card>
         {isTablet && (
-          <img src= {`${previewImageUrl}?w=500`}
-            className="cover-img" />
+          <img src={`${cardImgUrl}?w=500`}
+            className="cover-img" loading="lazy" />
           )}
 
           <div className="overlay-before"

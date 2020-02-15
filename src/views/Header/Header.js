@@ -88,7 +88,7 @@ class Header extends Component {
           <motion.nav initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}>
             <NavLink exact activeClassName="active" to="/" className="logo">
-              Dan Root<span className="job-title">UX Designer/Developer</span>
+              Dan Root<span className="job-title">Product Designer</span>
             </NavLink>
             {/* <NavLink activeClassName="active" to="/about">
               About
