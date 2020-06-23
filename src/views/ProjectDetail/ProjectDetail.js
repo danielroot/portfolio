@@ -56,7 +56,7 @@ class ProjectDetail extends Component {
 
   render() {
     console.log(this.props.projects[0]);
-    let projectIndex = this.props.projectId;
+    //let projectIndex = this.props.projectId;
     let fields = this.props.project.fields;
     let {
       //previewImage,
@@ -275,7 +275,7 @@ class ProjectDetail extends Component {
               </div>
             </Link>
             {/* <Link to="/project/#" className="btn-link">Next Project &#10230; </Link> */}
-            <h2>[projectIndex]</h2>
+            {/* w */}
           </footer>
         </article>
       </project-detail>)

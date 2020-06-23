@@ -1,7 +1,7 @@
 // Deps
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-import resumePDF from '../../assets/resume_dan-root_product-designer.pdf';
+import resumePDF from '../../assets/dan-root_product-designer_resume.pdf';
 import throttle from "lodash.throttle";
 import { motion } from "framer-motion";
 //import { Tween } from 'react-gsap';

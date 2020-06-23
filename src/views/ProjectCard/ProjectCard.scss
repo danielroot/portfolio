@@ -12,7 +12,7 @@ project-card {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
   }
 
   .overlay-before {
@@ -128,6 +128,7 @@ project-card {
         align-self: flex-end;
         background: $brand-primary;
         color: $white;
+        margin-top: auto;
       }
     }
   }
@@ -136,7 +137,14 @@ project-card {
     @include for-desktop-up {
       box-shadow: rgba($brand-dark, 0.1) 0px 10px 23px,
         rgba($brand-dark, 0.18) 0px 4px 11px;
-      border: none;
+      border: 1px transparent;
     }
   }
+
+  // HACK remove later
+
+  img.uber {
+    object-fit: cover;
+  }
+
 }

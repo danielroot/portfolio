@@ -50,17 +50,17 @@ class ProjectCard extends Component {
       let {
         slug,
         title,
-        clientLogo,
-        previewImage,
+        //clientLogo,
+        //previewImage,
         cardImg,
         brandColor
       } = fields;
-      let previewImageUrl =
-        previewImage && `https:${previewImage.fields.file.url}`;
+      //let previewImageUrl =
+        //previewImage && `https:${previewImage.fields.file.url}`;
       let cardImgUrl =
         cardImg && `https:${cardImg.fields.file.url}`;
       //let heroImgDescription = heroImgSmall.fields.description;
-      let clientLogoUrl = clientLogo && `https:${clientLogo.fields.file.url}`;
+      //let clientLogoUrl = clientLogo && `https:${clientLogo.fields.file.url}`;
       let category = this.props.sys.contentType.sys.id;
       const {isTablet} = this.state;
       const loadingItemVariants = {
@@ -81,13 +81,13 @@ class ProjectCard extends Component {
       };
 
       return (
-        <motion.div variants={loadingItemVariants} whileHover={{ scale: 0.95 }} whileTap={{ scale: 0.95 }}>
+        <motion.div variants={loadingItemVariants} whileHover={{ scale: 1.03 }} whileTap={{ scale: 1.03 }}>
         <Link to = {`/${category}/${slug}`}
           aria-labelledby = {`card-${slug}`}>
         <project-card>
         {isTablet && (
           <img src={`${cardImgUrl}?w=500`}
-            className="cover-img" loading="lazy" />
+            className={`cover-img ${slug}`} loading="lazy" />
           )}
 
           <div className="overlay-before"
@@ -101,12 +101,14 @@ class ProjectCard extends Component {
 
         {isTablet && ( <div className="overlay-opacity"></div>)}
 
-            <figure> {
+            <figure>
+              {/* {
               clientLogoUrl && (
                 <img src = {clientLogoUrl}
                 className = {`client-logo ${slug}`}
                 alt = {`${title} logo`}aria-hidden="true" />
-              )} <h3 id ={`card-${slug}`}>{title}</h3>
+              )}  */}
+              <h3 id ={`card-${slug}`}>{title}</h3>
             </figure>
           </project-card>
           </Link>
