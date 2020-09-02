@@ -2,18 +2,11 @@
 // Fonts
 // ==========================================================================
 
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
 @font-face {
   font-family: "Work Sans";
   font-display: auto;
   src: url("./work-sans/WorkSans-Roman-VF.ttf");
-  //font-weight: 400;
   font-weight: 1 900;
-}
-
-@font-face {
-  font-family: aribau;
-  font-display: auto;
-  src: local("Aribau"), url("./aribau/ArGr1000-Blk.woff");
-  font-weight: 900;
-  text-rendering: optimizeLegibility;
 }

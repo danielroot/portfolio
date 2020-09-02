@@ -6,20 +6,29 @@
 
 project-list-container {
   display: block;
-  margin-bottom: $space-lg;
 
   h1 {
-    animation: moveInText 0.5s both;
+    //animation: moveInText 0.5s both;
   }
 
   .grid {
     //animation: moveInText 0.5s both;
     display: grid;
-    grid-gap: $space-sm;
+    grid-column-gap: $space-sm;
+    grid-row-gap: $space-md;
+
+    // @include for-tablet-portrait-up {
+    //   grid-template-columns: repeat(auto-fit, minmax(350px, auto));
+    // }
 
     @include for-tablet-portrait-up {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include for-tablet-landscape-up {
       grid-template-columns: repeat(auto-fit, minmax(350px, auto));
     }
+
 
     &.playground {
       @include for-tablet-portrait-up {

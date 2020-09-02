@@ -4,16 +4,12 @@
 
 @import "../../styles/shared.scss";
 
-h1 {
-  animation: moveInText 0.5s both;
-}
-
 section {
   margin-bottom: $space-md;
 
   p {
     @include for-tablet-landscape-up {
-      max-width: 70%;
+      //max-width: 70%;
     }
   }
 }

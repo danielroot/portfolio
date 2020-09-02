@@ -2,8 +2,6 @@
 // Typography
 // ==========================================================================
 
-@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Montserrat:400,600&display=swap');
-
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -12,22 +10,24 @@
 p {
   font-size: $font-size-sm;
   margin-bottom: $space-sm;
+}
 
-  a {
-    color: $brand-primary;
-    transition: $transition-all-ease;
-    text-decoration: none;
 
-    //text-decoration-skip-ink: none;
-    //text-decoration-style: wavy;
-    //text-underline-position: under;
-    //text-decoration-thickness: 10px;
+article a,
+a.text-link {
+  color: $brand-primary;
+  transition: $transition-all-ease;
+  text-decoration: none;
 
-    &:hover {
-      //color: saturate($brand-primary, 30);
-      //background: $brand-reverse;
-      text-decoration: underline;
-    }
+  //text-decoration-skip-ink: none;
+  //text-decoration-style: wavy;
+  //text-underline-position: under;
+  //text-decoration-thickness: 10px;
+
+  &:hover {
+    //color: saturate($brand-primary, 30);
+    //background: $brand-reverse;
+    text-decoration: underline;
   }
 }
 
@@ -46,7 +46,7 @@ h5 {
 // }
 
 h1 {
-  font-size: $font-size-xl;
+  font-size: $font-size-lg;
   font-weight: $font-weight-regular;
   line-height: 1;
   margin-bottom: $space-sm;
@@ -64,6 +64,7 @@ h2 {
 
 h3 {
   font-size: $font-size-md;
+  line-height: 1.2;
 }
 
 h4 {

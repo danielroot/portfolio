@@ -27,13 +27,16 @@ $gutter-global: $space-sm;
 //@import url('https://fonts.googleapis.com/css2?family=Hepta+Slab:wght@1..900&display=swap');
 
 // Fonts
-$font-family-base: "Lato";
+$font-family-base: "Lato",
+"Lucida Grande",
+Tahoma,
+sans-serif;
 $font-family-headings: "Work Sans",
 sans-serif;
 
 // Font Size
-$font-size-xxs: 0.25rem;
-$font-size-xs: 0.625rem;
+$font-size-xxs: 0.5rem;
+$font-size-xs: 0.75rem;
 $font-size-sm: 1rem;
 $font-size-md: 1.5rem;
 $font-size-lg: 2.25rem;
@@ -61,7 +64,7 @@ $white: #fff;
 $semi-transparent-white: rgba(255, 255, 255, 0.9);
 $semi-transparent-black: rgba(0, 0, 0, 0.9);
 $off-white: #fafafa;
-$gray-light: #e0e0e0;
+$gray-light: #eee;
 $gray-med: #959595;
 $gray-dark: #565656;
 $off-gray: #39435a;
@@ -79,6 +82,7 @@ $color-text-body: $off-black;
 $color-text-primary: $off-gray; // text & graphics
 $color-text-secondary: $gray-dark; // text & graphics
 $color-link: $brand-primary;
+$color-highlight: darken($color-bg-body, 10%);
 $color-warning: orange; // TBD
 $color-success: green; // TBD
 $color-danger: red; // TBD

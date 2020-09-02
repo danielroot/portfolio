@@ -8,17 +8,14 @@ import "./IntroArt.scss";
 
 const IntroArt = () => {
   return (
-    <motion.svg initial={{ x: 0, opacity: 0 }}
-    animate={{ x: 0, opacity: 1 }}
+    <motion.svg initial={{ opacity: 0, scale: 0.9 }}
+    animate={{ opacity: 1, scale: 1 }}
     transition={{
       type: "spring",
-      stiffness: 200,
+      stiffness: 400,
       damping: 20
     }} width="100%" height="100%" viewBox="0 0 463 292" fill="none" xmlns="http://www.w3.org/2000/svg">
-<motion.circle cx="233" cy="145" r="145" fill="#145CFB" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{
-      type: "spring",
-      stiffness: 200,
-      damping: 20}} />
+<circle cx="233" cy="145" r="145" fill="#145CFB"/>
 <path d="M106.722 163.074L134.573 189.142L138.573 176.142L106.722 163.074Z" fill="black"/>
 <path d="M129.923 159.005L164.093 185.365L125.612 236.249L86.175 215.715L129.923 159.005Z" fill="white" stroke="black" strokeWidth="2"/>
 <path d="M360.5 160L336.341 186.934L331.35 174.281L360.5 160Z" fill="black"/>

@@ -1,27 +1,33 @@
 // Deps
 import React, { Component } from "react";
-import { shape, string, array } from "prop-types";
+import { shape, string, array, number } from "prop-types";
 import ReactMarkdown from "react-markdown";
-import { BLOCKS, MARKS } from '@contentful/rich-text-types';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { Link } from "react-router-dom";
+import { BLOCKS, MARKS } from "@contentful/rich-text-types";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+//import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+// import {
+//   Redirect
+// } from "react-router-dom";
+
+// Components
+import ProjectCard from "../../views/ProjectCard/ProjectCard";
 
 // Style
 import "./ProjectDetail.scss";
 
-import ProjectsIcon from "../../assets/icons/projects.svg";
+//import ProjectsIcon from "../../assets/icons/projects.svg";
 
 class ProjectDetail extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       isLoading: false,
       projects: this.props.projects,
-      activeProjectId: '',
-      nextTitle: ''
+      activeProjectId: this.props.projectId,
+      nextTitle: "",
     };
   }
-
 
   componentDidMount() {
     //this.timerHandle = setTimeout(() => this.setState({ isLoading: false }), 2000);
@@ -34,7 +40,6 @@ class ProjectDetail extends Component {
     //   this.timerHandle = 0;
     // }
   }
-
 
   nextProject() {
     let nextId = this.state.projectId + 1;
@@ -52,15 +57,20 @@ class ProjectDetail extends Component {
       activeProject: idx,
       nextTitle: this.state.projects[idx].fields.slug,
     });
+
+    console.log(this.state.nextTitle);
   }
 
   render() {
     console.log(this.props.projects[0]);
-    //let projectIndex = this.props.projectId;
     let fields = this.props.project.fields;
     let {
       //previewImage,
+      clientName,
       title,
+      projectRole,
+      projectYear,
+      timeline,
       overview,
       summary,
       //problem,
@@ -68,18 +78,18 @@ class ProjectDetail extends Component {
       contributions,
       projectUrl,
       //thumbnails,
-      clientLogo,
+      //clientLogo,
       roles,
-      brandColor,
-      heroImg
+      //brandColor,
+      heroImg,
     } = fields;
-    let clientLogoUrl = clientLogo && `https:${clientLogo.fields.file.url}`;
+    //let clientLogoUrl = clientLogo && `https:${clientLogo.fields.file.url}`;
     let heroImgUrl = `https:${heroImg.fields.file.url}`;
     let heroImgDesc = heroImg.fields.description;
+    let projects = this.props.projects;
     //let projectType = fields.projectType;
     //let previewImageUrl =
-      //previewImage && `https:${previewImage.fields.file.url}`;
-
+    //previewImage && `https:${previewImage.fields.file.url}`;
 
     const filteredAndSortedRoles =
       roles &&
@@ -87,18 +97,27 @@ class ProjectDetail extends Component {
         .filter((role, index) => roles.lastIndexOf(role) === index)
         .sort((a, b) => (a < b ? -1 : 1));
 
+    const remainingProjects = projects
+      .slice(0, this.props.projectId)
+      .concat(projects.slice(this.props.projectId + 1, projects.length));
+
     const options = {
       renderNode: {
-        [BLOCKS.EMBEDDED_ASSET]: node => (
-          <figure className="img-wrap"><img src={node.data.target.fields.file.url} />
-          <figcaption>{node.data.target.fields.description}</figcaption></figure>
+        [BLOCKS.EMBEDDED_ASSET]: (node) => (
+          <figure className="img-wrap">
+            <img src={node.data.target.fields.file.url} />
+            <figcaption>{node.data.target.fields.description}</figcaption>
+          </figure>
         ),
-        [BLOCKS.EMBEDDED_ENTRY]: node => (
-          <div className="code-snippet" dangerouslySetInnerHTML={{ __html: node.data.target.fields.snippet}} />
+        [BLOCKS.EMBEDDED_ENTRY]: (node) => (
+          <div
+            className="code-snippet"
+            dangerouslySetInnerHTML={{
+              __html: node.data.target.fields.snippet,
+            }}
+          />
         ),
-        [BLOCKS.PARAGRAPH]: (node, children) => (
-          <p>{children}</p>
-        ),
+        [BLOCKS.PARAGRAPH]: (node, children) => <p>{children}</p>,
         [BLOCKS.QUOTE]: (node, children) => (
           <div className="quotation">{children}</div>
         ),
@@ -108,10 +127,7 @@ class ProjectDetail extends Component {
       },
     };
 
-    const summaryContent = documentToReactComponents(
-      summary,
-      options,
-    );
+    const summaryContent = documentToReactComponents(summary, options);
 
     // let nextTitle = (idx, arr) => {
     //   let i = idx + 1;
@@ -121,59 +137,62 @@ class ProjectDetail extends Component {
     //   return arr[i];
     // };
 
-
-
-    return (
-      this.state.isLoading ? <h1>loading</h1> :
-      (<project-detail>
+    return this.state.isLoading ? (
+      <h1>loading</h1>
+    ) : (
+      <project-detail>
         {/*<img src={previewImageUrl} />*/}
 
+        {/* <Redirect to="/404" /> */}
         <article>
           <header>
-            {/*<project-card
-              //make these inline images so they can use srcSet
-              style={{
-                backgroundColor: `${brandColor}`,
-                backgroundImage: `url(${previewImageUrl}?w=800)`
-              }}
-            >
-              <figure>
-                {clientLogoUrl && (
-                  <img
-                    src={clientLogoUrl}
-                    className="client-logo"
-                    alt={`${title} logo`}
-                    aria-hidden="true"
-                  />
-                )}
-                <h1>{title}</h1>
-              </figure>
-
-            </project-card>*/}
             <h1>
-              {clientLogoUrl && (
-                <img
-                  src={clientLogoUrl}
-                  className="client-logo"
-                  //alt={`${title} 'logo'`}
-                  aria-hidden="true"
-                  loading="lazy"
-                />
-              )}
-              <span className="font-weight-grow--anim" style={{
-                color: `${brandColor}`}}>{title}</span>
+              <span className="client-name">
+                {clientName}
+              </span>{" "}
+              {title}
             </h1>
             {/* <p>Industry: Retail</p>
             <p>Services: UX, UI</p>
             <p>Team: DD</p> */}
             {/*<em>{projectType}</em>*/}
             {overview && <ReactMarkdown source={overview} />}
-
+            <dl>
+              {projectRole && (
+                <React.Fragment>
+                  <dt>Role</dt>
+                  <dd>{projectRole}</dd>
+                </React.Fragment>
+              )}
+              {projectYear && (
+                <React.Fragment>
+                  <dt>Year</dt>
+                  <dd>{projectYear}</dd>
+                </React.Fragment>
+              )}
+              {timeline && (
+                <React.Fragment>
+                  <dt>Duration</dt>
+                  <dd>{timeline}</dd>
+                </React.Fragment>
+              )}
+              {/* <dt>Team</dt>
+              <dd>PM, Engineers, QA</dd> */}
+            </dl>
           </header>
-          <div className="hero-container">
+          <motion.div
+            key={title}
+            className="hero-container"
+            initial={{ x: -40, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{
+              type: "spring",
+              stiffness: 200,
+              damping: 20,
+            }}
+          >
             <img
               className="hero-img"
-              loading="lazy"
               src={`${heroImgUrl}?w=320`}
               sizes="50vw"
               srcSet={`${heroImgUrl}?w=320 320w,
@@ -183,10 +202,9 @@ class ProjectDetail extends Component {
               `}
               alt={heroImgDesc}
             />
-          </div>
-          {summary && (
-            <section>{summaryContent}</section>
-          )}
+          </motion.div>
+
+          {summary && <section className="summary">{summaryContent}</section>}
 
           {contributions && (
             <section className="contributions">
@@ -245,7 +263,7 @@ class ProjectDetail extends Component {
 
           {roles && (
             <section className="roles">
-              <h2>Responsibilities</h2>
+              <h2>Activities Performed</h2>
               <ul>
                 {filteredAndSortedRoles.map((role, index) => {
                   return <li key={index}>{role}</li>;
@@ -254,31 +272,41 @@ class ProjectDetail extends Component {
             </section>
           )}
 
+          {/* <section>
+            <h2>Tools & Methods</h2>
+            <ul>
+              <li>Figma</li>
+              <li>React JS</li>
+            </ul>
+
+          </section> */}
+
           {projectUrl && (
             <section>
-              <a
-                className="btn-outline"
-                href={projectUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View {title} live
+              <h4>View live project</h4>
+              <a href={projectUrl} target="_blank" rel="noopener noreferrer">
+                {projectUrl}
               </a>
             </section>
           )}
-
-          <footer>
-            {/* <Link to="/project/#" className="btn-link">&#10229; Previous Project</Link> */}
-            <Link to="/projects" className="btn-link">
-              <div className="projects-link--wrapper">
-                <ProjectsIcon /><span>Back to All Projects</span>
-              </div>
-            </Link>
-            {/* <Link to="/project/#" className="btn-link">Next Project &#10230; </Link> */}
-            {/* w */}
-          </footer>
         </article>
-      </project-detail>)
+        <footer>
+          <h2>Browse more work</h2>
+          <div className="projects-link--wrapper">
+            {/* {remainingProjects.map(project => {
+                return <Link className="btn-outline" to={`/project/${project.fields.slug}`} key={project.sys.id}>
+                  <img src={`https:${project.fields.cardImg.fields.file.url}`} />
+                  {project.fields.clientName}—{project.fields.title}</Link>;
+              })} */}
+
+            {remainingProjects.map((project) => {
+              return <ProjectCard key={project.sys.id} {...project} />;
+            })}
+          </div>
+          {/* <Link to="/project/#" className="btn-link">Next Project &#10230; </Link>
+            {this.state.activeProjectId} need redux because state is lost on page refresh */}
+        </footer>
+      </project-detail>
     );
   }
 }
@@ -292,27 +320,28 @@ ProjectDetail.defaultProps = {
       clientLogo: {
         fields: {
           file: {
-            url: ""
-          }
-        }
+            url: "",
+          },
+        },
       },
       heroImg: {
         fields: {
           file: {
-            url: ""
-          }
-        }
+            url: "",
+          },
+        },
       },
-      thumbnails: [],
-      role: []
-    }
-  }
+      role: [],
+    },
+  },
 };
 
 ProjectDetail.propTypes = {
   projects: array,
+  projectId: number,
   project: shape({
     fields: shape({
+      clientName: string,
       title: string,
       overview: string,
       problem: string,
@@ -321,20 +350,20 @@ ProjectDetail.propTypes = {
       clientLogo: shape({
         fields: shape({
           file: shape({
-            url: string
-          })
-        })
+            url: string,
+          }),
+        }),
       }),
       heroImgSmall: shape({
         fields: shape({
           file: shape({
-            url: string
-          })
-        })
+            url: string,
+          }),
+        }),
       }),
-      thumbnails: array
-    })
-  })
+      thumbnails: array,
+    }),
+  }),
 };
 
 export default ProjectDetail;

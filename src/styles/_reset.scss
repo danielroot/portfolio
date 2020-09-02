@@ -12,6 +12,10 @@ html {
   @include for-tablet-portrait-up {
     font-size: calc(14px + 8 * ((100vw - 320px) / 960));
   }
+
+  @include for-big-desktop-up {
+    font-size: calc(10px + 8 * ((100vw - 320px) / 960));
+  }
 }
 
 *,
@@ -129,7 +133,8 @@ button {
 a {
   color: currentColor;
   text-decoration: none;
-  -webkit-tap-highlight-color: transparent; /* for removing the highlight */
+  -webkit-tap-highlight-color: transparent;
+  /* for removing the highlight */
 
   &:focus {
     outline: thin dotted;

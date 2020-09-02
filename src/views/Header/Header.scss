@@ -32,7 +32,7 @@ header.global {
       font-size: $font-size-sm;
       padding: $space-xs 0;
       transition: 0.5s background;
-      transition: 0.25s font-weight;
+      transition: 0.2s font-weight;
       // transition: 0.25s letter-spacing;
 
       @include for-tablet-portrait-up {
@@ -45,9 +45,14 @@ header.global {
       &:hover {
         background: $brand-light;
         color: $brand-primary;
+        text-decoration: none;
         // font-weight: 600;
         //letter-spacing: 3px;
         font-weight: 700;
+      }
+
+      &:focus {
+        outline: none;
       }
     }
 
@@ -63,14 +68,26 @@ header.global {
       letter-spacing: 0;
       font-weight: $font-weight-medium;
 
-      &.active {
-        color: $off-black;
-      }
-
       .job-title {
         margin-left: $space-xs;
         font-weight: $font-weight-regular;
+        transition: 0.25s font-weight;
       }
+
+      // &:hover {
+      //   font-weight: 300;
+
+      //   .job-title {
+      //     font-weight: 700;
+      //   }
+      // }
+
+      &.active {
+        color: $off-black;
+        pointer-events: none;
+        cursor: default;
+      }
+
 
       @include for-tablet-portrait-up {
         font-size: $font-size-sm;

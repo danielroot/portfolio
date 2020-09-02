@@ -1,7 +1,7 @@
 // Deps
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-import resumePDF from '../../assets/dan-root_product-designer_resume.pdf';
+import resumePDF from '../../assets/dan-root_resume_2020.pdf';
 import throttle from "lodash.throttle";
 import { motion } from "framer-motion";
 //import { Tween } from 'react-gsap';
@@ -88,7 +88,7 @@ class Header extends Component {
           <motion.nav initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}>
             <NavLink exact activeClassName="active" to="/" className="logo">
-              Dan Root<span className="job-title">Product Designer</span>
+              Dan Root<span className="job-title">UX/UI Product Designer</span>
             </NavLink>
             {/* <NavLink activeClassName="active" to="/about">
               About
@@ -102,8 +102,8 @@ class Header extends Component {
               Playground
             </NavLink>
 
-            <a href={`/${resumePDF}`}>
-              Resumé
+            <a href={`/${resumePDF}`} target="_blank" rel="noopener noreferrer">
+              Resumé (PDF)
             </a>
           </motion.nav>
 

@@ -4,134 +4,10 @@
 
 @import "../../styles/shared";
 
-project-card {
-
-  .cover-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-
-  .overlay-before {
-    background: $white;
-    content: '';
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    mix-blend-mode: color;
-
-    // @include for-tablet-portrait-up {
-    //   mix-blend-mode: color;
-    // }
-  }
-
-  &::after {
-    background-color: $brand-primary;
-    content: '';
-    display: block;
-    width: 100%;
-    height: 100%;
-    mix-blend-mode: lighten;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-
-  .overlay-opacity {
-    background: $white;
-    content: '';
-    display: block;
-    width: 100%;
-    height: 100%;
-    opacity: 0.25;
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    @include for-tablet-landscape-up {
-      opacity: 0.33;
-    }
-  }
-
-  //background: $brand-primary;
-  background-size: cover;
-  //background-blend-mode: soft-light;
-  //background-position: 50% 50%;
-  //background-repeat: repeat-y;
-  //filter: grayscale(50%) contrast(1);
+a.project-card--wrapper {
   display: block;
-  padding: $space-sm;
   border-radius: $border-radius;
-  position: relative;
-  transition: 0.35s all;
-  overflow: hidden;
-  border: 1px solid rgba($brand-med, 0.25);
-  transform: translateZ(0);
-
-
-  // @include for-tablet-portrait-up {
-  //   border: none;
-  //   //box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px, rgba(0, 0, 0, 0.05) 0px 0.5px 1px;
-  // }
-
-  figure {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    // min-height: 250px;
-    min-height: 5vh;
-    position: relative;
-
-    @include for-tablet-portrait-up {
-      align-items: inherit;
-      min-height: 200px;
-      flex-direction: column;
-    }
-
-    .client-logo {
-      width: 40px;
-      height: auto;
-      object-fit: contain;
-
-      &.walmart {
-        width: 34px;
-      }
-
-      &.nu-skin {
-        width: 38px;
-      }
-
-      &.rei-snow-report {
-        width: 48px;
-      }
-    }
-
-    h3 {
-      background: $white;
-      font-size: $font-size-sm;
-      font-weight: $font-weight-light;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-family: $font-family-base;
-      padding: $space-xxs $space-xs;
-      border-radius: $border-radius;
-
-      @include for-tablet-portrait-up {
-        font-size: $font-size-xs;
-        align-self: flex-end;
-        background: $brand-primary;
-        color: $white;
-        margin-top: auto;
-      }
-    }
-  }
+  transition: .3s all;
 
   &:hover {
     @include for-desktop-up {
@@ -141,10 +17,203 @@ project-card {
     }
   }
 
-  // HACK remove later
+  &:focus {
+    outline: none;
+  }
 
-  img.uber {
-    object-fit: cover;
+  project-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border: 1px solid $brand-light;
+
+    img {
+      height: 200px;
+      width: 100%;
+      object-fit: contain;
+
+      @include for-big-desktop-up {
+        height: 250px;
+      }
+    }
+
+    figure {
+      padding: $space-sm;
+      width: 100%;
+      background: $off-white;
+      height: 100%;
+
+      h3 {
+        font-weight: $font-weight-light;
+        font-size: $font-size-md;
+        margin-bottom: $space-xs;
+
+        @include for-desktop-up {
+          font-size: $font-size-sm;
+        }
+      }
+
+      p {
+        font-size: $font-size-sm;
+        margin-bottom: 0;
+        color: $gray-dark;
+
+        @include for-desktop-up {
+          font-size: $font-size-xs;
+        }
+      }
+    }
   }
 
 }
+
+
+// a.project-card--wrapper {
+//   display: block;
+//   border-radius: $border-radius;
+
+//   project-card {
+
+//     .cover-img {
+//       position: absolute;
+//       top: 0;
+//       left: 0;
+//       width: 100%;
+//       height: 100%;
+//       object-fit: contain;
+//     }
+
+//     .overlay-before {
+//       background: $white;
+//       content: '';
+//       display: block;
+//       width: 100%;
+//       height: 100%;
+//       position: absolute;
+//       top: 0;
+//       left: 0;
+//       mix-blend-mode: color;
+
+//       @include for-tablet-portrait-up {
+//         mix-blend-mode: color;
+//       }
+//     }
+
+//     .overlay-opacity {
+//       background: $white;
+//       content: '';
+//       display: block;
+//       width: 100%;
+//       height: 100%;
+//       opacity: 0.25;
+//       position: absolute;
+//       top: 0;
+//       left: 0;
+
+//       @include for-tablet-landscape-up {
+//         opacity: 0.33;
+//       }
+//     }
+
+//     //background: $brand-primary;
+//     background-size: cover;
+//     //background-blend-mode: soft-light;
+//     //background-position: 50% 50%;
+//     //background-repeat: repeat-y;
+//     //filter: grayscale(50%) contrast(1);
+//     display: block;
+//     padding: $space-sm;
+//     border-radius: $border-radius;
+//     position: relative;
+//     transition: 0.35s all;
+//     overflow: hidden;
+//     border: 1px solid rgba($brand-med, 0.25);
+//     transform: translateZ(0);
+
+
+//     // @include for-tablet-portrait-up {
+//     //   border: none;
+//     //   //box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px, rgba(0, 0, 0, 0.05) 0px 0.5px 1px;
+//     // }
+
+//     figure {
+//       display: flex;
+//       flex-direction: row;
+//       justify-content: space-between;
+//       align-items: center;
+//       // min-height: 250px;
+//       min-height: 5vh;
+//       position: relative;
+
+//       @include for-tablet-portrait-up {
+//         align-items: inherit;
+//         min-height: 200px;
+//         flex-direction: column;
+//       }
+
+//       .client-logo {
+//         width: 40px;
+//         height: auto;
+//         object-fit: contain;
+
+//         &.walmart {
+//           width: 34px;
+//         }
+
+//         &.nu-skin {
+//           width: 38px;
+//         }
+
+//         &.rei-snow-report {
+//           width: 48px;
+//         }
+//       }
+
+//       h3 {
+//         background: $white;
+//         font-size: $font-size-sm;
+//         font-weight: $font-weight-light;
+//         text-transform: uppercase;
+//         letter-spacing: 2px;
+//         font-family: $font-family-base;
+//         padding: $space-xxs $space-xs;
+//         border-radius: $border-radius;
+
+//         @include for-tablet-portrait-up {
+//           font-size: $font-size-xs;
+//           align-self: flex-end;
+//           background: $brand-primary;
+//           color: $white;
+//           margin-top: auto;
+//         }
+//       }
+//     }
+
+//     // HACK remove later
+
+//     img.uber {
+//       object-fit: cover;
+//     }
+
+//   }
+
+//   &:hover {
+//     figure {
+
+//       h3,
+//       p {
+//         text-decoration: none;
+//       }
+//     }
+
+//     @include for-desktop-up {
+//       box-shadow: rgba($brand-dark, 0.1) 0px 10px 23px,
+//         rgba($brand-dark, 0.18) 0px 4px 11px;
+//       border: 1px transparent;
+//     }
+//   }
+
+//   &:focus {
+//     outline: none;
+//   }
+// }

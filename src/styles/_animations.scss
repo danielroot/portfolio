@@ -28,12 +28,12 @@
 
 @keyframes moveInHero {
   from {
-    transform: translateY(-1%);
+    transform: rotate(6deg);
     opacity: 0;
   }
 
   to {
-    transform: translateY(0%);
+    transform: rotate(0);
     opacity: 1;
   }
 }

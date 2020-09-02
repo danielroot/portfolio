@@ -10,7 +10,7 @@ footer.global {
   align-self: end;
   padding: $space-md 0;
   //font-size: $font-size-xs;
-  color: $brand-med;
+  color: $brand-light;
   text-align: center;
 
   h4 {
@@ -73,6 +73,15 @@ footer.global {
 
       @include for-tablet-portrait-up {
         font-size: $font-size-xs;
+      }
+
+      a {
+        color: $brand-primary;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
   }

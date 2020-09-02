@@ -10,7 +10,7 @@ import DribbleIcon from "../../assets/icons/Dribbble-color.svg";
 import GithubIcon from "../../assets/icons/Github-color.svg";
 import LinkedInIcon from "../../assets/icons/LinkedIn-color.svg";
 import CodepenIcon from "../../assets/icons/Codepen-white.svg";
-import InstagramIcon from "../../assets/icons/Instagram-color.svg";
+//import InstagramIcon from "../../assets/icons/Instagram-color.svg";
 //import TwitterIcon from "../../assets/icons/Twitter-color.svg";
 
 class Footer extends Component {
@@ -36,9 +36,9 @@ class Footer extends Component {
             <a href="http://www.codepen.io/danroot">
               <CodepenIcon />
             </a>
-            <a href="http://www.instagram.com/danroot.art">
+            {/* <a href="http://www.instagram.com/danroot.art">
               <InstagramIcon />
-            </a>
+            </a> */}
             {/*<a href="https://www.twitter.com/danrootdesign">
               <TwitterIcon />
     </a>*/}

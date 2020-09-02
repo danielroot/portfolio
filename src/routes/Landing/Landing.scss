@@ -1,0 +1,35 @@
+// ==========================================================================
+// Landing
+// ==========================================================================
+
+@import "../../styles/shared.scss";
+
+section.services {
+  //text-align: center;
+
+  @include for-tablet-landscape-up {
+    //height: 100vh;
+  }
+
+  .services-wrapper {
+    text-align: center;
+    margin-top: $space-md;
+    display: grid;
+    column-gap: 4rem;
+    grid-template-columns: 1fr;
+
+    @include for-tablet-landscape-up {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    ul {
+      @include list-none;
+    }
+  }
+}
+
+section.projects {
+  @include for-tablet-landscape-up {
+    //height: 100vh;
+  }
+}

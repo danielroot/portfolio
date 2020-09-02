@@ -25,11 +25,11 @@ class ProjectListContainer extends Component {
     };
 
     return (
-      <project-list-container>
+      <project-list-container key={this.props.heading}>
         <section>
           <header>
             <h1>{this.props.heading}</h1>
-            <p>{this.props.subheading}</p>
+            <p>{this.props.subheading || "Delivered with cross-functional/agile teams"}</p>
           </header>
           {this.props.heading === "Playground" ? (
             <div className="grid playground">
