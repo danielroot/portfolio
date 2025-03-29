@@ -67,7 +67,7 @@ article {
     // }
 
     @include for-tablet-landscape-up {
-      max-width: 45ch;
+      max-width: 50ch;
     }
   }
 
@@ -75,7 +75,6 @@ article {
     font-size: $font-size-md;
     line-height: 1.2;
     margin-bottom: $space-sm;
-    font-weight: 400;
   }
 
   p {
@@ -90,7 +89,9 @@ article {
     margin-bottom: $space-sm;
 
     @include for-tablet-landscape-up {
-      margin: 0 1.5rem 0 -2rem;
+      //margin: 0 1.5rem 0 -2rem;
+      order: 1;
+      max-width: 40%;
 
     }
   }

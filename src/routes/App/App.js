@@ -3,15 +3,13 @@ import React, { Component } from "react";
 import {
   BrowserRouter as Router,
   Route,
-  Switch,
-  //Redirect
+  Switch
 } from "react-router-dom";
 import { AppContainer } from "react-hot-loader";
-// import store from "store";
 
 // Contentful API
 import * as contentful from "contentful";
-import config from "../../config.json";
+import config from "../../config.js";
 
 // Containers
 import Header from "../../views/Header/Header";
@@ -23,11 +21,9 @@ import ProjectListContainer from "../../containers/ProjectListContainer/ProjectL
 import ProjectDetail from "../../views/ProjectDetail/ProjectDetail";
 import StyleGuide from "../StyleGuide";
 import NotFound from "../NotFound";
-import Login from "../Login/Login";
 
 // Helpers
 import ScrollToTop from "../../utils/ScrollToTop";
-//import isLoggedIn from "../../utils/isLoggedIn";
 
 // Style
 import "./App.scss";
@@ -39,6 +35,7 @@ class App extends Component {
     this.state = {
       projects: [],
       playground: [],
+      error: null
     };
   }
 
@@ -48,31 +45,52 @@ class App extends Component {
       space: config.space,
     });
 
-    // get the Projects API
-    client
-      .getEntries({
+    const fetchContent = (contentType, query) => {
+      return client.getEntries(query)
+        .then(response => response.items)
+        .catch(error => {
+          console.error(`Error fetching ${contentType}:`, error);
+          this.setState({ error: `Failed to load ${contentType}` });
+          return [];
+        });
+    };
+
+    // Fetch all content in parallel
+    Promise.all([
+      fetchContent('projects', {
         content_type: "project",
         order: "-fields.projectDate",
         "fields.projectType[all]": "public",
-      }) // get only project entries for google
-
-      .then((response) => {
-        this.setState({ projects: response.items });
-      });
-
-    // get the Playground API
-    client
-      .getEntries({
+      }),
+      fetchContent('playground', {
         content_type: "playground",
         order: "-fields.playgroundDate",
+      }),
+      fetchContent('pages', {
+        content_type: "page",
       })
-      .then((response) => {
-        this.setState({ playground: response.items });
-      });
+    ]).then(([projects, playground, pages]) => {
+      this.setState({ projects, playground, pages });
+    });
   }
 
   render() {
-    //const { history } = this.props;
+    const { projects, playground, error } = this.state;
+
+    console.log('Render state:', {
+      projectsLength: projects.length,
+      playgroundLength: playground.length,
+      error
+    });
+
+    if (error) {
+      return (
+        <div className="error-message" style={{padding: '20px'}}>
+          <h2>Oops! Something went wrong. Please try again later.</h2>
+          <p>{error}</p>
+        </div>
+      );
+    }
 
     return (
       <AppContainer>
@@ -83,76 +101,57 @@ class App extends Component {
               <main>
                 <div className="container">
                   <Switch>
-                    {/* <Route path="/">{isLoggedIn ? <Redirect to="/login" /> : <Landing />}</Route> */}
-                    <Route path="/login" component={Login} />
                     <Route
                       exact
                       path="/"
-                      render={(props) => (
-                        <Landing projects={this.state.projects} {...props} />
-                      )}
+                      render={props => <Landing {...props} projects={projects} />}
                     />
-
                     <Route
                       exact
                       path="/projects"
-                      render={(props) => {
-                        let projects = this.state.projects;
-
-                        return (
-                          <ProjectListContainer
-                            heading="Projects"
-                            projects={projects}
-                            {...props}
-                          />
-                        );
-                      }}
+                      render={props => (
+                        <ProjectListContainer
+                          {...props}
+                          heading="Portfolio"
+                          projects={projects}
+                        />
+                      )}
                     />
                     <Route
                       path="/project/:id"
-                      render={(props) => {
-                        let projects = this.state.projects;
-
-                        let projectMatch = (project) =>
-                          props.match.params.id === project.fields.slug;
-
-                        let selectedProject = projects.find(projectMatch);
-                        console.log(selectedProject);
-                        let projectIndex = projects.findIndex(projectMatch);
-
-                        return (
-
-                              <ProjectDetail
-                                project={selectedProject}
-                                {...props}
-                                projectId={projectIndex}
-                                projects={projects}
-                              />
-
+                      render={props => {
+                        const project = projects.find(
+                          p => p.fields.slug === props.match.params.id
                         );
-                      }}
-                    />
-
-                    <Route
-                      exact
-                      path="/playground"
-                      render={(props) => {
-                        let playground = this.state.playground;
-
+                        const projectId = projects.findIndex(
+                          p => p.fields.slug === props.match.params.id
+                        );
                         return (
-                          <ProjectListContainer
-                            heading="Playground"
-                            subheading="Collection of design & code sandboxes for learning and experimentation"
-                            projects={playground}
+                          <ProjectDetail
                             {...props}
+                            project={project}
+                            projectId={projectId}
+                            projects={projects}
                           />
                         );
                       }}
+                    />
+                    <Route
+                      exact
+                      path="/playground"
+                      render={props => (
+                        <ProjectListContainer
+                          {...props}
+                          heading="Playground"
+                          subheading="Collection of design & code sandboxes for learning and experimentation"
+                          projects={playground}
+                        />
+                      )}
                     />
                     <Route exact path="/about" component={About} />
                     <Route exact path="/resume" component={Resume} />
                     <Route exact path="/style-guide" component={StyleGuide} />
-                    <Route component={NotFound} />
+                    <Route render={props => <NotFound {...props} projects={projects} />} />
                   </Switch>
                 </div>
               </main>

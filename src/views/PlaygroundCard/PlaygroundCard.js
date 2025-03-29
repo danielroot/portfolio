@@ -22,9 +22,12 @@ class PlaygroundCard extends Component {
     this.setState({ isTablet: window.innerWidth >= 600 });
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.handleWindowResize();
     this.timerHandle = setTimeout(() => this.setState({ isLoading: false }), 2000);
+    this.setState({
+      isOpen: false
+    });
   }
 
   componentDidMount() {

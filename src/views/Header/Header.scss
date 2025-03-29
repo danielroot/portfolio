@@ -57,7 +57,9 @@ header.global {
     }
 
     a.active {
-      color: $brand-primary;
+      color: inherit;
+      font-weight: 700;
+      cursor: default;
 
       &:hover {
         background: none;

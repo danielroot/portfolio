@@ -13,6 +13,15 @@ import "./Landing.scss";
 
 class Landing extends Component {
   render(props) {
+    if (!this.props.projects) {
+      return (
+        <React.Fragment>
+          <Intro />
+          <div>Loading projects...</div>
+        </React.Fragment>
+      );
+    }
+
     return (
       <React.Fragment>
         <Intro />
@@ -52,7 +61,7 @@ class Landing extends Component {
         </section> */}
         <section className="projects">
         <ProjectListContainer
-          heading="Projects"
+          heading="Portfolio"
           projects={this.props.projects}
           {...props}
         />

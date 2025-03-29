@@ -31,6 +31,7 @@ $font-family-base: "Lato",
 "Lucida Grande",
 Tahoma,
 sans-serif;
+// $font-family-headings: "Work Sans",
 $font-family-headings: "Work Sans",
 sans-serif;
 
@@ -48,6 +49,8 @@ $font-size-xxxl: 7.594rem;
 $font-weight-light: 300;
 $font-weight-regular: 400;
 $font-weight-medium: 600;
+$font-weight-bold: 800;
+
 
 //
 // Colors
@@ -100,7 +103,7 @@ $transition-all-ease: 0.3s ease 0s;
 
 
 //
-$border-radius: 4px;
+$border-radius: 1rem;
 //
 // Z-Index
 // ==========================================================================

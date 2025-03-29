@@ -9,9 +9,13 @@
 
 p {
   font-size: $font-size-sm;
+  line-height: 1.6;
   margin-bottom: $space-sm;
 }
 
+figcaption {
+  font-size: $font-size-xs;
+}
 
 article a,
 a.text-link {
@@ -36,16 +40,21 @@ h2,
 h3,
 h4,
 h5 {
+  //font-family: "Fugaz One", cursive;
   font-family: $font-family-headings;
   font-weight: $font-weight-medium;
   color: $color-text-primary;
 }
 
-// h1, h2, h3 {
-
-// }
+article {
+  h2, h3, h4 {
+    // font-family: "Fugaz One", cursive;
+    font-family: "Fugaz One", cursive;
+  }
+}
 
 h1 {
+  // font-family: "Boldonse", sans-serif;
   font-size: $font-size-lg;
   font-weight: $font-weight-regular;
   line-height: 1;
@@ -59,16 +68,18 @@ h1 {
 }
 
 h2 {
-  font-size: $font-size-lg;
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
 }
 
 h3 {
-  font-size: $font-size-md;
+  font-size: $font-size-sm;
   line-height: 1.2;
 }
 
 h4 {
   font-size: $font-size-sm;
+  text-transform: uppercase;
 }
 
 h5 {

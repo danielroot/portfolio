@@ -4,11 +4,7 @@ import { shape, string, array, number } from "prop-types";
 import ReactMarkdown from "react-markdown";
 import { BLOCKS, MARKS } from "@contentful/rich-text-types";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-//import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-// import {
-//   Redirect
-// } from "react-router-dom";
 
 // Components
 import ProjectCard from "../../views/ProjectCard/ProjectCard";
@@ -16,56 +12,32 @@ import ProjectCard from "../../views/ProjectCard/ProjectCard";
 // Style
 import "./ProjectDetail.scss";
 
-//import ProjectsIcon from "../../assets/icons/projects.svg";
-
 class ProjectDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isLoading: false,
-      projects: this.props.projects,
-      activeProjectId: this.props.projectId,
-      nextTitle: "",
     };
-  }
 
-  componentDidMount() {
-    //this.timerHandle = setTimeout(() => this.setState({ isLoading: false }), 2000);
-    //this.setState({ projects: this.props.projects });
-  }
-
-  componentWillUnmount() {
-    // if (this.timerHandle) {
-    //   clearTimeout(this.timerHandle);
-    //   this.timerHandle = 0;
-    // }
-  }
-
-  nextProject() {
-    let nextId = this.state.projectId + 1;
-    //console.log(nextId);
-    let nextProjectId = this.state.projects[nextId];
-    return nextProjectId;
-  }
-
-  handleNextProject() {
-    let arr = this.state.projects.length;
-    let idx = this.state.activeProjectId + 1;
-    idx = idx % arr;
-
-    this.setState({
-      activeProject: idx,
-      nextTitle: this.state.projects[idx].fields.slug,
-    });
-
-    console.log(this.state.nextTitle);
+    // Preload hero image if available
+    if (props.project.fields.heroImg.fields.file.url) {
+      const heroImgUrl = `https:${props.project.fields.heroImg.fields.file.url}`;
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'image';
+      link.href = heroImgUrl;
+      document.head.appendChild(link);
+    }
   }
 
   render() {
+    if (!this.props.project) {
+      return <div>Loading...</div>;
+    }
+
     console.log(this.props.projects[0]);
     let fields = this.props.project.fields;
     let {
-      //previewImage,
       clientName,
       title,
       projectRole,
@@ -73,23 +45,14 @@ class ProjectDetail extends Component {
       timeline,
       overview,
       summary,
-      //problem,
-      //solution,
       contributions,
       projectUrl,
-      //thumbnails,
-      //clientLogo,
       roles,
-      //brandColor,
       heroImg,
     } = fields;
-    //let clientLogoUrl = clientLogo && `https:${clientLogo.fields.file.url}`;
     let heroImgUrl = `https:${heroImg.fields.file.url}`;
     let heroImgDesc = heroImg.fields.description;
     let projects = this.props.projects;
-    //let projectType = fields.projectType;
-    //let previewImageUrl =
-    //previewImage && `https:${previewImage.fields.file.url}`;
 
     const filteredAndSortedRoles =
       roles &&
@@ -129,33 +92,59 @@ class ProjectDetail extends Component {
 
     const summaryContent = documentToReactComponents(summary, options);
 
-    // let nextTitle = (idx, arr) => {
-    //   let i = idx + 1;
-    //   i = i % arr.length;
-    //   console.log(arr[i].title);
-
-    //   return arr[i];
-    // };
-
     return this.state.isLoading ? (
       <h1>loading</h1>
     ) : (
       <project-detail>
-        {/*<img src={previewImageUrl} />*/}
-
-        {/* <Redirect to="/404" /> */}
         <article>
           <header>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{
+                key: {title},
+                type: "spring",
+                stiffness: 300,
+                damping: 100,
+                delay: 0.1
+              }}
+            >
             <h1>
               <span className="client-name">
                 {clientName}
               </span>{" "}
               {title}
             </h1>
-            {/* <p>Industry: Retail</p>
-            <p>Services: UX, UI</p>
-            <p>Team: DD</p> */}
-            {/*<em>{projectType}</em>*/}
+            </motion.div>
+            <motion.div
+            key={heroImgUrl}
+            className="hero-container"
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{
+              type: "spring",
+              stiffness: 300,
+              damping: 50
+            }}
+          >
+            {/* <img
+              className="hero-img"
+              src={`${heroImgUrl}`}
+              sizes="50vw"
+              srcSet={`${heroImgUrl} 1000w,
+              ${heroImgUrl}?w=480 480w,
+              ${heroImgUrl}?w=800 800w,
+              ${heroImgUrl}?w=1000 1000w
+              `}
+              alt={heroImgDesc}
+            /> */}
+             <img
+              className="hero-img"
+              src={`${heroImgUrl}`}
+              sizes="50vw"
+              alt={heroImgDesc}
+            />
+          </motion.div>
             {overview && <ReactMarkdown source={overview} />}
             <dl>
               {projectRole && (
@@ -180,29 +169,7 @@ class ProjectDetail extends Component {
               <dd>PM, Engineers, QA</dd> */}
             </dl>
           </header>
-          <motion.div
-            key={title}
-            className="hero-container"
-            initial={{ x: -40, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{
-              type: "spring",
-              stiffness: 200,
-              damping: 20,
-            }}
-          >
-            <img
-              className="hero-img"
-              src={`${heroImgUrl}?w=320`}
-              sizes="50vw"
-              srcSet={`${heroImgUrl}?w=320 320w,
-              ${heroImgUrl}?w=480 480w,
-              ${heroImgUrl}?w=800 800w,
-              ${heroImgUrl}?w=1000 1000w
-              `}
-              alt={heroImgDesc}
-            />
-          </motion.div>
+
 
           {summary && <section className="summary">{summaryContent}</section>}
 
@@ -212,54 +179,6 @@ class ProjectDetail extends Component {
               <ReactMarkdown source={contributions} />
             </section>
           )}
-
-          {/*<section>
-            {problem && (
-              <React.Fragment>
-                <h2>
-                  {title}
-                  &#39;s Problem
-                </h2>
-                <ReactMarkdown source={problem} />
-              </React.Fragment>
-            )}
-          </section>*/}
-          {/*<section>
-            {solution && (
-              <React.Fragment>
-                <h2>Solution</h2>
-                <ReactMarkdown source={solution} />
-              </React.Fragment>
-            )}
-          </section>*/}
-
-          {/* {thumbnails && (
-            <React.Fragment>
-              <h2>Deliverables</h2>
-              {thumbnails.map((thumbnail, index) => {
-                thumbnail = thumbnail.fields;
-
-                return (
-                  <section className="thumbnail" key={index}>
-                    <figure>
-                      <img
-                        src={`${thumbnail.file.url}?w=320`}
-                        sizes="50vw"
-                        srcSet={`${thumbnail.file.url}?w=320 320w,
-                    ${thumbnail.file.url}?w=480 480w,
-                    ${thumbnail.file.url}?w=800 800w,
-                    ${thumbnail.file.url}?w=1000 1000w
-                    `}
-                        alt={thumbnail.description}
-                      />
-
-                      <figcaption>{thumbnail.description}</figcaption>
-                    </figure>
-                  </section>
-                );
-              })}
-            </React.Fragment>
-          )} */}
 
           {roles && (
             <section className="roles">
@@ -290,22 +209,23 @@ class ProjectDetail extends Component {
             </section>
           )}
         </article>
-        <footer>
-          <h2>Browse more work</h2>
-          <div className="projects-link--wrapper">
-            {/* {remainingProjects.map(project => {
-                return <Link className="btn-outline" to={`/project/${project.fields.slug}`} key={project.sys.id}>
-                  <img src={`https:${project.fields.cardImg.fields.file.url}`} />
-                  {project.fields.clientName}—{project.fields.title}</Link>;
-              })} */}
-
-            {remainingProjects.map((project) => {
-              return <ProjectCard key={project.sys.id} {...project} />;
-            })}
-          </div>
-          {/* <Link to="/project/#" className="btn-link">Next Project &#10230; </Link>
-            {this.state.activeProjectId} need redux because state is lost on page refresh */}
-        </footer>
+        <motion.div
+              key={title}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{
+                delay: 0.1
+              }}
+            >
+          <footer>
+            <h2>Browse more work</h2>
+            <div className="projects-link--wrapper">
+              {remainingProjects.map((project) => {
+                return <ProjectCard key={project.sys.id} {...project} />;
+              })}
+            </div>
+          </footer>
+        </motion.div>
       </project-detail>
     );
   }

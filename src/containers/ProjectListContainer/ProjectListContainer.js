@@ -10,6 +10,10 @@ import "./ProjectListContainer.scss";
 
 class ProjectListContainer extends Component {
   render() {
+    if (!this.props.projects) {
+      return <div>Loading...</div>;
+    }
+
     //let contentType = this.props.sys.contentType.sys.id;
     const loadingContainerVariants = {
       start: {

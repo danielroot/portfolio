@@ -26,7 +26,7 @@ class ProjectCard extends Component {
     });
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.handleWindowResize();
     this.timerHandle = setTimeout(
       () =>
@@ -35,6 +35,9 @@ class ProjectCard extends Component {
         }),
       2000
     );
+    this.setState({
+      isOpen: false
+    });
   }
 
   componentDidMount() {
@@ -83,13 +86,13 @@ class ProjectCard extends Component {
     };
 
     return (
-      <motion.div variants={loadingItemVariants} whileTap={{ scale: 0.98 }}>
+      <motion.div variants={loadingItemVariants} whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }} className={`project-${slug}`}>
 
       <Link to={`/${category}/${slug}`} aria-labelledby={`card-${slug}`} className='project-card--wrapper'>
         <project-card>
 
           <img
-            src={`${cardImgUrl}?w=500`}
+            src={`${cardImgUrl}`}
             className={`cover-img ${slug}`}
             loading="lazy"
           />

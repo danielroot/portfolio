@@ -1,7 +1,7 @@
 // Deps
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-import resumePDF from '../../assets/dan-root_resume_2020.pdf';
+import resumePDF from '../../assets/dan-root_resume.pdf';
 import throttle from "lodash.throttle";
 import { motion } from "framer-motion";
 //import { Tween } from 'react-gsap';
@@ -25,8 +25,11 @@ class Header extends Component {
     this.setState({ isTablet: window.innerWidth >= 600 });
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.handleWindowResize();
+    this.setState({
+      isOpen: false
+    });
   }
 
   componentDidMount() {
@@ -85,25 +88,34 @@ class Header extends Component {
             </nav>
           )} */}
 
-          <motion.nav initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}>
+        <motion.nav initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}>
             <NavLink exact activeClassName="active" to="/" className="logo">
-              Dan Root<span className="job-title">UX/UI Product Designer</span>
+              Dan Root<span className="job-title">UX Product Designer</span>
             </NavLink>
             {/* <NavLink activeClassName="active" to="/about">
               About
             </NavLink> */}
 
             <NavLink activeClassName="active" to="/projects">
-              Projects
+              {/* <span className="material-symbols-rounded">
+                work
+              </span> */}
+              Portfolio
             </NavLink>
 
             <NavLink activeClassName="active" to="/playground">
+              {/* <span className="material-symbols-rounded">
+                experiment
+              </span> */}
               Playground
             </NavLink>
 
             <a href={`/${resumePDF}`} target="_blank" rel="noopener noreferrer">
-              Resumé (PDF)
+              Resumé
+              {/* <span className="material-symbols-rounded">
+                picture_as_pdf
+              </span> */}
             </a>
           </motion.nav>
 
@@ -112,6 +124,5 @@ class Header extends Component {
     );
   }
 }
-
 
 export default Header;

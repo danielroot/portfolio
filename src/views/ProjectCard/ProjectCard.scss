@@ -4,15 +4,24 @@
 
 @import "../../styles/shared";
 
+// .project-auto-care-service-reminders,
+// .project-automotive-fitment,
+// .project-wireless-retail-platform {
+//     display: none;
+//   }
+
+
+
 a.project-card--wrapper {
   display: block;
-  border-radius: $border-radius;
-  transition: .3s all;
+  //border-radius: $border-radius;
+  transition: .2s all;
 
   &:hover {
     @include for-desktop-up {
-      box-shadow: rgba($brand-dark, 0.1) 0px 10px 23px,
-        rgba($brand-dark, 0.18) 0px 4px 11px;
+      // box-shadow: rgba($brand-dark, 0.1) 0px 10px 23px,
+      //   rgba($brand-dark, 0.18) 0px 4px 11px;
+      //box-shadow: rgba($brand-med, 0.75) -4px 4px 0px;
       border: 1px transparent;
     }
   }
@@ -30,7 +39,7 @@ a.project-card--wrapper {
     img {
       height: 200px;
       width: 100%;
-      object-fit: contain;
+      object-fit: cover;
 
       @include for-big-desktop-up {
         height: 250px;
