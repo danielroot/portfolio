@@ -1,0 +1,20 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[context.branch-deploy]
+  command = "npm run build"
+  publish = "dist"
+
+[context.deploy-preview]
+  command = "npm run build"
+  publish = "dist"
+
+[context.storybook]
+  command = "npm run build-storybook"
+  publish = "storybook-static"
+
+[[redirects]]
+  from = "/storybook/*"
+  to = "/index.html"
+  status = 200

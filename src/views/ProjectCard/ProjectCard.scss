@@ -14,17 +14,19 @@
 
 a.project-card--wrapper {
   display: block;
-  //border-radius: $border-radius;
+  border-radius: $border-radius;
   transition: .2s all;
 
-  &:hover {
-    @include for-desktop-up {
-      // box-shadow: rgba($brand-dark, 0.1) 0px 10px 23px,
-      //   rgba($brand-dark, 0.18) 0px 4px 11px;
-      //box-shadow: rgba($brand-med, 0.75) -4px 4px 0px;
-      border: 1px transparent;
-    }
-  }
+  // &:hover {
+  //   @include for-desktop-up {
+  //     box-shadow: rgba($brand-dark, 0.1) 0px 10px 23px, rgba($brand-dark, 0.18) 0px 4px 11px;
+  //     box-shadow: rgba($brand-med, 0.75) -4px 4px 0px;
+  //     border: 1px transparent;
+  //   }
+  // }
+
+
+  // .projects-link--wrapper { this view should be a grid of project cards and the main projects view should be a list of project cards that each span full-width in their layout}
 
   &:focus {
     outline: none;
@@ -35,11 +37,13 @@ a.project-card--wrapper {
     flex-direction: column;
     height: 100%;
     border: 1px solid $brand-light;
+    border-radius: $border-radius;
 
     img {
       height: 200px;
       width: 100%;
       object-fit: cover;
+      border-radius: $border-radius $border-radius 0 0;
 
       @include for-big-desktop-up {
         height: 250px;
@@ -51,6 +55,8 @@ a.project-card--wrapper {
       width: 100%;
       background: $off-white;
       height: 100%;
+      border-radius: $border-radius;
+
 
       h3 {
         font-weight: $font-weight-light;

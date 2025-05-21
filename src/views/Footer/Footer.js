@@ -6,6 +6,7 @@ import { currentYear } from "../../utils/Dates";
 // Style
 import "./Footer.scss";
 
+// Default SVG imports
 import DribbleIcon from "../../assets/icons/Dribbble-color.svg";
 import GithubIcon from "../../assets/icons/Github-color.svg";
 import LinkedInIcon from "../../assets/icons/LinkedIn-color.svg";
@@ -15,6 +16,16 @@ import InstagramIcon from "../../assets/icons/Instagram-color.svg";
 
 class Footer extends Component {
   render() {
+    // Use provided icons or fall back to default imports
+    const {
+      icons = {
+        LinkedInIcon,
+        DribbleIcon,
+        GithubIcon,
+        InstagramIcon
+      }
+    } = this.props;
+
     return (
       <footer className="global">
 
@@ -27,19 +38,19 @@ class Footer extends Component {
           <div className="footer-nav" role="navigation"  aria-label="social media links">
             {/*<Link to="/style-guide">Style Guide</Link>*/}
             <a href="https://www.linkedin.com/in/dan-root/">
-              <LinkedInIcon />
+              <icons.LinkedInIcon />
             </a>
             <a href="http://www.dribbble.com/danrootdesign">
-              <DribbleIcon />
+              <icons.DribbleIcon />
             </a>
             <a href="http://www.github.com/danielroot">
-              <GithubIcon />
+              <icons.GithubIcon />
             </a>
             {/* <a href="http://www.codepen.io/danroot">
               <CodepenIcon />
             </a> */}
             <a href="http://www.instagram.com/danrootart">
-              <InstagramIcon />
+              <icons.InstagramIcon />
             </a>
             {/*<a href="https://www.twitter.com/danrootdesign">
               <TwitterIcon />

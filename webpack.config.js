@@ -1,8 +1,14 @@
 const path = require("path");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+  entry: "./src/index.js",
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    filename: "main.js",
+    publicPath: "/"
+  },
   plugins: [
       /**
        * All files inside webpack's output.path directory will be removed once, but the
@@ -15,7 +21,11 @@ module.exports = {
        *
        * See `Options and Defaults` for information
        */
-      //new CleanWebpackPlugin(),
+      new CleanWebpackPlugin(),
+      new HtmlWebpackPlugin({
+        template: path.resolve(__dirname, "src/index.html"),
+        filename: "index.html"
+      })
   ],
   context: __dirname,
   devtool: "source-map",

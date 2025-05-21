@@ -1,10 +1,6 @@
 // Deps
 import React, { Component } from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { AppContainer } from "react-hot-loader";
 
 // Contentful API
@@ -35,7 +31,7 @@ class App extends Component {
     this.state = {
       projects: [],
       playground: [],
-      error: null
+      error: null,
     };
   }
 
@@ -46,9 +42,10 @@ class App extends Component {
     });
 
     const fetchContent = (contentType, query) => {
-      return client.getEntries(query)
-        .then(response => response.items)
-        .catch(error => {
+      return client
+        .getEntries(query)
+        .then((response) => response.items)
+        .catch((error) => {
           console.error(`Error fetching ${contentType}:`, error);
           this.setState({ error: `Failed to load ${contentType}` });
           return [];
@@ -57,18 +54,18 @@ class App extends Component {
 
     // Fetch all content in parallel
     Promise.all([
-      fetchContent('projects', {
+      fetchContent("projects", {
         content_type: "project",
         order: "-fields.projectDate",
         "fields.projectType[all]": "public",
       }),
-      fetchContent('playground', {
+      fetchContent("playground", {
         content_type: "playground",
         order: "-fields.playgroundDate",
       }),
-      fetchContent('pages', {
+      fetchContent("pages", {
         content_type: "page",
-      })
+      }),
     ]).then(([projects, playground, pages]) => {
       this.setState({ projects, playground, pages });
     });
@@ -77,15 +74,15 @@ class App extends Component {
   render() {
     const { projects, playground, error } = this.state;
 
-    console.log('Render state:', {
+    console.log("Render state:", {
       projectsLength: projects.length,
       playgroundLength: playground.length,
-      error
+      error,
     });
 
     if (error) {
       return (
-        <div className="error-message" style={{padding: '20px'}}>
+        <div className="error-message" style={{ padding: "20px" }}>
           <h2>Oops! Something went wrong. Please try again later.</h2>
           <p>{error}</p>
         </div>
@@ -104,12 +101,14 @@ class App extends Component {
                     <Route
                       exact
                       path="/"
-                      render={props => <Landing {...props} projects={projects} />}
+                      render={(props) => (
+                        <Landing {...props} projects={projects} />
+                      )}
                     />
                     <Route
                       exact
-                      path="/projects"
-                      render={props => (
+                      path="/portfolio"
+                      render={(props) => (
                         <ProjectListContainer
                           {...props}
                           heading="Portfolio"
@@ -119,12 +118,12 @@ class App extends Component {
                     />
                     <Route
                       path="/project/:id"
-                      render={props => {
+                      render={(props) => {
                         const project = projects.find(
-                          p => p.fields.slug === props.match.params.id
+                          (p) => p.fields.slug === props.match.params.id
                         );
                         const projectId = projects.findIndex(
-                          p => p.fields.slug === props.match.params.id
+                          (p) => p.fields.slug === props.match.params.id
                         );
                         return (
                           <ProjectDetail
@@ -139,7 +138,7 @@ class App extends Component {
                     <Route
                       exact
                       path="/playground"
-                      render={props => (
+                      render={(props) => (
                         <ProjectListContainer
                           {...props}
                           heading="Playground"
@@ -151,7 +150,11 @@ class App extends Component {
                     <Route exact path="/about" component={About} />
                     <Route exact path="/resume" component={Resume} />
                     <Route exact path="/style-guide" component={StyleGuide} />
-                    <Route render={props => <NotFound {...props} projects={projects} />} />
+                    <Route
+                      render={(props) => (
+                        <NotFound {...props} projects={projects} />
+                      )}
+                    />
                   </Switch>
                 </div>
               </main>

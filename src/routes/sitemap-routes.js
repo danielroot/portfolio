@@ -1,11 +1,11 @@
-import React from 'react';
-import { Switch, Route } from 'react-router';
+import React from "react";
+import { Switch, Route } from "react-router";
 
 export default (
   <Switch>
-    <Route exact path='/' />
-    <Route exact path='/projects' />
-    <Route path='/project/:id' />
-    <Route exact path='/playground' />
+    <Route exact path="/" />
+    <Route exact path="/portfolio" />
+    <Route path="/project/:id" />
+    <Route exact path="/playground" />
   </Switch>
 );

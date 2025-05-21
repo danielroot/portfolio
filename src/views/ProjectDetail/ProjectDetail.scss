@@ -109,10 +109,10 @@ project-detail {
 
       @include for-tablet-portrait-up {
         width: auto;
-        //border: 2px solid $brand-light;
+        border: 1px solid $brand-light;
         border-radius: $border-radius;
-        box-shadow: rgba($brand-dark, 0.1) 0px 10px 23px,
-          rgba($brand-dark, 0.18) 0px 4px 11px;
+        // box-shadow: rgba($brand-dark, 0.1) 0px 10px 23px,
+        //   rgba($brand-dark, 0.18) 0px 4px 11px;
       }
     }
   }

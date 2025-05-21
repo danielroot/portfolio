@@ -8,7 +8,7 @@ const Sitemap = require("react-router-sitemap").default;
 function generateSitemap() {
   return (
     new Sitemap(router)
-      .build("https://www.danroot.co")
+      .build("https://www.danrootux.com")
       .save("./dist/sitemap.xml")
   );
 }

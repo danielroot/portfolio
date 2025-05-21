@@ -13,69 +13,16 @@ import "./Landing.scss";
 
 class Landing extends Component {
   render(props) {
-    if (!this.props.projects) {
-      return (
-        <React.Fragment>
-          <Intro />
-          <div>Loading projects...</div>
-        </React.Fragment>
-      );
-    }
-
     return (
       <React.Fragment>
-        <Intro />
-        {/* <section className="services">
-          <h2>How can I help you?</h2>
-          <div className="services-wrapper">
-            <div>
-              <PrototypingIcon/>
-              <h3>Interaction Design</h3>
-              <ul>
-                <li>Layout</li>
-                <li>Color</li>
-                <li>Typography</li>
-                <li>Gestalt Principles</li>
-              </ul>
-            </div>
-            <div>
-              <InterfaceArt/>
-              <h3>Interface Design</h3>
-              <ul>
-                <li>Layout</li>
-                <li>Color</li>
-                <li>Typography</li>
-                <li>Gestalt Principles</li>
-              </ul>
-            </div>
-            <div>
-              <PrototypingIcon/>
-              <h3>Prototyping</h3>
-              <ul>
-                <li>HTML, CSS, JS</li>
-                <li>React JS</li>
-                <li>Figma</li>
-              </ul>
-            </div>
-          </div>
-        </section> */}
         <section className="projects">
-        <ProjectListContainer
-          heading="Portfolio"
-          projects={this.props.projects}
-          {...props}
-        />
+          <ProjectListContainer
+            heading="Portfolio"
+            projects={this.props.projects}
+            {...props}
+          />
         </section>
-        {/* <section>
-        <Link to="/about">
-          <h3>Learn more about me</h3>
-        </Link>
-        </section>
-        <section>
-        <Link to="/about">
-          <h3>Let&apos;s chat about how I can contribute to your team.</h3>
-        </Link>
-        </section> */}
+        <Intro />
       </React.Fragment>
     );
   }
@@ -86,10 +33,10 @@ Landing.propTypes = {
     shape({
       sys: shape({
         id: string,
-        title: string
-      })
+        title: string,
+      }),
     })
-  )
+  ),
 };
 
 export default Landing;

@@ -1,7 +1,7 @@
 // Deps
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-import resumePDF from '../../assets/dan-root_resume.pdf';
+import resumePDF from "../../assets/dan-root_resume.pdf";
 import throttle from "lodash.throttle";
 import { motion } from "framer-motion";
 //import { Tween } from 'react-gsap';
@@ -10,11 +10,10 @@ import { motion } from "framer-motion";
 import "./Header.scss";
 
 class Header extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
-      isTablet: false
+      isTablet: false,
     };
 
     this.handleWindowResize = this.handleWindowResize.bind(this);
@@ -28,7 +27,7 @@ class Header extends Component {
   UNSAFE_componentWillMount() {
     this.handleWindowResize();
     this.setState({
-      isOpen: false
+      isOpen: false,
     });
   }
 
@@ -88,8 +87,7 @@ class Header extends Component {
             </nav>
           )} */}
 
-        <motion.nav initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}>
+          <motion.nav initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
             <NavLink exact activeClassName="active" to="/" className="logo">
               Dan Root<span className="job-title">UX Product Designer</span>
             </NavLink>
@@ -97,7 +95,7 @@ class Header extends Component {
               About
             </NavLink> */}
 
-            <NavLink activeClassName="active" to="/projects">
+            <NavLink activeClassName="active" to="/portfolio">
               {/* <span className="material-symbols-rounded">
                 work
               </span> */}
@@ -111,14 +109,13 @@ class Header extends Component {
               Playground
             </NavLink>
 
-            <a href={`/${resumePDF}`} target="_blank" rel="noopener noreferrer">
+            <a href={`${resumePDF}`} target="_blank" rel="noopener noreferrer">
               Resumé
               {/* <span className="material-symbols-rounded">
                 picture_as_pdf
               </span> */}
             </a>
           </motion.nav>
-
         </div>
       </header>
     );

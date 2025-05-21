@@ -58,6 +58,7 @@ $font-weight-bold: 800;
 
 // Basic Colors
 $brand-primary: #145CFB;
+//$brand-primary: #026670;
 //$brand-primary: #3A61E0;
 $brand-light: lighten($brand-primary, 43%);
 $brand-med: lighten($brand-primary, 30%);
@@ -103,7 +104,7 @@ $transition-all-ease: 0.3s ease 0s;
 
 
 //
-$border-radius: 1rem;
+$border-radius: .5rem;
 //
 // Z-Index
 // ==========================================================================

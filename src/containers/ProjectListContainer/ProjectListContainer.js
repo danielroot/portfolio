@@ -11,7 +11,7 @@ import "./ProjectListContainer.scss";
 class ProjectListContainer extends Component {
   render() {
     if (!this.props.projects) {
-      return <div>Loading...</div>;
+      return <div>Loading projects...</div>;
     }
 
     //let contentType = this.props.sys.contentType.sys.id;
@@ -19,13 +19,13 @@ class ProjectListContainer extends Component {
       start: {
         transition: {
           //staggerChildren: 0.2
-        }
+        },
       },
       end: {
         transition: {
-          staggerChildren: 0.2
-        }
-      }
+          staggerChildren: 0.2,
+        },
+      },
     };
 
     return (
@@ -33,22 +33,25 @@ class ProjectListContainer extends Component {
         <section>
           <header>
             <h1>{this.props.heading}</h1>
-            <p>{this.props.subheading || "Delivered with cross-functional/agile teams"}</p>
+            <p>
+              {this.props.subheading ||
+                "Delivered with cross-functional/agile teams"}
+            </p>
           </header>
           {this.props.heading === "Playground" ? (
             <div className="grid playground">
-              {this.props.projects.map(project => {
+              {this.props.projects.map((project) => {
                 return <PlaygroundCard key={project.sys.id} {...project} />;
               })}
             </div>
           ) : (
             <motion.div
-            variants={loadingContainerVariants}
-            initial="start"
-            animate="end"
-            className="grid"
+              variants={loadingContainerVariants}
+              initial="start"
+              animate="end"
+              className="grid"
             >
-              {this.props.projects.map(project => {
+              {this.props.projects.map((project) => {
                 return <ProjectCard key={project.sys.id} {...project} />;
               })}
             </motion.div>
@@ -64,11 +67,11 @@ ProjectListContainer.defaultProps = {
     sys: {
       contentType: {
         sys: {
-          id: "project"
-        }
-      }
-    }
-  }
+          id: "project",
+        },
+      },
+    },
+  },
 };
 
 ProjectListContainer.propTypes = {
@@ -77,10 +80,10 @@ ProjectListContainer.propTypes = {
   projects: arrayOf(
     shape({
       sys: shape({
-        id: string
-      })
+        id: string,
+      }),
     })
-  )
+  ),
 };
 
 export default ProjectListContainer;
