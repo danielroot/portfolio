@@ -12,7 +12,7 @@
 
 [context.storybook]
   command = "npm run build-storybook"
-  publish = "storybook-static"
+  publish = "dist/storybook"
 
 [[redirects]]
   from = "/storybook/*"

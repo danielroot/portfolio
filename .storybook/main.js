@@ -1,14 +1,24 @@
 module.exports = {
   stories: ['../src/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
-    '@storybook/addon-links',
     '@storybook/addon-essentials',
-    '@storybook/addon-actions',
-    '@storybook/addon-postcss',
+    '@storybook/addon-links',
+    '@storybook/addon-a11y',
+    '@storybook/addon-postcss'
   ],
-  core: {
-    builder: 'webpack4',
+  framework: {
+    name: '@storybook/react-webpack5',
+    options: {}
   },
+  docs: {
+    autodocs: true
+  },
+  outputDir: '../dist/storybook',
+  // Optional: for correct asset pathing
+  managerHead: (head) => `
+    <base href="/storybook/">
+    ${head}
+  `,
   webpackFinal: async (config) => {
     // Add support for importing CSS files
     config.module.rules.push({

@@ -10,22 +10,11 @@ module.exports = {
     publicPath: "/"
   },
   plugins: [
-      /**
-       * All files inside webpack's output.path directory will be removed once, but the
-       * directory itself will not be. If using webpack 4+'s default configuration,
-       * everything under <PROJECT_DIR>/dist/ will be removed.
-       * Use cleanOnceBeforeBuildPatterns to override this behavior.
-       *
-       * During rebuilds, all webpack assets that are not used anymore
-       * will be removed automatically.
-       *
-       * See `Options and Defaults` for information
-       */
-      new CleanWebpackPlugin(),
-      new HtmlWebpackPlugin({
-        template: path.resolve(__dirname, "src/index.html"),
-        filename: "index.html"
-      })
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, "src/index.html"),
+      filename: "index.html"
+    })
   ],
   context: __dirname,
   devtool: "source-map",
@@ -48,11 +37,15 @@ module.exports = {
     rules: [
       {
         enforce: "pre",
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
         loader: "eslint-loader",
-        exclude: /node_modules/
+        options: {
+          emitWarning: true,
+          failOnError: false,
+          failOnWarning: false
+        }
       },
-
       // Babel JS
       {
         include: path.resolve(__dirname, "./src"),
@@ -112,7 +105,6 @@ module.exports = {
               outputPath: "assets/"
             }
           }
-
         ]
       },
 

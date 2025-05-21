@@ -5,13 +5,8 @@ import ProjectCard from './ProjectCard';
 export default {
   title: 'Views/ProjectCard',
   component: ProjectCard,
-  argTypes: {
-    fields: {
-      control: 'object',
-    },
-    sys: {
-      control: 'object',
-    },
+  parameters: {
+    layout: 'centered',
   },
   decorators: [
     (Story) => (
@@ -50,37 +45,29 @@ Default.args = {
   },
 };
 
-export const PlaygroundProject = Template.bind({});
-PlaygroundProject.args = {
+export const WithoutImage = Template.bind({});
+WithoutImage.args = {
   fields: {
-    slug: 'playground-project',
-    clientName: 'Playground',
-    title: 'Interactive Demo',
-    cardText: 'A hands-on demonstration of our latest interactive features and capabilities.',
-    cardImg: {
-      fields: {
-        file: {
-          url: '//images.ctfassets.net/j597amcfl36h/GdjmshOodDEBc6R51k8wO/d3c66d844f2537754d2a61f7b3fa4d89/service-banner.png',
-        },
-      },
-    },
+    slug: 'no-image-project',
+    clientName: 'No Image Client',
+    title: 'Project Without Image',
+    cardText: 'This project card has no image.',
   },
   sys: {
     contentType: {
       sys: {
-        id: 'playground',
+        id: 'project',
       },
     },
   },
 };
 
-export const LongDescription = Template.bind({});
-LongDescription.args = {
+export const WithoutText = Template.bind({});
+WithoutText.args = {
   fields: {
-    slug: 'long-description-project',
-    clientName: 'Enterprise Client',
-    title: 'Complex Solution',
-    cardText: 'This is a longer project description that tests how the card handles multiple lines of text. It includes detailed information about the project scope, technologies used, and the impact it had on the client\'s business.',
+    slug: 'no-text-project',
+    clientName: 'No Text Client',
+    title: 'Project Without Description',
     cardImg: {
       fields: {
         file: {
@@ -98,49 +85,97 @@ LongDescription.args = {
   },
 };
 
-export const NoDescription = Template.bind({});
-NoDescription.args = {
-  fields: {
-    slug: 'minimal-project',
-    clientName: 'Minimal Client',
-    title: 'Clean Design',
-    cardImg: {
-      fields: {
-        file: {
-          url: '//images.ctfassets.net/j597amcfl36h/GdjmshOodDEBc6R51k8wO/d3c66d844f2537754d2a61f7b3fa4d89/service-banner.png',
-        },
-      },
-    },
-  },
-  sys: {
-    contentType: {
-      sys: {
-        id: 'project',
-      },
-    },
-  },
-};
+// export const PlaygroundProject = Template.bind({});
+// PlaygroundProject.args = {
+//   fields: {
+//     slug: 'playground-project',
+//     clientName: 'Playground',
+//     title: 'Interactive Demo',
+//     cardText: 'A hands-on demonstration of our latest interactive features and capabilities.',
+//     cardImg: {
+//       fields: {
+//         file: {
+//           url: '//images.ctfassets.net/j597amcfl36h/GdjmshOodDEBc6R51k8wO/d3c66d844f2537754d2a61f7b3fa4d89/service-banner.png',
+//         },
+//       },
+//     },
+//   },
+//   sys: {
+//     contentType: {
+//       sys: {
+//         id: 'playground',
+//       },
+//     },
+//   },
+// };
 
-export const ShortTitle = Template.bind({});
-ShortTitle.args = {
-  fields: {
-    slug: 'short-title',
-    clientName: 'ACME',
-    title: 'App',
-    cardText: 'A minimalist approach to project presentation.',
-    cardImg: {
-      fields: {
-        file: {
-          url: '//images.ctfassets.net/j597amcfl36h/GdjmshOodDEBc6R51k8wO/d3c66d844f2537754d2a61f7b3fa4d89/service-banner.png',
-        },
-      },
-    },
-  },
-  sys: {
-    contentType: {
-      sys: {
-        id: 'project',
-      },
-    },
-  },
-};
+// export const LongDescription = Template.bind({});
+// LongDescription.args = {
+//   fields: {
+//     slug: 'long-description-project',
+//     clientName: 'Enterprise Client',
+//     title: 'Complex Solution',
+//     cardText: 'This is a longer project description that tests how the card handles multiple lines of text. It includes detailed information about the project scope, technologies used, and the impact it had on the client\'s business.',
+//     cardImg: {
+//       fields: {
+//         file: {
+//           url: '//images.ctfassets.net/j597amcfl36h/GdjmshOodDEBc6R51k8wO/d3c66d844f2537754d2a61f7b3fa4d89/service-banner.png',
+//         },
+//       },
+//     },
+//   },
+//   sys: {
+//     contentType: {
+//       sys: {
+//         id: 'project',
+//       },
+//     },
+//   },
+// };
+
+// export const NoDescription = Template.bind({});
+// NoDescription.args = {
+//   fields: {
+//     slug: 'minimal-project',
+//     clientName: 'Minimal Client',
+//     title: 'Clean Design',
+//     cardImg: {
+//       fields: {
+//         file: {
+//           url: '//images.ctfassets.net/j597amcfl36h/GdjmshOodDEBc6R51k8wO/d3c66d844f2537754d2a61f7b3fa4d89/service-banner.png',
+//         },
+//       },
+//     },
+//   },
+//   sys: {
+//     contentType: {
+//       sys: {
+//         id: 'project',
+//       },
+//     },
+//   },
+// };
+
+// export const ShortTitle = Template.bind({});
+// ShortTitle.args = {
+//   fields: {
+//     slug: 'short-title',
+//     clientName: 'ACME',
+//     title: 'App',
+//     cardText: 'A minimalist approach to project presentation.',
+//     cardImg: {
+//       fields: {
+//         file: {
+//           url: '//images.ctfassets.net/j597amcfl36h/GdjmshOodDEBc6R51k8wO/d3c66d844f2537754d2a61f7b3fa4d89/service-banner.png',
+//         },
+//       },
+//     },
+//   },
+//   sys: {
+//     contentType: {
+//       sys: {
+//         id: 'project',
+//       },
+//     },
+//   },
+// };
