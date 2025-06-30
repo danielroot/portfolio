@@ -107,17 +107,17 @@ class App extends Component {
                     />
                     <Route
                       exact
-                      path="/portfolio"
+                      path="/case-studies"
                       render={(props) => (
                         <ProjectListContainer
                           {...props}
-                          heading="Portfolio"
+                          heading="Case Studies"
                           projects={projects}
                         />
                       )}
                     />
                     <Route
-                      path="/project/:id"
+                      path="/case-study/:id"
                       render={(props) => {
                         const project = projects.find(
                           (p) => p.fields.slug === props.match.params.id

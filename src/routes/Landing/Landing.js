@@ -6,6 +6,7 @@ import Intro from "../Intro";
 //import InterfaceArt from "../../views/IntroArt/InterfaceArt";
 import { arrayOf, shape, string } from "prop-types";
 import ProjectListContainer from "../../containers/ProjectListContainer/ProjectListContainer";
+import { motion } from "framer-motion";
 //import PrototypingIcon from "../../assets/prototyping-icon.svg";
 
 // Style
@@ -15,14 +16,25 @@ class Landing extends Component {
   render(props) {
     return (
       <React.Fragment>
+        <Intro />
+        <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{
+          type: "spring",
+          stiffness: 300,
+          damping: 100,
+          delay: 0.1,
+      }}
+    >
         <section className="projects">
           <ProjectListContainer
-            heading="Portfolio"
+            heading="Case Studies"
             projects={this.props.projects}
             {...props}
           />
         </section>
-        <Intro />
+        </motion.div>
       </React.Fragment>
     );
   }

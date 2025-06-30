@@ -34,7 +34,7 @@ class Footer extends Component {
           {/* <p>Interested in working together?</p>
           <a href="mailto:info@danroot.co" className="btn">Contact Me!</a> */}
 
-          <h4>Let&apos;s Connect</h4>
+          {/* <h4>Let&apos;s Connect</h4> */}
           <div className="footer-nav" role="navigation"  aria-label="social media links">
             {/*<Link to="/style-guide">Style Guide</Link>*/}
             <a href="https://www.linkedin.com/in/dan-root/">

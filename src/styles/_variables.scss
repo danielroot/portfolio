@@ -27,12 +27,11 @@ $gutter-global: $space-sm;
 //@import url('https://fonts.googleapis.com/css2?family=Hepta+Slab:wght@1..900&display=swap');
 
 // Fonts
-$font-family-base: "Lato",
-"Lucida Grande",
-Tahoma,
+$font-family-base: "Figtree",
+"system-ui",
 sans-serif;
 // $font-family-headings: "Work Sans",
-$font-family-headings: "Work Sans",
+$font-family-headings: "Figtree",
 sans-serif;
 
 // Font Size
@@ -78,7 +77,7 @@ $red: #ff6868;
 $yellow-light: adjust-hue($brand-light, 180deg);
 
 // Functional Colors
-$color-bg-body: #fffefb;
+$color-bg-body: #fff;
 $color-bg-body-semi-transparent: $semi-transparent-white;
 $color-bg-content: $off-white; // content backgrounds
 $color-border: $gray-light; // borders

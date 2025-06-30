@@ -42,10 +42,11 @@ project-detail {
     //letter-spacing: 3px;
 
     span {
-      font-weight: $font-weight-bold;
+      font-weight: $font-weight-regular;
       display: block;
+      letter-spacing: 1px;
       font-size: 1.25rem;
-      font-family: "Fugaz One", cursive;
+      //font-family: "Fugaz One", cursive;
       // padding-top: 1rem;
     }
   }
@@ -162,7 +163,9 @@ project-detail {
       margin: 0 -0.5rem;
 
       li {
-        background: $color-highlight;
+        background: #F2FAF5;
+        //background: adjust-hue(rgb(236, 236, 142), 40deg);
+        color: $brand-dark;
         padding: $space-xxs $space-xs 0.3rem;
         margin: $space-xxs;
         font-size: $font-size-xs;
@@ -285,6 +288,14 @@ project-detail {
 
     @include for-tablet-landscape-up {
       grid-template-columns: repeat(auto-fit, minmax(350px, auto));
+    }
+
+    project-card {
+      img {
+        @include for-big-desktop-up {
+          height: 300px;
+        }
+      }
     }
   }
 }

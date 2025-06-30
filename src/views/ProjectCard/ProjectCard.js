@@ -65,7 +65,7 @@ const ProjectCard = (props) => {
   }
 
   const cardImgUrl = cardImg?.fields?.file?.url ? `https:${cardImg.fields.file.url}` : null;
-  const category = props.sys?.contentType?.sys?.id || 'project';
+  const category = 'case-study';
 
   const loadingItemVariants = {
     start: {
@@ -104,7 +104,7 @@ const ProjectCard = (props) => {
             />
           )}
           <figure>
-            <h3 id={`card-${slug}`}><strong>{clientName}</strong> {title}</h3>
+            <h3 id={`card-${slug}`}><strong>{clientName}</strong> | {title}</h3>
             {cardText && <p>{cardText}</p>}
           </figure>
         </project-card>

@@ -50,7 +50,7 @@ class Header extends Component {
 
     return (
       <header className="global">
-        <div className="container">
+        <div className="">
           {/* {isTablet ? (
             <nav>
               <NavLink exact activeClassName="active" to="/" className="logo">
@@ -89,25 +89,22 @@ class Header extends Component {
 
           <motion.nav initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
             <NavLink exact activeClassName="active" to="/" className="logo">
-              Dan Root<span className="job-title">UX Product Designer</span>
+              Dan Root<span className="job-title">Sr. UX/UI Product Designer</span>
             </NavLink>
             {/* <NavLink activeClassName="active" to="/about">
               About
             </NavLink> */}
 
-            <NavLink activeClassName="active" to="/portfolio">
+            <NavLink activeClassName="active" to="/case-studies">
               {/* <span className="material-symbols-rounded">
                 work
               </span> */}
-              Portfolio
+              Case Studies
             </NavLink>
 
-            <NavLink activeClassName="active" to="/playground">
-              {/* <span className="material-symbols-rounded">
-                experiment
-              </span> */}
+            {/* <NavLink activeClassName="active" to="/playground">
               Playground
-            </NavLink>
+            </NavLink> */}
 
             <a href={`${resumePDF}`} target="_blank" rel="noopener noreferrer">
               Resumé

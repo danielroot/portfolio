@@ -40,13 +40,13 @@ a.project-card--wrapper {
     border-radius: $border-radius;
 
     img {
-      height: 200px;
+      height: 300px;
       width: 100%;
       object-fit: cover;
       border-radius: $border-radius $border-radius 0 0;
 
       @include for-big-desktop-up {
-        height: 250px;
+        height: 400px;
       }
     }
 
