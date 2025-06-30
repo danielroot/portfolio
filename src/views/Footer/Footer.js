@@ -59,7 +59,7 @@ class Footer extends Component {
 
           <div className="footer-copy__wrapper">
             <p>
-              Site hand-crafted with VS Code, React JS, Sass, and Contenful API.
+              Site hand-crafted with VS Code, React JS, Sass, and Contentful API.
               <br />
               <small>Made in Seattle, WA.{" "}</small>
               <br />
