@@ -13,6 +13,7 @@ const About = () => {
       <img src={profilePic} className="profile-pic" alt="Picture of Dan Root" />
 
       <section>
+        <h1 class="text-3xl font-bold underline">Hello world!</h1>
         <h2>About</h2>
         Discover Design Deliver Deduce
         <p>What I can bring to your team</p>
@@ -53,24 +54,8 @@ const About = () => {
       </section>
 
       <section className="skills">
-        <h2>Skills</h2>
-        <div>
-          <h3>Technical</h3>
-          <ul>
-            <li>Adobe CS</li>
-            <li>Build Tools (Gulp, Webpack)</li>
-            <li>CSS3 (Sass, Less, Stylus)</li>
-            <li>Figma</li>
-            <li>Git Version Control</li>
-            <li>HTML5 (Jade, Haml)</li>
-            <li>Invision</li>
-            <li>JS (jQuery, Angular, React, Vue)</li>
-            <li>JSON</li>
-            <li>npm</li>
-            <li>Sketch App</li>
-            <li>SVG</li>
-          </ul>
-        </div>
+        <h2>Approach</h2>
+
         <div>
           <h3>User-centered Design</h3>
           <ul>
