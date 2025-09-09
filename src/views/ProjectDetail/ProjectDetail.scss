@@ -51,8 +51,24 @@ project-detail {
     }
   }
 
-  h2 {
+  section.summary h2 {
     margin-bottom: $space-sm;
+    margin-top: $space-lg;
+    &:first-of-type {
+      margin-top: 0;
+    }
+    &::before {
+      display: block;
+      content: "";
+      width: 30px;
+      height: 4px;
+      background: $brand-primary;
+      margin-bottom: $space-xxs;
+    }
+  }
+
+  h3 {
+    margin-top: $space-md;
   }
 
   h3,
@@ -146,6 +162,7 @@ project-detail {
       text-transform: uppercase;
       //color: $brand-primary;
       font-size: $font-size-sm;
+      margin-bottom: $space-sm;
       //text-align: center;
       font-weight: $font-weight-light;
       letter-spacing: 2px;
@@ -248,15 +265,39 @@ project-detail {
     }
   }
 
-  // figure {
-  //   img {
-  //     //border: 2px solid $off-white;
-  //     //border-radius: 1rem;
-  //   }
-  // }
+  figure.img-wrap {
+    width: 100%;
+    margin: 0 0 $space-sm;
+    background: $off-white;
+    border: 2px solid $off-white;
+    padding: $space-xs;
+    border-radius: 1rem;
 
-  .img-wrap {
-    margin-bottom: $space-md;
+    &[class*="full-width"] {
+      max-width: 100%;
+      margin-inline: 0;
+      float: none;
+      display: block;
+    }
+
+    &[class*="row-spacer"] {
+      background-color: #fff;
+      height: 1px;
+      border: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    @include for-tablet-landscape-up {
+      float: right;
+      clear: both;
+      margin: 0 0 $space-sm $space-sm;
+      max-width: 400px;
+    }
+
+    @include for-desktop-up{
+      max-width: 600px;
+    }
   }
 
   .code-snippet {
@@ -275,6 +316,10 @@ project-detail {
     @include for-tablet-landscape-up {
       font-size: $font-size-xs;
     }
+
+    h2 {
+      margin-bottom: $space-md;
+    }
   }
 
   .projects-link--wrapper {
@@ -287,7 +332,7 @@ project-detail {
     }
 
     @include for-tablet-landscape-up {
-      grid-template-columns: repeat(auto-fit, minmax(350px, auto));
+      grid-template-columns: repeat(auto-fit, minmax(500px, auto));
     }
 
     project-card {

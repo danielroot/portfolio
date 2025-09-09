@@ -10,12 +10,12 @@ html {
   line-height: 1.4;
 
   @include for-tablet-portrait-up {
-    font-size: calc(14px + 8 * ((100vw - 320px) / 960));
+    font-size: calc(6px + 8 * ((100vw - 320px) / 960));
   }
 
-  @include for-big-desktop-up {
-    font-size: calc(10px + 8 * ((100vw - 320px) / 960));
-  }
+  // @include for-big-desktop-up {
+  //   font-size: calc(10px + 8 * ((100vw - 320px) / 960));
+  // }
 }
 
 *,
@@ -47,6 +47,11 @@ ul {
 
 ul {
   @include list-bulleted();
+}
+
+ol {
+  padding-left: $space-sm;
+  line-height: 1.6;
 }
 
 img {

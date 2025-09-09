@@ -44,6 +44,7 @@ a.project-card--wrapper {
       width: 100%;
       object-fit: cover;
       border-radius: $border-radius $border-radius 0 0;
+      background-color: #fff;
 
       @include for-big-desktop-up {
         height: 400px;
@@ -53,9 +54,11 @@ a.project-card--wrapper {
     figure {
       padding: $space-sm;
       width: 100%;
-      background: $off-white;
+      //background: $off-white;
+      background: $brand-light;
       height: 100%;
-      border-radius: $border-radius;
+      border-top: 1px solid $brand-light;
+      border-radius: 0 0 $border-radius $border-radius;
 
 
       h3 {

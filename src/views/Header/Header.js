@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import resumePDF from "../../assets/dan-root_resume.pdf";
 import throttle from "lodash.throttle";
-import { motion } from "framer-motion";
+//import { motion } from "framer-motion";
 //import { Tween } from 'react-gsap';
 
 // Style
@@ -87,9 +87,10 @@ class Header extends Component {
             </nav>
           )} */}
 
-          <motion.nav initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+          <nav>
             <NavLink exact activeClassName="active" to="/" className="logo">
-              Dan Root<span className="job-title">Sr. UX/UI Product Designer</span>
+              Dan Root{" "}
+              <span className="job-title">Sr. UX/UI Product Designer</span>
             </NavLink>
             {/* <NavLink activeClassName="active" to="/about">
               About
@@ -112,7 +113,7 @@ class Header extends Component {
                 picture_as_pdf
               </span> */}
             </a>
-          </motion.nav>
+          </nav>
         </div>
       </header>
     );

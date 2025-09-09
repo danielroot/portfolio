@@ -16,24 +16,24 @@ class Landing extends Component {
   render(props) {
     return (
       <React.Fragment>
-        <Intro />
         <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{
-          type: "spring",
-          stiffness: 300,
-          damping: 100,
-          delay: 0.1,
-      }}
-    >
-        <section className="projects">
-          <ProjectListContainer
-            heading="Case Studies"
-            projects={this.props.projects}
-            {...props}
-          />
-        </section>
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{
+            type: "spring",
+            stiffness: 300,
+            damping: 100,
+            delay: 0.1,
+          }}
+        >
+          <Intro />
+          <section className="projects">
+            <ProjectListContainer
+              heading="Case Studies"
+              projects={this.props.projects}
+              {...props}
+            />
+          </section>
         </motion.div>
       </React.Fragment>
     );

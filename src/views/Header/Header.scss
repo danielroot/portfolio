@@ -31,7 +31,7 @@ header.global {
       font-family: $font-family-headings;
       font-size: $font-size-sm;
       padding: $space-xs 0;
-      transition: 0.5s background;
+      transition: 0.2s background;
       transition: 0.2s font-weight;
       // transition: 0.25s letter-spacing;
 
@@ -68,21 +68,21 @@ header.global {
 
     a.logo {
       letter-spacing: 0;
-      font-weight: $font-weight-medium;
+      font-weight: 700;
 
       .job-title {
         margin-left: $space-xs;
         font-weight: $font-weight-regular;
-        transition: 0.25s font-weight;
+        transition: 0.2s font-weight;
       }
 
-      // &:hover {
-      //   font-weight: 300;
+      &:hover {
+        font-weight: 700;
 
-      //   .job-title {
-      //     font-weight: 700;
-      //   }
-      // }
+        .job-title {
+          font-weight: 700;
+        }
+      }
 
       &.active {
         color: $off-black;

@@ -1,20 +1,20 @@
 const path = require("path");
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "main.js",
-    publicPath: "/"
+    publicPath: "/",
   },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "src/index.html"),
-      filename: "index.html"
-    })
+      filename: "index.html",
+    }),
   ],
   context: __dirname,
   devtool: "source-map",
@@ -22,16 +22,16 @@ module.exports = {
     publicPath: "/",
     contentBase: "./dist",
     port: 3000,
-    historyApiFallback: true
+    historyApiFallback: true,
   },
   resolve: {
     modules: ["node_modules", "src"],
-    extensions: [".js", ".json", ".jsx"]
+    extensions: [".js", ".json", ".jsx"],
   },
   stats: {
     colors: true,
     reasons: true,
-    chunks: true
+    chunks: true,
   },
   module: {
     rules: [
@@ -43,55 +43,73 @@ module.exports = {
         options: {
           emitWarning: true,
           failOnError: false,
-          failOnWarning: false
-        }
+          failOnWarning: false,
+        },
       },
       // Babel JS
       {
-        include: path.resolve(__dirname, "./src"),
-        test: /\.js$/,
-        loader: "babel-loader",
-        options: {
-          plugins: ['react-hot-loader/babel']
-        }
+        test: /\.(js|jsx|mjs)$/,
+        include: [
+          path.resolve(__dirname, "src"),
+          path.resolve(__dirname, "node_modules/react-medium-image-zoom"),
+        ],
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env", "@babel/preset-react"],
+            plugins: [
+              "react-hot-loader/babel",
+              "@babel/plugin-proposal-optional-chaining",
+            ],
+          },
+        },
       },
 
       // inline SVG
       {
         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
         issuer: {
-          test: /\.jsx?$/
+          test: /\.jsx?$/,
         },
         use: [
           {
-            loader: 'babel-loader'
+            loader: "babel-loader",
           },
           {
-            loader: '@svgr/webpack',
+            loader: "@svgr/webpack",
             options: {
-              svgo: false
-            }
-          }
-        ]
+              svgo: false,
+            },
+          },
+        ],
       },
 
       // SVG in Sass
       {
         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
         issuer: {
-          test: /\.scss?$/
+          test: /\.scss?$/,
         },
-        loader: 'url-loader'
+        loader: "url-loader",
       },
 
       // CSS
+      {
+        test: /\.css$/,
+        use: [
+          "style-loader", // creates style nodes from JS strings
+          "css-loader", // translates CSS into CommonJS
+        ],
+      },
+
+      // SCSS
       {
         test: /\.scss$/,
         use: [
           "style-loader", // creates style nodes from JS strings
           "css-loader", // translates CSS into CommonJS
-          "sass-loader" // compiles Sass to CSS, using Node Sass by default
-        ]
+          "sass-loader", // compiles Sass to CSS, using Node Sass by default
+        ],
       },
 
       // Imgs
@@ -99,13 +117,13 @@ module.exports = {
         test: /\.(png|jpg|gif)$/,
         use: [
           {
-            loader: 'file-loader',
+            loader: "file-loader",
             options: {
               name: "[name].[ext]",
-              outputPath: "assets/"
-            }
-          }
-        ]
+              outputPath: "assets/",
+            },
+          },
+        ],
       },
 
       // Fonts
@@ -116,10 +134,10 @@ module.exports = {
             loader: "url-loader",
             options: {
               name: "[name].[ext]",
-              outputPath: "fonts/"
-            }
-          }
-        ]
+              outputPath: "fonts/",
+            },
+          },
+        ],
       },
 
       // PDFs
@@ -127,13 +145,13 @@ module.exports = {
         test: /\.(pdf)$/,
         use: [
           {
-            loader: 'file-loader',
+            loader: "file-loader",
             options: {
-              name: '[name].[ext]',
-            }
-          }
-        ]
-      }
-    ]
-  }
+              name: "[name].[ext]",
+            },
+          },
+        ],
+      },
+    ],
+  },
 };

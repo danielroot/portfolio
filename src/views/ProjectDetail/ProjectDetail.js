@@ -1,5 +1,7 @@
 // Deps
 import React, { Component } from "react";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
 import { shape, string, array, number } from "prop-types";
 import ReactMarkdown from "react-markdown";
 import { BLOCKS, MARKS } from "@contentful/rich-text-types";
@@ -18,15 +20,29 @@ class ProjectDetail extends Component {
     this.state = {
       isLoading: false,
     };
+  }
 
-    // Preload hero image if available
-    if (props.project.fields.heroImg.fields.file.url) {
-      const heroImgUrl = `https:${props.project.fields.heroImg.fields.file.url}`;
-      const link = document.createElement('link');
-      link.rel = 'preload';
-      link.as = 'image';
+  // Preload hero image if available
+
+  componentDidMount() {
+    this.preloadHeroImage(this.props.project);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.project !== prevProps.project) {
+      this.preloadHeroImage(this.props.project);
+    }
+  }
+
+  preloadHeroImage(project) {
+    if (project?.fields?.heroImg?.fields?.file?.url) {
+      const heroImgUrl = `https:${project.fields.heroImg.fields.file.url}?q=100&w=2000`;
+      const link = document.createElement("link");
+      link.rel = "preload";
+      link.as = "image";
       link.href = heroImgUrl;
       document.head.appendChild(link);
+      console.log("Preloading image:", heroImgUrl);
     }
   }
 
@@ -35,14 +51,16 @@ class ProjectDetail extends Component {
       return <div>Loading...</div>;
     }
 
-    console.log(this.props.projects[0]);
     let fields = this.props.project.fields;
     let {
       clientName,
       title,
       projectRole,
-      projectYear,
+      //projectYear,
       timeline,
+      team,
+      //collaborators,
+      //responsibilities,
       overview,
       summary,
       contributions,
@@ -50,7 +68,7 @@ class ProjectDetail extends Component {
       roles,
       heroImg,
     } = fields;
-    let heroImgUrl = `https:${heroImg.fields.file.url}`;
+    let heroImgUrl = `https:${heroImg.fields.file.url}?q=100&w=2000`;
     let heroImgDesc = heroImg.fields.description;
     let projects = this.props.projects;
 
@@ -67,8 +85,10 @@ class ProjectDetail extends Component {
     const options = {
       renderNode: {
         [BLOCKS.EMBEDDED_ASSET]: (node) => (
-          <figure className="img-wrap">
-            <img src={node.data.target.fields.file.url} />
+          <figure className={`${node.data.target.fields.title} img-wrap`}>
+            <Zoom>
+              <img src={`${node.data.target.fields.file.url}?q=90`} />
+            </Zoom>
             <figcaption>{node.data.target.fields.description}</figcaption>
           </figure>
         ),
@@ -91,6 +111,11 @@ class ProjectDetail extends Component {
     };
 
     const summaryContent = documentToReactComponents(summary, options);
+    const iFrameTest =
+      '<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="550" src="https://embed.figma.com/design/xlvkTqxVzorNVR5FxiAUlL/Wireless-Retail-App--ESP-?node-id=2547-117192&embed-host=share&footer=false&page-selector=false&theme=dark" allowfullscreen></iframe>';
+
+    const iFrameProto =
+      '<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="550" src="https://www.figma.com/proto/xlvkTqxVzorNVR5FxiAUlL/Wireless-Retail-App--ESP-?page-id=1827%3A111667&node-id=2252-150439&viewport=571%2C1233%2C0.02&t=HuhMC51peX18xCrb-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2252%3A150439&show-proto-sidebar=false&embed-host=share&footer=false&theme=dark" allowfullscreen></iframe>';
 
     return this.state.isLoading ? (
       <h1>loading</h1>
@@ -102,32 +127,29 @@ class ProjectDetail extends Component {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{
-                key: {title},
+                key: { title },
                 type: "spring",
                 stiffness: 300,
                 damping: 100,
-                delay: 0.1
+                delay: 0.1,
               }}
             >
-            <h1>
-              <span className="client-name">
-                {clientName}
-              </span>{" "}
-              {title}
-            </h1>
+              <h1>
+                <span className="client-name">{clientName}</span> {title}
+              </h1>
             </motion.div>
             <motion.div
-            key={heroImgUrl}
-            className="hero-container"
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{
-              type: "spring",
-              stiffness: 300,
-              damping: 50
-            }}
-          >
-            {/* <img
+              key={heroImgUrl}
+              className="hero-container"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{
+                type: "spring",
+                stiffness: 300,
+                damping: 50,
+              }}
+            >
+              {/* <img
               className="hero-img"
               src={`${heroImgUrl}`}
               sizes="50vw"
@@ -138,13 +160,13 @@ class ProjectDetail extends Component {
               `}
               alt={heroImgDesc}
             /> */}
-             <img
-              className="hero-img"
-              src={`${heroImgUrl}`}
-              sizes="50vw"
-              alt={heroImgDesc}
-            />
-          </motion.div>
+              <img
+                className="hero-img"
+                src={`${heroImgUrl}`}
+                sizes="50vw"
+                alt={heroImgDesc}
+              />
+            </motion.div>
             {overview && <ReactMarkdown source={overview} />}
             <dl>
               {projectRole && (
@@ -153,15 +175,47 @@ class ProjectDetail extends Component {
                   <dd>{projectRole}</dd>
                 </React.Fragment>
               )}
-              {projectYear && (
+              {/* {projectYear && (
                 <React.Fragment>
                   <dt>Year</dt>
                   <dd>{projectYear}</dd>
                 </React.Fragment>
+              )} */}
+              {/* {responsibilities && (
+                <React.Fragment>
+                  <dt>Responsibilities</dt>
+                  <dd>
+                    {responsibilities.map((responsibility, index) => (
+                      <span key={index}>
+                        {responsibility}
+                        {index < responsibilities.length - 1 && ", "}
+                      </span>
+                    ))}
+                  </dd>
+                </React.Fragment>
+              )} */}
+              {team && (
+                <React.Fragment>
+                  <dt>Team</dt>
+                  <dd>{team}</dd>
+                </React.Fragment>
               )}
+              {/* {collaborators && (
+                <React.Fragment>
+                  <dt>Collaborators</dt>
+                  <dd>
+                    {collaborators.map((collaborator, index) => (
+                      <span key={index}>
+                        {collaborator}
+                        {index < collaborators.length - 1 && ", "}
+                      </span>
+                    ))}
+                  </dd>
+                </React.Fragment>
+              )} */}
               {timeline && (
                 <React.Fragment>
-                  <dt>Duration</dt>
+                  <dt>Timeline</dt>
                   <dd>{timeline}</dd>
                 </React.Fragment>
               )}
@@ -170,6 +224,9 @@ class ProjectDetail extends Component {
             </dl>
           </header>
 
+          {/* <div dangerouslySetInnerHTML={{ __html: iFrameTest }}></div>
+
+          <div dangerouslySetInnerHTML={{ __html: iFrameProto }}></div> */}
 
           {summary && <section className="summary">{summaryContent}</section>}
 
@@ -210,13 +267,13 @@ class ProjectDetail extends Component {
           )}
         </article>
         <motion.div
-              key={title}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{
-                delay: 0.1
-              }}
-            >
+          key={title}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{
+            delay: 0.1,
+          }}
+        >
           <footer>
             <h2>Browse more work</h2>
             <div className="projects-link--wrapper">

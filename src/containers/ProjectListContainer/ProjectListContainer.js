@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import ProjectCard from "../../views/ProjectCard/ProjectCard";
 import PlaygroundCard from "../../views/PlaygroundCard/PlaygroundCard";
 import { arrayOf, shape, string } from "prop-types";
-import { motion } from "framer-motion";
+//import { motion } from "framer-motion";
 
 // Style
 import "./ProjectListContainer.scss";
@@ -15,18 +15,18 @@ class ProjectListContainer extends Component {
     }
 
     //let contentType = this.props.sys.contentType.sys.id;
-    const loadingContainerVariants = {
-      start: {
-        transition: {
-          //staggerChildren: 0.2
-        },
-      },
-      end: {
-        transition: {
-          staggerChildren: 0.2,
-        },
-      },
-    };
+    // const loadingContainerVariants = {
+    //   start: {
+    //     transition: {
+    //       //staggerChildren: 0.2
+    //     },
+    //   },
+    //   end: {
+    //     transition: {
+    //       staggerChildren: 0.2,
+    //     },
+    //   },
+    // };
 
     return (
       <project-list-container key={this.props.heading}>
@@ -45,16 +45,11 @@ class ProjectListContainer extends Component {
               })}
             </div>
           ) : (
-            <motion.div
-              variants={loadingContainerVariants}
-              initial="start"
-              animate="end"
-              className="grid"
-            >
+            <div className="grid">
               {this.props.projects.map((project) => {
                 return <ProjectCard key={project.sys.id} {...project} />;
               })}
-            </motion.div>
+            </div>
           )}
         </section>
       </project-list-container>
