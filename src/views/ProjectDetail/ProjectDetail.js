@@ -111,11 +111,11 @@ class ProjectDetail extends Component {
     };
 
     const summaryContent = documentToReactComponents(summary, options);
-    const iFrameTest =
-      '<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="550" src="https://embed.figma.com/design/xlvkTqxVzorNVR5FxiAUlL/Wireless-Retail-App--ESP-?node-id=2547-117192&embed-host=share&footer=false&page-selector=false&theme=dark" allowfullscreen></iframe>';
+    // const iFrameTest =
+    //   '<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="550" src="https://embed.figma.com/design/xlvkTqxVzorNVR5FxiAUlL/Wireless-Retail-App--ESP-?node-id=2547-117192&embed-host=share&footer=false&page-selector=false&theme=dark" allowfullscreen></iframe>';
 
-    const iFrameProto =
-      '<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="550" src="https://www.figma.com/proto/xlvkTqxVzorNVR5FxiAUlL/Wireless-Retail-App--ESP-?page-id=1827%3A111667&node-id=2252-150439&viewport=571%2C1233%2C0.02&t=HuhMC51peX18xCrb-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2252%3A150439&show-proto-sidebar=false&embed-host=share&footer=false&theme=dark" allowfullscreen></iframe>';
+    // const iFrameProto =
+    //   '<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="550" src="https://www.figma.com/proto/xlvkTqxVzorNVR5FxiAUlL/Wireless-Retail-App--ESP-?page-id=1827%3A111667&node-id=2252-150439&viewport=571%2C1233%2C0.02&t=HuhMC51peX18xCrb-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2252%3A150439&show-proto-sidebar=false&embed-host=share&footer=false&theme=dark" allowfullscreen></iframe>';
 
     return this.state.isLoading ? (
       <h1>loading</h1>

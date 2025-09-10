@@ -93,16 +93,6 @@ module.exports = {
         loader: "url-loader",
       },
 
-      // CSS
-      {
-        test: /\.css$/,
-        use: [
-          "style-loader", // creates style nodes from JS strings
-          "css-loader", // translates CSS into CommonJS
-          "postcss-loader", // processes CSS with PostCSS plugins
-        ],
-      },
-
       // SCSS
       {
         test: /\.scss$/,
@@ -111,6 +101,16 @@ module.exports = {
           "css-loader", // translates CSS into CommonJS
           "postcss-loader", // processes CSS with PostCSS plugins
           "sass-loader", // compiles Sass to CSS, using Node Sass by default
+        ],
+      },
+
+      // CSS
+      {
+        test: /\.css$/,
+        use: [
+          "style-loader", // creates style nodes from JS strings
+          "css-loader", // translates CSS into CommonJS
+          "postcss-loader", // processes CSS with PostCSS plugins
         ],
       },
 

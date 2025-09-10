@@ -1,12 +1,12 @@
 // Deps
 import React from "react";
-import IntroArt from "../views/IntroArt/IntroArt";
+//import IntroArt from "../views/IntroArt/IntroArt";
 //import { NavLink } from "react-router-dom";
 
 const Intro = () => {
   return (
     <div className="intro">
-      <IntroArt />
+      {/* <IntroArt /> */}
       <div className="intro-content">
         {/* <h1>About</h1> */}
         {/* <h2>Hello! I&apos;m a UX professional with over 10 years experience.</h2>

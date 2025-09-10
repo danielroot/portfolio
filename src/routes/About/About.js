@@ -1,7 +1,7 @@
 // Deps
 import React from "react";
 import { Link } from "react-router-dom";
-import Intro from "../Intro";
+//import Intro from "../Intro";
 import profilePic from "../../assets/img/dan-root_profile.jpg";
 
 // Style
@@ -10,37 +10,43 @@ import "./About.scss";
 const About = () => {
   return (
     <React.Fragment>
-      <img src={profilePic} className="profile-pic" alt="Picture of Dan Root" />
-
-      <section>
-        <h1 class="text-3xl font-bold underline">Hello world!</h1>
-        <h2>About</h2>
-        Discover Design Deliver Deduce
-        <p>What I can bring to your team</p>
-        <h3>Sketching</h3>
-        <p>
-          Whether pencil, pen, or dry-erase marker, I am comfortable and adept
-          at visualizing my ideas through low-fidelity sketches or whiteboard
-          drawings.
-        </p>
-        <h3>Prototyping</h3>
-        <p>
-          I have experience using web frameworks that make it easy to generate
-          interactive prototypes for internal/client review.
-        </p>
-        <h3>Design</h3>
-        <p>
-          I graduated in 2006 with a degree in Visual Arts (focused in Graphic
-          Design) from SUNY New Paltz. There, I learned the history, theory, and
-          application of Graphic Design. My tools of choice for UI design are
-          Sketch/Figma and the browser.
-        </p>
-        <h3>Coding</h3>
-        <p>
-          My modern Front End Development workflow includes VS Code, Git, React
-          JS, Sass/Less, NPM, and Webpack.
-        </p>
-      </section>
+      <div className="flex flex-row">
+        <div className="basis-2/3 bg-black">
+          <h2>About</h2>
+          Discover Design Deliver Deduce
+          <p>What I can bring to your team</p>
+          <h3>Sketching</h3>
+          <p>
+            Whether pencil, pen, or dry-erase marker, I am comfortable and adept
+            at visualizing my ideas through low-fidelity sketches or whiteboard
+            drawings.
+          </p>
+          <h3>Prototyping</h3>
+          <p>
+            I have experience using web frameworks that make it easy to generate
+            interactive prototypes for internal/client review.
+          </p>
+          <h3>Design</h3>
+          <p>
+            I graduated in 2006 with a degree in Visual Arts (focused in Graphic
+            Design) from SUNY New Paltz. There, I learned the history, theory,
+            and application of Graphic Design. My tools of choice for UI design
+            are Sketch/Figma and the browser.
+          </p>
+          <h3>Coding</h3>
+          <p>
+            My modern Front End Development workflow includes VS Code, Git,
+            React JS, Sass/Less, NPM, and Webpack.
+          </p>
+        </div>
+        <div className="basis-1/3">
+          <img
+            src={profilePic}
+            className="profile-pic"
+            alt="Picture of Dan Root"
+          />
+        </div>
+      </div>
 
       <section>
         <h2>Experience</h2>
