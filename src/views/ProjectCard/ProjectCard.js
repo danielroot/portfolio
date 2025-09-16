@@ -89,8 +89,8 @@ const ProjectCard = (props) => {
 
   return (
     <motion.div
-      whileHover={{ scale: 1.03 }}
-      whileTap={{ scale: 0.98 }}
+      whileHover={{ scale: 0.97 }}
+      //whileTap={{ scale: 0.98 }}
       className={`project-${slug}`}
     >
       <Link

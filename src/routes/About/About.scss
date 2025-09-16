@@ -65,3 +65,51 @@ section.clients {
     }
   }
 }
+
+
+p:first-of-type {
+  font-size: larger;
+  margin-bottom: $space-md;
+}
+
+
+.quote {
+
+  blockquote {
+    //border-left: 4px solid $brand-primary;
+    //margin: $space-md 0;
+    background-color: $brand-light;
+    padding: $space-sm $space-md $space-md 2.75rem;
+    border-radius: $border-radius;
+    font-style: italic;
+    color: darken($brand-primary, 30%);
+    position: relative;
+    &::before {
+      font-family: 'Georgia', serif;
+      position: absolute;
+      content: "“";
+      left: 2px;
+      top: 6px;
+      font-size: 5rem;
+      line-height: 1;
+      vertical-align: top;
+      color: $brand-med;
+    }
+
+    p, ul {
+      font-size: $font-size-xs;
+      margin: $space-xs 0;
+    }
+  }
+
+  cite {
+      font-style: normal;
+      p {
+        margin: 0;
+        font-weight: $font-weight-bold;
+      }
+      p.title {
+        font-weight: normal;
+      }
+    }
+}

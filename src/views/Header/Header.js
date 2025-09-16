@@ -92,15 +92,16 @@ class Header extends Component {
               Dan Root{" "}
               <span className="job-title">Sr. UX/UI Product Designer</span>
             </NavLink>
-            {/* <NavLink activeClassName="active" to="/about">
-              About
-            </NavLink> */}
 
             <NavLink activeClassName="active" to="/case-studies">
               {/* <span className="material-symbols-rounded">
                 work
               </span> */}
               Case Studies
+            </NavLink>
+
+            <NavLink activeClassName="active" to="/about">
+              About
             </NavLink>
 
             {/* <NavLink activeClassName="active" to="/playground">

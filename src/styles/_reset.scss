@@ -22,7 +22,7 @@ html {
 *::before,
 *::after {
   box-sizing: inherit;
-  margin: 0;
+  //margin: 0;
 }
 
 ::selection {
@@ -52,6 +52,7 @@ ul {
 ol {
   padding-left: $space-sm;
   line-height: 1.6;
+  list-style-type: decimal;
 }
 
 img {
@@ -71,7 +72,7 @@ section {
 button {
   padding: 0;
   border: none;
-  font: inherit;
+  font-family: inherit;
   font-size: 1rem;
   line-height: 1;
   color: inherit;
