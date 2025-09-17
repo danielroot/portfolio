@@ -14,6 +14,71 @@ import ProjectCard from "../../views/ProjectCard/ProjectCard";
 // Style
 import "./ProjectDetail.scss";
 
+const DEFAULT_IMAGE_QUALITY = 75;
+const HERO_IMAGE_WIDTHS = [480, 768, 1200, 1600, 2000];
+const HERO_IMAGE_SIZES = "(max-width: 768px) 100vw, (max-width: 1440px) 80vw, 1440px";
+const EMBEDDED_IMAGE_WIDTHS = [480, 768, 1024, 1440];
+const EMBEDDED_IMAGE_SIZES = "(max-width: 768px) 100vw, 960px";
+
+const buildImageUrl = (
+  fileUrl,
+  { width, quality = DEFAULT_IMAGE_QUALITY, format } = {}
+) => {
+  if (!fileUrl) {
+    return "";
+  }
+
+  const normalizedUrl = fileUrl.startsWith("http") ? fileUrl : `https:${fileUrl}`;
+  const [baseUrl, existingQuery] = normalizedUrl.split("?");
+  const params = new URLSearchParams(existingQuery || "");
+
+  if (width) {
+    params.set("w", width);
+  }
+
+  if (quality) {
+    params.set("q", quality);
+  }
+
+  if (format) {
+    params.set("fm", format);
+  }
+
+  const finalQuery = params.toString();
+  return finalQuery ? `${baseUrl}?${finalQuery}` : baseUrl;
+};
+
+const createResponsiveImageProps = ({
+  fileUrl,
+  widths,
+  quality = DEFAULT_IMAGE_QUALITY,
+  fallbackWidth,
+  sizes,
+}) => {
+  if (!fileUrl || !widths?.length) {
+    return {};
+  }
+
+  const uniqueSortedWidths = [...new Set(widths)].sort((a, b) => a - b);
+  const srcSet = uniqueSortedWidths
+    .map((width) => `${buildImageUrl(fileUrl, { width, quality })} ${width}w`)
+    .join(", ");
+
+  const resolvedFallbackWidth =
+    fallbackWidth && uniqueSortedWidths.includes(fallbackWidth)
+      ? fallbackWidth
+      : uniqueSortedWidths[Math.floor(uniqueSortedWidths.length / 2)];
+
+  return {
+    src: buildImageUrl(fileUrl, { width: resolvedFallbackWidth, quality }),
+    srcSet,
+    sizes,
+  };
+};
+
+const getAssetAltText = (fields) =>
+  fields?.description || fields?.title || "Project detail image";
+
 class ProjectDetail extends Component {
   constructor(props) {
     super(props);
@@ -36,13 +101,39 @@ class ProjectDetail extends Component {
 
   preloadHeroImage(project) {
     if (project?.fields?.heroImg?.fields?.file?.url) {
-      const heroImgUrl = `https:${project.fields.heroImg.fields.file.url}?q=100&w=2000`;
+      const { file } = project.fields.heroImg.fields;
+      const heroImageProps = createResponsiveImageProps({
+        fileUrl: file.url,
+        widths: HERO_IMAGE_WIDTHS,
+        quality: DEFAULT_IMAGE_QUALITY,
+        fallbackWidth: 1200,
+        sizes: HERO_IMAGE_SIZES,
+      });
+
+      if (!heroImageProps.src) {
+        return;
+      }
+
+      const existingLink = document.head.querySelector(
+        'link[rel="preload"][data-hero-preload="true"]'
+      );
+
+      if (existingLink) {
+        existingLink.parentNode.removeChild(existingLink);
+      }
+
       const link = document.createElement("link");
       link.rel = "preload";
       link.as = "image";
-      link.href = heroImgUrl;
+      link.href = heroImageProps.src;
+      if (heroImageProps.srcSet) {
+        link.setAttribute("imagesrcset", heroImageProps.srcSet);
+      }
+      if (heroImageProps.sizes) {
+        link.setAttribute("imagesizes", heroImageProps.sizes);
+      }
+      link.dataset.heroPreload = "true";
       document.head.appendChild(link);
-      console.log("Preloading image:", heroImgUrl);
     }
   }
 
@@ -68,8 +159,17 @@ class ProjectDetail extends Component {
       roles,
       heroImg,
     } = fields;
-    let heroImgUrl = `https:${heroImg.fields.file.url}?q=100&w=2000`;
-    let heroImgDesc = heroImg.fields.description;
+    const heroImageFileUrl = heroImg?.fields?.file?.url;
+    const heroImageProps = heroImageFileUrl
+      ? createResponsiveImageProps({
+          fileUrl: heroImageFileUrl,
+          widths: HERO_IMAGE_WIDTHS,
+          quality: DEFAULT_IMAGE_QUALITY,
+          fallbackWidth: 1200,
+          sizes: HERO_IMAGE_SIZES,
+        })
+      : {};
+    let heroImgDesc = heroImg?.fields?.description;
     let projects = this.props.projects;
 
     const filteredAndSortedRoles =
@@ -85,12 +185,43 @@ class ProjectDetail extends Component {
     const options = {
       renderNode: {
         [BLOCKS.EMBEDDED_ASSET]: (node) => (
-          <figure className={`${node.data.target.fields.title} img-wrap`}>
-            <Zoom>
-              <img src={`${node.data.target.fields.file.url}?q=90`} />
-            </Zoom>
-            <figcaption>{node.data.target.fields.description}</figcaption>
-          </figure>
+          (() => {
+            const assetFields = node.data.target.fields || {};
+            const assetFileUrl = assetFields.file?.url;
+
+            if (!assetFileUrl) {
+              return null;
+            }
+
+            const assetImageProps = createResponsiveImageProps({
+              fileUrl: assetFileUrl,
+              widths: EMBEDDED_IMAGE_WIDTHS,
+              quality: DEFAULT_IMAGE_QUALITY,
+              fallbackWidth: 1024,
+              sizes: EMBEDDED_IMAGE_SIZES,
+            });
+
+            const figureClassName = [assetFields.title, "img-wrap"]
+              .filter(Boolean)
+              .join(" ");
+
+            return (
+              <figure className={figureClassName}>
+                <Zoom>
+                  <img
+                    src={assetImageProps.src}
+                    srcSet={assetImageProps.srcSet}
+                    sizes={assetImageProps.sizes}
+                    alt={getAssetAltText(assetFields)}
+                    loading="lazy"
+                  />
+                </Zoom>
+                {assetFields.description && (
+                  <figcaption>{assetFields.description}</figcaption>
+                )}
+              </figure>
+            );
+          })()
         ),
         [BLOCKS.EMBEDDED_ENTRY]: (node) => (
           <div
@@ -139,7 +270,7 @@ class ProjectDetail extends Component {
               </h1>
             </motion.div>
             <motion.div
-              key={heroImgUrl}
+              key={heroImageFileUrl}
               className="hero-container"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -160,12 +291,15 @@ class ProjectDetail extends Component {
               `}
               alt={heroImgDesc}
             /> */}
-              <img
-                className="hero-img"
-                src={`${heroImgUrl}`}
-                sizes="50vw"
-                alt={heroImgDesc}
-              />
+              {heroImageProps.src && (
+                <img
+                  className="hero-img"
+                  src={heroImageProps.src}
+                  srcSet={heroImageProps.srcSet}
+                  sizes={heroImageProps.sizes}
+                  alt={heroImgDesc || title || "Project hero image"}
+                />
+              )}
             </motion.div>
             {overview && <ReactMarkdown source={overview} />}
             <dl>
