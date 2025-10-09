@@ -22,20 +22,23 @@ class Footer extends Component {
         LinkedInIcon,
         DribbleIcon,
         GithubIcon,
-        InstagramIcon
-      }
+        InstagramIcon,
+      },
     } = this.props;
 
     return (
       <footer className="global">
-
         <div className="container">
-        {/* <IntroArt /> */}
+          {/* <IntroArt /> */}
           {/* <p>Interested in working together?</p>
-          <a href="mailto:info@danroot.co" className="btn">Contact Me!</a> */}
+          <a href="mailto:info@danroot.co" className="btn">Contact Me!</a>
 
           {/* <h4>Let&apos;s Connect</h4> */}
-          <div className="footer-nav" role="navigation"  aria-label="social media links">
+          <div
+            className="footer-nav"
+            role="navigation"
+            aria-label="social media links"
+          >
             {/*<Link to="/style-guide">Style Guide</Link>*/}
             <a href="https://www.linkedin.com/in/dan-root/">
               <icons.LinkedInIcon />
@@ -59,18 +62,18 @@ class Footer extends Component {
 
           <div className="footer-copy__wrapper">
             <p>
-              Site hand-crafted with VS Code, React JS, Sass, and Contentful API.
+              Site hand-crafted with VS Code, React JS, Sass, and Contentful
+              API.
               <br />
-              <small>Made in Seattle, WA.{" "}</small>
+              <small>Made in Seattle, WA. </small>
               <br />
               <a href="https://github.com/danielroot/portfolio/">
                 View Github Repo
               </a>{" "}
-
             </p>
             <p>
-              &copy; {currentYear} Dan Root
-              {" "}<a href="mailto:danrootux@gmail.com">danrootux@gmail.com</a>
+              &copy; {currentYear} Dan Root{" "}
+              <a href="mailto:danrootux@gmail.com">danrootux@gmail.com</a>
             </p>
           </div>
         </div>

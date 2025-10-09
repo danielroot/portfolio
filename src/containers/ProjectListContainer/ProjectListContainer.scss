@@ -6,6 +6,7 @@
 
 project-list-container {
   display: block;
+  padding-bottom: $space-md;
 
   h1 {
     //animation: moveInText 0.5s both;
@@ -16,14 +17,16 @@ project-list-container {
     display: grid;
     grid-column-gap: $space-sm;
     grid-row-gap: $space-md;
+    grid-template-columns: repeat(1, 1fr);
+
 
     // @include for-tablet-portrait-up {
     //   grid-template-columns: repeat(auto-fit, minmax(350px, auto));
     // }
 
-    @include for-tablet-portrait-up {
-      grid-template-columns: repeat(2, 1fr);
-    }
+    // @include for-tablet-portrait-up {
+    //   grid-template-columns: repeat(2, 1fr);
+    // }
 
     // @include for-tablet-landscape-up {
     //   grid-template-columns: repeat(auto-fit, minmax(350px, auto));

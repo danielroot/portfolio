@@ -14,15 +14,13 @@ header.global {
     //display: none;
     display: flex;
     flex-direction: column;
-    margin-top: $space-sm;
-    text-align: center;
+    margin: $space-sm 0 0;
 
-    @include for-tablet-portrait-up {
+    @include for-tablet-landscape-up {
       flex-direction: row;
       text-align: left;
       justify-content: space-between;
-      align-items: baseline;
-      margin: $space-sm $space-xs 0;
+      align-items: center;
     }
 
 
@@ -33,22 +31,36 @@ header.global {
       padding: $space-xs 0;
       transition: 0.2s background;
       transition: 0.2s font-weight;
+      display: flex;
+      align-items: center;
       // transition: 0.25s letter-spacing;
 
-      @include for-tablet-portrait-up {
+      span {
+        margin-right: $space-xxs;
+        font-weight: 300;
+        transition: 0.2s font-weight;
+
+      }
+
+      @include for-tablet-landscape-up {
         font-size: $font-size-xs;
         margin-left: $space-sm;
         padding: $space-xxs $space-xs;
         border-radius: $border-radius;
       }
 
-      &:hover {
+      &:hover, &:focus-visible {
         background: $brand-light;
         color: $brand-primary;
         text-decoration: none;
+        outline: none;
         // font-weight: 600;
         //letter-spacing: 3px;
         font-weight: 700;
+
+        span {
+          font-weight: 500;
+        };
       }
 
       &:focus {
@@ -61,6 +73,9 @@ header.global {
       font-weight: 700;
       cursor: default;
 
+      span {
+        font-weight: 500;
+      }
       &:hover {
         background: none;
       }
@@ -93,8 +108,26 @@ header.global {
 
       @include for-tablet-portrait-up {
         font-size: $font-size-sm;
-        margin-left: 0;
+        margin-left: -0.5rem;
         margin-right: auto;
+      }
+    }
+
+    a.linkedin-icon {
+      svg {
+        width: 24px;
+        height:auto;
+
+        path {
+          fill: $color-text-primary;
+          transform-origin: center;
+        }
+      }
+
+      &:hover {
+        svg path {
+          fill: $brand-primary;
+        }
       }
     }
   }

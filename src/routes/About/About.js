@@ -8,8 +8,8 @@ import "./About.scss";
 
 const About = () => {
   return (
-    <React.Fragment>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <about-page>
+      <div className="grid grid-cols-1 gap-y-4 md:grid-cols-3 md:gap-8">
         <div className="col-span-1 md:order-last">
           <img
             src={profilePic}
@@ -24,9 +24,9 @@ const About = () => {
             I am a Senior Product Designer who specializes in creating systems,
             tools, and workflows that make complex problems clear and
             manageable. My work has spanned large organizations including
-            Walmart and Uber, where I’ve delivered enterprise platforms, design
-            systems, and customer experiences that improved workflows and drove
-            measurable outcomes.
+            Walmart and Uber, where I&apos;ve delivered enterprise platforms,
+            design systems, customer and B2B experiences that improved workflows
+            and drove measurable outcomes.
           </p>
           <h2>Bridging Design and Engineering</h2>
           <p>
@@ -49,10 +49,10 @@ const About = () => {
 
           <h2>Outside of Work</h2>
           <p>
-            I am a lifelong learner, artist, musician, and father of three. I
-            bring curiosity, creativity, and discipline into all parts of my
-            life, always looking for ways to make experiences more meaningful
-            and connected.
+            I am a lifelong learner, artist, musician, and father of three
+            residing in the Pacific Northwest. I bring curiosity, creativity,
+            and discipline into all parts of my life, always looking for ways to
+            make experiences more meaningful and connected.
           </p>
         </div>
       </div>
@@ -64,14 +64,11 @@ const About = () => {
           <blockquote>
             <p>
               I had the pleasure of working with Dan, and I can confidently say
-              he is an exceptional product designer. His attention to detail is
-              unmatched, and he brings a meticulous approach to every project.
-              Whether leading a team or working independently, Dan consistently
-              drives projects to success, balancing user needs with business
-              goals seamlessly. He has a strong ability to collaborate with
-              stakeholders, ensuring alignment and delivering outstanding
-              outcomes. Any team would be lucky to have him—he&apos;s a true
-              asset!
+              he is an exceptional product designer... His attention to detail
+              is unmatched, and he brings a meticulous approach to every
+              project... Dan consistently drives projects to success, balancing
+              user needs with business goals seamlessly... A true asset to any
+              team.
             </p>
             <footer>
               <cite>
@@ -85,20 +82,13 @@ const About = () => {
           <blockquote>
             <p>
               Working with Dan on the omni-experience initiatives was an
-              absolute pleasure. As a UX designer, he brings a combination of
-              strategic thinking, user empathy, and hands-on design excellence
-              that made a measurable impact on our work. I really appreciated
-              how Dan&apos;s designs kept the nuances of the complicated user
-              flows beyond our space in mind. This ensured we could correctly
-              plan for how our product interacted with other features in the
-              e-commerce flow. Dan is an exceptional partner in every sense —
-              thoughtful, collaborative, and deeply invested in creating user
-              experiences that are not only intuitive but also aligned with
-              business goals. He has a talent for translating complex workflows
-              into elegant, user-friendly solutions. Beyond his design skills,
-              Dan is just a great person to work with — calm under pressure,
-              generous with feedback, and always focused on moving the team
-              forward. Any team would be lucky to have him!
+              absolute pleasure... He brings a combination of strategic
+              thinking, user empathy, and hands-on design excellence that made a
+              measurable impact on our work... Dan is an exceptional partner in
+              every sense, thoughtful, collaborative, and deeply invested in
+              creating user experiences that are not only intuitive but also
+              aligned with business goals... Any team would be lucky to have
+              him.
             </p>
 
             <footer>
@@ -135,7 +125,7 @@ const About = () => {
           </blockquote>
         </div>
       </div>
-    </React.Fragment>
+    </about-page>
   );
 };
 

@@ -15,10 +15,10 @@ const Intro = () => {
 
         <h2>10+ years of simplifying the complex</h2>
         <p>
-          Since 2008, I&apos;ve evolved from UX Engineer to Senior UX/UI Product
-          Designer, working at creative agencies (
-          <strong>Deloitte Digital</strong>) and in-house teams (
-          <strong>Uber</strong> and <strong>Walmart</strong>).
+          I&apos;ve evolved from UX Engineer to Senior UX/UI Product Designer,
+          working at creative agencies (<strong>Deloitte Digital</strong>) and
+          in-house product teams (<strong>Uber</strong> and{" "}
+          <strong>Walmart</strong>).
         </p>
         <p>
           I excel at creating intuitive experiences through collaborative

@@ -89,7 +89,7 @@ const ProjectCard = (props) => {
 
   return (
     <motion.div
-      whileHover={{ scale: 0.97 }}
+      whileHover={{ translateX: "32px" }}
       //whileTap={{ scale: 0.98 }}
       className={`project-${slug}`}
     >
@@ -109,9 +109,18 @@ const ProjectCard = (props) => {
           )}
           <figure>
             <h3 id={`card-${slug}`}>
-              <strong>{clientName}</strong> | {title}
+              <span>{clientName}</span>
+              {title}
             </h3>
             {cardText && <p>{cardText}</p>}
+            <Link
+              to={`/${category}/${slug}`}
+              aria-labelledby={`card-${slug}`}
+              className="project-card--cta"
+            >
+              Read case study{" "}
+              <span className="material-symbols-sharp">arrow_forward</span>{" "}
+            </Link>
           </figure>
         </project-card>
       </Link>

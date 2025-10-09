@@ -5,6 +5,7 @@ import resumePDF from "../../assets/dan-root_resume.pdf";
 import throttle from "lodash.throttle";
 //import { motion } from "framer-motion";
 //import { Tween } from 'react-gsap';
+import LinkedInIcon from "../../assets/icons/LinkedIn-color.svg";
 
 // Style
 import "./Header.scss";
@@ -49,7 +50,7 @@ class Header extends Component {
     // );
 
     return (
-      <header className="global">
+      <header className="global container">
         <div className="">
           {/* {isTablet ? (
             <nav>
@@ -94,13 +95,12 @@ class Header extends Component {
             </NavLink>
 
             <NavLink activeClassName="active" to="/case-studies">
-              {/* <span className="material-symbols-rounded">
-                work
-              </span> */}
+              <span className="material-symbols-sharp">work</span>
               Case Studies
             </NavLink>
 
             <NavLink activeClassName="active" to="/about">
+              <span className="material-symbols-sharp">person</span>
               About
             </NavLink>
 
@@ -108,11 +108,19 @@ class Header extends Component {
               Playground
             </NavLink> */}
 
-            <a href={`${resumePDF}`} target="_blank" rel="noopener noreferrer">
+            <a href={`${resumePDF}`}>
+              <span className="material-symbols-sharp">picture_as_pdf</span>
               Resumé
-              {/* <span className="material-symbols-rounded">
-                picture_as_pdf
-              </span> */}
+            </a>
+            <a href="mailto:danrootux@gmail.com">
+              <span className="material-symbols-sharp">mail</span>
+              danrootux@gmail.com
+            </a>
+            <a
+              className="linkedin-icon"
+              href="https://www.linkedin.com/in/dan-root/"
+            >
+              <LinkedInIcon />
             </a>
           </nav>
         </div>

@@ -4,7 +4,6 @@ import Art from "../assets/404-art.svg";
 import { Link } from "react-router-dom";
 import { array } from "prop-types";
 
-
 // Components
 //import ProjectCard from '../views/ProjectCard/ProjectCard';
 
@@ -21,8 +20,12 @@ class NotFound extends Component {
       <div className="not-found">
         <Art className="hero" />
         <div>
-          <h2>Sorry, page Not Found!</h2>
-          <p><Link to="/" className="btn-link">Go back home</Link></p>
+          <h2>Sorry, page not found!</h2>
+          <p>
+            <Link to="/case-studies" className="btn-link">
+              Check out my work
+            </Link>
+          </p>
         </div>
 
         {/* TODO: Add all projects here */}
@@ -35,8 +38,6 @@ class NotFound extends Component {
           </div>
         </footer> */}
       </div>
-
-
     );
   }
 }
@@ -44,7 +45,5 @@ class NotFound extends Component {
 NotFound.propTypes = {
   projects: array,
 };
-
-
 
 export default NotFound;

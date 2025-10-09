@@ -32,42 +32,76 @@ a.project-card--wrapper {
     outline: none;
   }
 
+  &:focus-visible {
+    outline: 2px solid $brand-primary;
+    outline-offset: 2px;
+  }
+
   project-card {
+    align-items: center;
+    padding: $space-md;
     display: flex;
     flex-direction: column;
     height: 100%;
-    border: 1px solid $brand-light;
+    gap: $space-sm;
+    //border: 1px solid $brand-light;
+    background: $brand-light;
     border-radius: $border-radius;
+    //box-shadow: 0px 3px 6px 0px lightsteelblue;
+    //transition: all 0.2s ease-in-out;
+
+    // &:hover {
+    //   box-shadow: 0 10px 20px -12px lightsteelblue;
+    // }
+
+    @include for-tablet-landscape-up {
+          flex-direction: row;
+    }
 
     img {
+      order: 2;
       height: 300px;
       width: 100%;
       object-fit: cover;
-      border-radius: $border-radius $border-radius 0 0;
+      //border-radius: $border-radius $border-radius 0 0;
       background-color: #fff;
 
-      @include for-big-desktop-up {
-        height: 400px;
-      }
+      // @include for-big-desktop-up {
+      //   height: 400px;
+      // }
+
+        // :nth-of-type(even) & {
+        //     @include for-tablet-landscape-up {
+        //     order: 2;
+        //     }
+        //  }
     }
 
     figure {
-      padding: $space-sm;
       width: 100%;
       //background: $off-white;
-      background: $brand-light;
       height: 100%;
-      border-top: 1px solid $brand-light;
-      border-radius: 0 0 $border-radius $border-radius;
+      //border-top: 1px solid $brand-light;
+      //border-radius: 0 0 $border-radius $border-radius;
 
 
       h3 {
-        font-weight: $font-weight-light;
+
+        span {
+          font-size: $font-size-xs;
+          font-weight: $font-weight-bold;
+          letter-spacing: 2px;
+          margin-bottom: 1rem;
+          display: block;
+          text-transform: uppercase;
+        }
+
+        font-weight: $font-weight-regular;
         font-size: $font-size-md;
         margin-bottom: $space-xs;
 
         @include for-desktop-up {
-          font-size: $font-size-sm;
+          font-size: $font-size-md;
         }
       }
 
@@ -77,7 +111,20 @@ a.project-card--wrapper {
         color: $gray-dark;
 
         @include for-desktop-up {
-          font-size: $font-size-xs;
+          font-size: $font-size-sm;
+        }
+      }
+
+      .project-card--cta {
+        display: block;
+        margin-top: 1rem;
+        color: $brand-primary;
+        display: flex;
+        align-items: center;
+        //justify-self: flex-end;
+
+        span {
+          margin-left: $space-xxs;
         }
       }
     }

@@ -14,18 +14,17 @@
 }
 
 .container {
-  padding: 0 $gutter-global;
+  padding: 0 $space-sm;
   margin: 0 auto;
-  max-width: 1280px;
+  max-width: 1320px;
 
-  @include for-big-desktop-up {
-    max-width: calc(100vw - 40%);
-
-  }
+  // @include for-tablet-portrait-up {
+  //   padding: 0 calc($space-sm + $space-xs);
+  // }
 }
 
 main {
-  padding: $space-lg 0 0;
+  padding: 2.5rem 0 0;
   width: 100%;
   min-height: 100vh;
 }
@@ -97,6 +96,10 @@ article {
 }
 
 .not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   margin-bottom: $space-lg;
 

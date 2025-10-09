@@ -15,7 +15,7 @@ $space-xl: 6rem;
 $space-xxl: 8rem;
 
 // Gutters
-$gutter-global: $space-sm;
+$gutter-global: calc($space-sm + $space-xs);
 
 //
 // Fonts
@@ -77,7 +77,7 @@ $red: #ff6868;
 $yellow-light: adjust-hue($brand-light, 180deg);
 
 // Functional Colors
-$color-bg-body: #fff;
+$color-bg-body: ghostwhite;
 $color-bg-body-semi-transparent: $semi-transparent-white;
 $color-bg-content: $off-white; // content backgrounds
 $color-border: $gray-light; // borders

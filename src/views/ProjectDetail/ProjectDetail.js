@@ -14,21 +14,26 @@ import ProjectCard from "../../views/ProjectCard/ProjectCard";
 // Style
 import "./ProjectDetail.scss";
 
-const DEFAULT_IMAGE_QUALITY = 75;
+const DEFAULT_IMAGE_QUALITY = 100;
 const HERO_IMAGE_WIDTHS = [480, 768, 1200, 1600, 2000];
-const HERO_IMAGE_SIZES = "(max-width: 768px) 100vw, (max-width: 1440px) 80vw, 1440px";
-const EMBEDDED_IMAGE_WIDTHS = [480, 768, 1024, 1440];
-const EMBEDDED_IMAGE_SIZES = "(max-width: 768px) 100vw, 960px";
+const HERO_IMAGE_SIZES =
+  "(max-width: 768px) 100vw, (max-width: 2000px) 80vw, 2000px";
+const EMBEDDED_IMAGE_WIDTHS = [480, 768, 1024, 1440, 2000];
+const EMBEDDED_IMAGE_SIZES = "(max-width: 2000px) 100vw, 2000px";
 
 const buildImageUrl = (
   fileUrl,
-  { width, quality = DEFAULT_IMAGE_QUALITY, format } = {}
+  { width, quality = DEFAULT_IMAGE_QUALITY, format = "webp" } = {}
+
+  //{ quality = DEFAULT_IMAGE_QUALITY, format = "webp" } = {}
 ) => {
   if (!fileUrl) {
     return "";
   }
 
-  const normalizedUrl = fileUrl.startsWith("http") ? fileUrl : `https:${fileUrl}`;
+  const normalizedUrl = fileUrl.startsWith("http")
+    ? fileUrl
+    : `https:${fileUrl}`;
   const [baseUrl, existingQuery] = normalizedUrl.split("?");
   const params = new URLSearchParams(existingQuery || "");
 
@@ -184,7 +189,7 @@ class ProjectDetail extends Component {
 
     const options = {
       renderNode: {
-        [BLOCKS.EMBEDDED_ASSET]: (node) => (
+        [BLOCKS.EMBEDDED_ASSET]: (node) =>
           (() => {
             const assetFields = node.data.target.fields || {};
             const assetFileUrl = assetFields.file?.url;
@@ -221,8 +226,7 @@ class ProjectDetail extends Component {
                 )}
               </figure>
             );
-          })()
-        ),
+          })(),
         [BLOCKS.EMBEDDED_ENTRY]: (node) => (
           <div
             className="code-snippet"
@@ -409,12 +413,14 @@ class ProjectDetail extends Component {
           }}
         >
           <footer>
-            <h2>Browse more work</h2>
-            <div className="projects-link--wrapper">
-              {remainingProjects.map((project) => {
-                return <ProjectCard key={project.sys.id} {...project} />;
-              })}
-            </div>
+            <section>
+              <h2>Browse more work</h2>
+              <div className="projects-link--wrapper">
+                {remainingProjects.map((project) => {
+                  return <ProjectCard key={project.sys.id} {...project} />;
+                })}
+              </div>
+            </section>
           </footer>
         </motion.div>
       </project-detail>
