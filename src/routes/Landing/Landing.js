@@ -17,14 +17,12 @@ class Landing extends Component {
     return (
       <React.Fragment>
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{
-            type: "spring",
-            stiffness: 300,
-            damping: 100,
-            delay: 0.1,
-          }}
+        // initial={{ opacity: 0 }}
+        // animate={{ opacity: 1 }}
+        // transition={{
+        //   delay: 0.1,
+        //   duration: 0.3,
+        // }}
         >
           <Intro />
           <section className="projects">

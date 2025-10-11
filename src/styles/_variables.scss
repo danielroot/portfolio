@@ -60,7 +60,7 @@ $brand-primary: #145CFB;
 //$brand-primary: #026670;
 //$brand-primary: #3A61E0;
 $brand-light: lighten($brand-primary, 43%);
-$brand-med: lighten($brand-primary, 30%);
+$brand-med: lighten($brand-primary, 20%);
 $brand-dark: darken($brand-primary, 40%);
 $brand-reverse: adjust-hue($brand-primary, 180deg);
 $white: #fff;

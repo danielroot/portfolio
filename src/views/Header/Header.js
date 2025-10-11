@@ -95,7 +95,7 @@ class Header extends Component {
             </NavLink>
 
             <NavLink activeClassName="active" to="/case-studies">
-              <span className="material-symbols-sharp">work</span>
+              <span className="material-symbols-sharp">enterprise</span>
               Case Studies
             </NavLink>
 

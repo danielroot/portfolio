@@ -21,12 +21,12 @@ const About = () => {
           <h1>About me</h1>
           {/* <h2>Senior Product Designer</h2> */}
           <p className="first">
-            I am a Senior Product Designer who specializes in creating systems,
-            tools, and workflows that make complex problems clear and
-            manageable. My work has spanned large organizations including
-            Walmart and Uber, where I&apos;ve delivered enterprise platforms,
-            design systems, customer and B2B experiences that improved workflows
-            and drove measurable outcomes.
+            I am a Senior Product Designer who specializes in
+            creating systems, tools, and workflows that make complex problems
+            clear and manageable. My work has spanned large organizations
+            including <strong>Walmart</strong> and <strong>Uber</strong>, where I&apos;ve delivered <strong>enterprise
+            platforms</strong>, <strong>design systems</strong>, <strong>B2C & B2B</strong> experiences that
+            improved workflows and drove measurable outcomes.
           </p>
           <h2>Bridging Design and Engineering</h2>
           <p>

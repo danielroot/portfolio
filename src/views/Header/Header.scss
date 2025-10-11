@@ -29,38 +29,40 @@ header.global {
       font-family: $font-family-headings;
       font-size: $font-size-sm;
       padding: $space-xs 0;
-      transition: 0.2s background;
-      transition: 0.2s font-weight;
+      transition-property: background-color, font-weight, border-color;
+      transition-duration: 0.2s;
       display: flex;
       align-items: center;
       // transition: 0.25s letter-spacing;
 
+      // icons
       span {
         margin-right: $space-xxs;
         font-weight: 300;
-        transition: 0.2s font-weight;
-
+        transition: font-variation-settings .5s;
       }
 
       @include for-tablet-landscape-up {
         font-size: $font-size-xs;
-        margin-left: $space-sm;
+        margin-left: $space-xs;
         padding: $space-xxs $space-xs;
         border-radius: $border-radius;
       }
 
       &:hover, &:focus-visible {
-        background: $brand-light;
+        background-color: $brand-light;
         color: $brand-primary;
         text-decoration: none;
         outline: none;
         // font-weight: 600;
         //letter-spacing: 3px;
-        font-weight: 700;
+        //font-weight: 700;
 
         span {
-          font-weight: 500;
-        };
+          //font-weight: 500;
+          //font-variation-settings: 'FILL' 1, 'GRAD' 200;
+          transition: font-variation-settings 2s;
+        }
       }
 
       &:focus {
@@ -69,16 +71,18 @@ header.global {
     }
 
     a.active {
+      background-color: $brand-light;
       color: inherit;
       font-weight: 700;
       cursor: default;
 
       span {
-        font-weight: 500;
+        font-variation-settings: 'FILL' 1, 'GRAD' 200;
       }
-      &:hover {
-        background: none;
-      }
+
+      // &:hover {
+      //   background: none;
+      // }
     }
 
     a.logo {
@@ -93,13 +97,10 @@ header.global {
 
       &:hover {
         font-weight: 700;
-
-        .job-title {
-          font-weight: 700;
-        }
       }
 
       &.active {
+        background: none;
         color: $off-black;
         pointer-events: none;
         cursor: default;
@@ -114,6 +115,15 @@ header.global {
     }
 
     a.linkedin-icon {
+      //background: rgba(#0A66C2, 50%);
+      background-color: rgba(#0A66C2, 0%);
+
+      @include for-tablet-landscape-up {
+        border: 2px solid $color-text-primary;
+        padding: $space-xs;
+        margin-left: $space-sm;
+      }
+
       svg {
         width: 24px;
         height:auto;
@@ -121,12 +131,17 @@ header.global {
         path {
           fill: $color-text-primary;
           transform-origin: center;
+          transition: fill 0.1s;
+
         }
       }
 
-      &:hover {
+      &:hover, &:focus-visible {
+        background-color: #0A66C2;
+        border-color: #0A66C2;
+
         svg path {
-          fill: $brand-primary;
+          fill: #fff;
         }
       }
     }

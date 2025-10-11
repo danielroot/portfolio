@@ -15,6 +15,10 @@ about-page {
     }
   }
 
+  .profile-pic {
+    box-shadow: 10px 10px 0 $brand-med;
+  }
+
   section.skills {
     //background: lighten($brand-primary, 40%);
     //color: $brand-primary;
